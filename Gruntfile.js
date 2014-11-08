@@ -1,4 +1,4 @@
-// Generated on 2014-11-08 using generator-angular 0.10.0
+// Generated on 2014-06-15 using generator-angular 0.9.0-1
 'use strict';
 
 // # Globbing
@@ -138,7 +138,7 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*'
+            '!<%= yeoman.dist %>/.git*'
           ]
         }]
       },
@@ -164,11 +164,11 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: new RegExp('^<%= yeoman.app %>/|../')
       },
       sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: /(\.\.\/){1,2}bower_components\//
+      src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+      ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },
 
@@ -307,14 +307,15 @@ module.exports = function (grunt) {
       }
     },
 
-    // ng-annotate tries to make the code safe for minification automatically
-    // by using the Angular long form for dependency injection.
-    ngAnnotate: {
+    // ngmin tries to make the code safe for minification automatically by
+    // using the Angular long form for dependency injection. It doesn't work on
+    // things like resolve or inject so those have to be done manually.
+    ngmin: {
       dist: {
         files: [{
           expand: true,
           cwd: '.tmp/concat/scripts',
-          src: ['*.js', '!oldieshim.js'],
+          src: '*.js',
           dest: '.tmp/concat/scripts'
         }]
       }
@@ -341,7 +342,7 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/{,*/}*.*'
+            'fonts/*'
           ]
         }, {
           expand: true,
@@ -350,8 +351,8 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: '.',
-          src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+          cwd: 'bower_components/bootstrap/dist',
+          src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
         }]
       },
@@ -423,7 +424,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    'ngAnnotate',
+    'ngmin',
     'copy:dist',
     'cdnify',
     'cssmin',
