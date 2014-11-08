@@ -1,0 +1,20 @@
+[
+	{
+		"id": 0,
+		"recipe": {"id": 1, "title": "Best paella ever"},
+		"creator": {"id": 2, "username": "Thomas"},
+		"description": "I'm making paella next saturday. Join me!",
+		"participants": [{"id": 1, "username": "Helen"}],
+		"created": "2014-11-08T14:58:54+00:00"
+	},
+	{
+		"id": 1,
+		"recipe": {"id": 0, "title": "Spaghetti bolognese"},
+		"creator": {"id": 0, "username": "Helen"},
+		"description": "Help me make spaghetti. Im a noob",
+		"participants": [{"id": 2, "username": "Thomas"}],
+		"created": "2014-11-08T14:58:54+00:00"
+	},
+
+
+]

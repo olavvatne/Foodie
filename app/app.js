@@ -8,7 +8,8 @@
     'fdNotifications',
     'fdGroup',
     'fdUserProfile',
-    'fdRecipe'
+    'fdRecipe',
+    'fdCommon'
   ])
 
   .config(['$routeProvider', function ($routeProvider) {

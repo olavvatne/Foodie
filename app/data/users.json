@@ -1,0 +1,26 @@
+[
+	{
+		"id": 0,
+		"username": "Helen",
+		"recipes": [{"id": 0, "title": "Spaghetti bolognese"}],
+		"about": "I'm a passionate foodie, that love everything tomato sauce",
+		"joined": "2014-11-08T14:58:54+00:00",
+		"image": "url-something"
+	},
+	{
+		"id": 1,
+		"username": "Thomas",
+		"recipes": [{"id": 1, "title": "Best paella ever"}, {"id": 2, "title": "Quick and easy chicken"}],
+		"about": "My greatest joy in life is to share my delicious recipes with others.",
+		"joined": "2014-11-08T14:58:54+00:00",
+		"image": "url-something"
+	},
+	{
+		"id": 2,
+		"username": "Hilda",
+		"recipes": [],
+		"about": "I'm a lousy cook! Most of my fridge is filled with hot dogs. Since I've grown tired of hot dogs, I'm really eager to learn more recipes!",
+		"joined": "2014-11-08T15:09:02+00:00",
+		"image": "url-something"
+	}
+]

@@ -1,0 +1,30 @@
+[
+	{
+		"id": 0,
+		"title": "Spaghetti bolognese",
+		"created": "2014-11-08T14:58:54+00:00",
+		"creator": {"id": 0, "username": "Helen"},
+		"ingredients": [],
+		"motivation": "Fantastic tasting spaghetti bolognese. Will change your life",
+		"description": "Bla bla bla"
+	},
+	{
+		"id": 1,
+		"title": "Best paella ever",
+		"created": "2014-11-08T14:58:54+00:00",
+		"creator": {"id": 1, "username": "Thomas"},
+		"ingredients": [],
+		"motivation": "Just as the title states. You can almost taste the seawater!",
+		"description": "Bla bla bla"
+	},
+	{
+		"id": 3,
+		"title": "Quick and easy chicken",
+		"created": "2014-11-08T14:58:54+00:00",
+		"creator": {"id": 1, "username": "Thomas"},
+		"ingredients": [],
+		"motivation": "This chicken is so fast to make, yet so tasty. You will not regret making this!",
+		"description": "Bla bla bla"
+	},
+
+]

@@ -4,7 +4,7 @@
 <input type="text" ng-model="foodName" />
 
 <div ng-repeat="food in foodList">
-	<p>I <span ng-if="food.name === 'pizza">Love</span><span ng-if="food.name !== 'pizza">Hate</span> <span ng-class={{food.color}}>{{food.name}}</span></p>
+	<p>I Love <span ng-class={{food.color}}>{{food.name}}</span></p>
 </div>
 <style type="text/css"> .black {color:red;}</style>
 

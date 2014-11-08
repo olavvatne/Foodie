@@ -20,6 +20,6 @@ angular.module('fdHome', [])
       return 'hate'
     }
   }
-  $scope.foodList = [{name:'pizza', color:'red'}, {name:'potatoes', color: 'green'}, {name:'onion soup', color: "black"}]
+  $scope.foodList = [{name:'pizza', color:'red'}, {name:'potatoes', color: 'green'}, {name:'onion soup', color: "black"}];
 }]) 
     

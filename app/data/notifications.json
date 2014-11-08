@@ -1,0 +1,20 @@
+[
+	{
+		"type": 0,
+		"typetext": "invitation",
+		"text": "Helen asked you to join her dining party",
+		"callback_url": "some-url"
+	},
+	{
+		"type": 1,
+		"typetext": "Request sent",
+		"text": "You sent a request to join a group making spaghetti",
+		"callback_url": null
+	},
+	{
+		"type": 2,
+		"typetext": "Permission granted",
+		"text": "You are now a member of ...",
+		"callback_url": null
+	},
+]
