@@ -2,6 +2,10 @@
   "name": "foodie",
   "version": "0.0.0",
   "dependencies": {},
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/olavvatne/Foodie.git"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
