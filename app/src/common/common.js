@@ -2,7 +2,7 @@ angular.module('fdCommon', [])
 
 
 //Mock baseService which will call storage instead
-.factory('baseService', ['$http', '$q','$timeout', 'storage', function ($http, $q, $timeout, storage) {
+.factory('baseService', ['$http', '$q','mockService',  function ($http, $q, mockService) {
     mock = true;
     return {
     /**
@@ -15,7 +15,7 @@ angular.module('fdCommon', [])
      */
     getResources: function(url) {
         if(mock) {
-            return this.getMock(url);
+            return mockService.getMock(url);
         }
         else {
         var deferred = $q.defer();
@@ -43,7 +43,7 @@ angular.module('fdCommon', [])
      */
     postResource: function(url, resource) {
         if(mock) {
-            return this.postMock(url, resource);
+            return mockService.postMock(url, resource);
         }
         var deferred = $q.defer();
             console.log(resource)
@@ -102,100 +102,16 @@ angular.module('fdCommon', [])
         return deferred.promise;
     },
 
-    /*
-    GetMock will simulate a http request by doing a timeout, a promise
-    is returned , and after the timeout the promise is resolved. The 
-    mock data is retrieved from local storage.
-    */
-    getMock: function(url) {
-        var deferred = $q.defer();
-        $timeout(function () {
-            u = url.split('/');
-            key = u[1]
-            element = u[2] || undefined;
-            deferred.resolve(storage.get(key, element));
-        }, 200);
-        return deferred.promise;
-    },
 
-    postMock: function(url, resource) {
-        var deferred = $q.defer();
-        $timeout(function () {
-            u = url.split('/');
-            key = u[1]
-            deferred.resolve(storage.post(key, resource));
-        }, 200);
-        return deferred.promise;
-    },
     };
 
 }])
 
-.factory('backend', ['$http', '$q', 'storage', function ($http, $q, storage) {
-    return {
-        init: function() {
-            this.load('/data/recipes.json')
-            .then(function(data) {
-                storage.setData('recipe', data);
-            });
-            this.load('/data/groups.json')
-            .then(function(data) {
-                storage.setData('group', data);
-            });
-            this.load('/data/users.json')
-            .then(function(data) {
-                storage.setData('user', data);
-            });
-        },
 
-        load: function(url) {
-            var deferred = $q.defer();
-            $http.get(url).success(function(data){
-                deferred.resolve(data);
-            }).error(function(error){
-                deferred.reject(error);
-            });
-            return deferred.promise;
-        }
-    };
-}])  
 .factory('storage', ['$window',  function ($window) {
     return {
 
-        get: function(key, id) {
-            if(id === undefined) {
-                return this.getData(key);
-            }
-            else {
-                return this.getData(key)[id];
-            }
-        },
-
-        post: function(key, data) {
-            if(key==='recipe') {
-                this.addRecipe(data);
-            }
-            elif(key==='user') {
-                this.addUser(data);
-            }
-        },
-        //On application load all json data should be loaded into storage,
-        //and storage will be used by baseService the retrieve mocked backend resources
-        addRecipe: function(recipe, user) {
-            //Need to append recipe to users posted recipes
-            recipe.creator = user
-            this.appendData('recipe', recipe)
-        },
-        addUser: function(user) {
-            //Need to append recipe to users posted recipes
-            this.appendData('user', user)
-        },
-         addGroup: function(group, user) {
-            //Fake a user logged in status. The user id should be
-            // be added to the group data
-            group.creator = user
-            this.appendData('group', group)
-        },
+        
         appendData: function(key, data) {
             datalist = this.getData(key);
             if(datalist === undefined) {
@@ -215,4 +131,43 @@ angular.module('fdCommon', [])
             return $window.localStorage && JSON.parse($window.localStorage.getItem(key));
         }
     };
+}])
+
+/*
+Uses baseService to post login requests. Application context can also be set
+by setContext, which put token into http request and put username and token
+in the rootscope. This function also saves the credentials into localstorage
+if a username and token is not undefined parameters. 
+*/
+.factory('sessionManager', ['baseService', '$rootScope', 'storage', '$http',
+function (baseService, $rootScope, storage, $http) {
+    return {
+        postCredentials: function(credentials) {
+        //Mocked backend
+        var url = 'api/login/'
+        return baseService.postResource(url, credentials);
+        },
+
+        setContext: function(username, token) {
+            if(username === undefined) {
+                var cred = storage.getData('credentials');
+                if(cred && cred.username && cred.token) {
+
+                $rootScope.username = cred.username;
+                $http.defaults.headers.common['X-AUTH-TOKEN'] = cred.token
+                }
+            }
+            else {
+                $rootScope.username = username;
+                storage.setData('credentials', {username: username, token: token})
+                $http.defaults.headers.common['X-AUTH-TOKEN'] = token;
+                
+            }
+        },
+        destroyContext: function() {
+            storage.setData('credentials', null);
+            $rootScope.username = undefined;
+        }
+  } ;
+
 }]);

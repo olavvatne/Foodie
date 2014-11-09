@@ -28,7 +28,12 @@
           <li><a ng-href="#/group/">Group</a></li>
           <li><a ng-href="#/profile/">Profile</a></li>
           <li><a ng-href="#/notification/">Notification</a></li>
+          <li><a ng-href="#/login/">Login</a></li>
         </ul>
+        <div ng-controller="HeaderCtrl">
+          <p>{{username}}</p>
+          <button ng-click="signOut()" ng-show="username">Sign out</button>
+        </div>
         <h1 class="text-muted">Foodie</h1>
       </div>
 
@@ -86,11 +91,13 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="app.js"></script>
         <script src="src/common/common.js"></script>
+        <script src="src/common/backend.js"></script>
         <script src="src/homePage/home.js"></script>
         <script src="src/group/group.js"></script>
         <script src="src/notifications/notifications.js"></script>
         <script src="src/recipe/recipe.js"></script>
         <script src="src/userProfile/userProfile.js"></script>
+        <script src="src/login/login.js"></script>
         <!-- endbuild -->
 </body>
 </html>

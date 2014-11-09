@@ -21,5 +21,5 @@ angular.module('fdHome', [])
     }
   }
   $scope.foodList = [{name:'pizza', color:'red'}, {name:'potatoes', color: 'green'}, {name:'onion soup', color: "black"}];
-}]) 
+}]) ;
     
