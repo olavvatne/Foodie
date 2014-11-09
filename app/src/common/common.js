@@ -175,14 +175,27 @@ angular.module('fdCommon', [])
             if(key==='recipe') {
                 this.addRecipe(data);
             }
+            elif(key==='user') {
+                this.addUser(data);
+            }
         },
         //On application load all json data should be loaded into storage,
         //and storage will be used by baseService the retrieve mocked backend resources
         addRecipe: function(recipe, user) {
             //Need to append recipe to users posted recipes
+            recipe.creator = user
             this.appendData('recipe', recipe)
         },
-
+        addUser: function(user) {
+            //Need to append recipe to users posted recipes
+            this.appendData('user', user)
+        },
+         addGroup: function(group, user) {
+            //Fake a user logged in status. The user id should be
+            // be added to the group data
+            group.creator = user
+            this.appendData('group', group)
+        },
         appendData: function(key, data) {
             datalist = this.getData(key);
             if(datalist === undefined) {
