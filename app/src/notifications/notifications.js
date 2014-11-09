@@ -18,9 +18,9 @@ angular.module('fdNotifications', [])
 function (baseService) {
 
     return {
-        get: function() {
+        getAll: function() {
         //Mocked backend
-        var url = '/data/notificatons.json'
+        var url = 'api/notificaton'
         return baseService.getResources(url);
         },
 

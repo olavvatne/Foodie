@@ -9,7 +9,8 @@
     'fdGroup',
     'fdUserProfile',
     'fdRecipe',
-    'fdCommon'
+    'fdCommon',
+    'fdLogin'
   ])
 
   .config(['$routeProvider', function ($routeProvider) {
@@ -19,8 +20,9 @@
       });
   }])
 
-  .run(function(backend) {
+  .run(function(backend, sessionManager) {
     backend.init();
+    sessionManager.setContext();
   });
 
 
