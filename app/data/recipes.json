@@ -4,14 +4,20 @@
 		"title": "Spaghetti bolognese",
 		"created": "2014-11-08T14:58:54+00:00",
 		"creator": {"id": 0, "username": "Helen"},
-		"ingredients": [
+		"ingredients": 
+		[
 			{"quantity": "4", "unit": "tbs", "name": "Tomato paste"},
 			{"quantity": "200", "unit": "g", "name": "Pasta penne"},
 			{"quantity": "2", "unit": "cloves", "name": "Garlic"},
 			{"quantity": "40", "unit": "g", "name": "Oregano"}
-			],
+		],
 		"motivation": "Fantastic tasting spaghetti bolognese. Will change your life",
-		"description": "Bla bla bla",
+		"description": 
+		[
+			"Put 1 liter of water in a pot",
+			"Let the water boil",
+			"Put the paste into the boiling pot"
+		],
 		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/1024px-Spaghettata.JPG"
 	},
 	{
@@ -19,14 +25,21 @@
 		"title": "Best paella ever",
 		"created": "2014-11-08T14:58:54+00:00",
 		"creator": {"id": 1, "username": "Thomas"},
-		"ingredients": [
+		"ingredients": 
+		[
 			{"quantity": "400", "unit": "g", "name": "Rice"},
 			{"quantity": "1", "unit": "kg", "name": "Salmon"},
 			{"quantity": "4", "unit": "cloves", "name": "Garlic"},
 			{"quantity": "40", "unit": "g", "name": "Sea water"}
 		],
 		"motivation": "Just as the title states. You can almost taste the seawater!",
-		"description": "Bla bla bla",
+		"description": 
+		[
+			"Go out to sea, remember a fishing rod",
+			"Use your fishing rod to catch sea creatures. The type of creatures does not matter.",
+			"Go home and boil 5 liters of water",
+			"Put sea creatures into the boiling water"
+		],
 		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"
 	},
 	{
@@ -34,12 +47,13 @@
 		"title": "Quick and easy chicken",
 		"created": "2014-11-08T14:58:54+00:00",
 		"creator": {"id": 1, "username": "Thomas"},
-		"ingredients": [
+		"ingredients":
+		[
 			{"quantity": "400", "unit": "g", "name": "Rice"},
 			{"quantity": "1", "unit": "kg", "name": "Chicken"}
 		],
 		"motivation": "This chicken is so fast to make, yet so tasty. You will not regret making this!",
-		"description": "Bla bla bla",
+		"description": ["Bla bla bla"],
 		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Rosemary_chicken.jpg/1024px-Rosemary_chicken.jpg"
 	}
 

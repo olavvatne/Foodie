@@ -35,7 +35,7 @@ factory('baseService', ['$http', '$q', function ($http, $q) {
      * @description Posts the resource to the back end.
      * @returns {JSON object} A success message (If promise is resolved)
      */
-    postResource: function(url, resource) {
+    /*postResource: function(url, resource) {
         var deferred = $q.defer();
             console.log(resource)
         $http.post(url, resource).success(function(data){
@@ -47,7 +47,7 @@ factory('baseService', ['$http', '$q', function ($http, $q) {
             deferred.reject(error);
         });
         return deferred.promise;
-    },
+    },*/
 
 
     /**
@@ -116,5 +116,17 @@ factory('baseService', ['$http', '$q', function ($http, $q) {
     },
     };
 
-
+    postResource: function(url, resource) {
+        var deferred = $q.defer();
+            console.log(resource)
+        $http.post(url, resource).success(function(data){
+            //Passing data to deferred's resolve function on successful completion
+            deferred.resolve(data);
+        }).error(function(error){
+            console.log(error)
+            //Sending a friendly error message in case of failure
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    },
 }]);
