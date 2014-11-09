@@ -3,15 +3,23 @@
 angular.module('fdRecipe', ['fdCommon'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/recipe/', {
+      .when('/recipe/:rid', {
         templateUrl: 'src/recipe/recipe.tpl.html',
         controller: 'RecipeCtrl',
+        resolve: {
+          recipe: ['recipes', '$route', function(recipes, $route) {
+            var recipeId = $route.current.params.rid;
+            return recipes.get(recipeId).then(function (response) {
+                    return response;
+                });
+          }]
+        }
       })
   }])
 
 
-.controller('RecipeCtrl', ['$scope', 'recipes',  function ($scope, recipes) {
- 
+.controller('RecipeCtrl', ['$scope', 'recipe',  function ($scope, recipe) {
+  $scope.recipe = recipe;
 }])
 
 .factory('recipes', ['baseService',

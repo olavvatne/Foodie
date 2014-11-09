@@ -1,1 +1,15 @@
 <p>Recipe</p>
+<h1>{{recipe.title}}</h1>
+<a class="username" ng-href="#/profile/{{recipe.creator.id}}">
+	{{recipe.creator.username}}
+</a>
+<p class="date">{{recipe.created | date}}</p>
+<p>{{recipe.motivation}}</p>
+<img ng-src="{{recipe.image}}" />
+<p>{{recipe.description}}</p>
+<table>
+	<tr ng-repeat="item in recipe.ingredients">
+		<td>{{item.quantity}} {{item.unit}}</td>
+		<td>{{item.name}}</td>
+	</tr>
+</table>
