@@ -41,7 +41,7 @@ angular.module('fdCommon')
             var users = storage.getData('user');
             for(var i = 0; i<users.length; i++) {
                 if(users[i].username === data.username.toLowerCase()) {
-                    return {username: data.username, token: 'abc'};
+                    return {username: data.username, token: 'abc', userId: users[i].id};
                 }
             }
             //No way to create error with mock backend

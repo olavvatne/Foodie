@@ -17,7 +17,7 @@ angular.module('fdLogin', ['fdCommon'])
   $scope.signIn = function(credentials) {
     sessionManager.postCredentials(credentials)
     .then(function(data) {
-      sessionManager.setContext(data.username, data.token);
+      sessionManager.setContext(data.username, data.token, data.userId);
     });
   }; 
 }])
