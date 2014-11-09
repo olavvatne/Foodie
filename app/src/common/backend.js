@@ -1,23 +1,27 @@
 angular.module('fdCommon')
-.factory('backend', ['$http', '$q', 'storage', function ($http, $q, storage) {
+.factory('backend', ['$http', '$q', 'storage','$rootScope', function ($http, $q, storage, $rootScope) {
     return {
         init: function() {
-            this.load('/data/recipes.json')
-            .then(function(data) {
-                storage.setData('recipe', data);
-            });
-            this.load('/data/groups.json')
-            .then(function(data) {
-                storage.setData('group', data);
-            });
-            this.load('/data/users.json')
-            .then(function(data) {
-                storage.setData('user', data);
-            });
-            this.load('/data/notifications.json')
-            .then(function(data) {
-                storage.setData('notification', data);
-            });
+            //Only load mock json if they are not in localstore
+            if(storage.getData('user') === undefined) {
+
+                this.load('/data/recipes.json')
+                .then(function(data) {
+                    storage.setData('recipe', data);
+                });
+                this.load('/data/groups.json')
+                .then(function(data) {
+                    storage.setData('group', data);
+                });
+                this.load('/data/users.json')
+                .then(function(data) {
+                    storage.setData('user', data);
+                });
+                this.load('/data/notifications.json')
+                .then(function(data) {
+                    storage.setData('notification', data);
+                });
+            }
         },
 
         load: function(url) {
@@ -51,11 +55,22 @@ angular.module('fdCommon')
             //Need to append recipe to users posted recipes
             storage.appendData('user', user)
         },
-         addGroup: function(group, user) {
+        addGroup: function(group, user) {
             //Fake a user logged in status. The user id should be
             // be added to the group data
             group.creator = user
             storage.appendData('group', group)
+        },
+
+        getGroupsForRecipe: function(recipeId) {
+            var groups = storage.getData('group');
+            var recipeGroups = [];
+            for(var i = 0; i<groups.length; i++) {
+                if(groups[i].recipe.id == recipeId) {
+                    recipeGroups.push(groups[i]);
+                }
+            }
+            return recipeGroups;
         },
         get: function(key, id) {
             if(id === undefined) {
@@ -67,8 +82,9 @@ angular.module('fdCommon')
         },
 
         post: function(key, data) {
+            var user = {id: $rootScope.userId, username: $rootScope.username};
             if(key==='recipe') {
-                return this.addRecipe(data);
+                return this.addRecipe(data, user);
             }
             else if(key==='user') {
                 return this.addUser(data);
@@ -76,6 +92,10 @@ angular.module('fdCommon')
             else if(key==='login') {
                 return this.login(data);
             }
+            else if(key==='group') {
+                return this.addGroup(data, user);
+            }
+            return null;
         },
     };
 }])
@@ -95,7 +115,12 @@ angular.module('fdCommon')
 	            u = url.split('/');
 	            key = u[1]
 	            element = u[2] || undefined;
-	            deferred.resolve(backend.get(key, element));
+                if(u.length > 3 && u[3] === 'group') {
+                    deferred.resolve(backend.getGroupsForRecipe(element))
+                }
+                else {
+	               deferred.resolve(backend.get(key, element));
+                }
 	        }, 200);
 	        return deferred.promise;
 	    },

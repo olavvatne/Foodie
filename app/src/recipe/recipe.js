@@ -51,7 +51,7 @@ function (baseService) {
 
         store: function(newRecipe) {
           //mocked backend
-        	var url ="api/recipe/"
+        	var url ="api/recipe"
           return baseService.postResource(url, newRecipe);
         }
        

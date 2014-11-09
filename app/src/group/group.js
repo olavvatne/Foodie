@@ -3,15 +3,28 @@
 angular.module('fdGroup', [])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/group/', {
+      .when('/group/:gid', {
         templateUrl: 'src/group/group.tpl.html',
         controller: 'GroupCtrl',
-      })
+        resolve: {
+            group: ['groups', '$route', function(groups, $route) {
+                var groupId = $route.current.params.gid;
+                return groups.get(groupId).then(function (response) {
+                    return response;
+                });
+            }]
+        },
+      });
   }])
 
+//Skeleton for a group page. When /profile/1 for example is entered in url
+//resolve will preload the group, and the data put into the scope.
+.controller('GroupCtrl', ['$scope', 'group',  function ($scope, group) {
+    $scope.group = group;
+}])
 
-.controller('GroupCtrl', ['$scope', 'groups',  function ($scope, groups) {
- 
+//Can be used at controller on recipe page
+.controller('RecipeGroupCtrl', ['$scope', 'groups',  function ($scope, groups) {
 }])
 
 .factory('groups', ['baseService',
@@ -19,16 +32,19 @@ function (baseService) {
 
     return {
         getAllForRecipe: function(recipeId) {
-        //Mocked backend
-        //var url = '/data/groups.json'
-        //return baseService.getResources(url);
-        //Probably best to make a aother groups.json where
-        //all recipes are put in a dictionary, using the recipe id as key
-        return null
+            var url = 'api/recipe/' + recipeId + '/group';
+            return baseService.getResources(url);
         },
 
-        answer: function(url, answer) {
-        	//Do something smart here
+        store: function(group) {
+            //Not tested
+            var url = 'api/group';
+            return baseService.postResource(url, group);
+        },
+
+        get: function(groupId) {
+            var url = 'api/group/' + groupId;
+            return baseService.getResources(url);
         }
        
     };

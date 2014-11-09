@@ -11,7 +11,13 @@ angular.module('fdNotifications', [])
 
 
 .controller('NotificationCtrl', ['$scope', 'notifications', function ($scope, notifications) {
- 
+  $scope.test = function() {
+        notifications.getAll()
+        .then(function(data) {
+            console.log(data);
+        });
+    }
+    $scope.test();
 }])
 
 .factory('notifications', ['baseService',
@@ -19,8 +25,9 @@ function (baseService) {
 
     return {
         getAll: function() {
-        //Mocked backend
-        var url = 'api/notificaton'
+        //Mocked backend. The "backend" does not yet create notifications
+        //but will return all notifications currently stored in json.
+        var url = 'api/notification'
         return baseService.getResources(url);
         },
 
