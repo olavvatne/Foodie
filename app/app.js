@@ -17,6 +17,10 @@
       .otherwise({
         redirectTo: '/'
       });
-  }]);
+  }])
+
+  .run(function(backend) {
+    backend.init();
+  });
 
 

@@ -1,0 +1,13 @@
+<h1>Share your best recipes!</h1>
+
+<input placeholder="Title" type="text" ng-model="newRecipe.title" />
+<br></br>
+<textarea placeholder="Motivation" type="text" ng-model="newRecipe.motivation" />
+<br><br>
+<input placeholder="Image url" type="text" ng-model="newRecipe.image"/> 
+<h2>Recipe steps</h2>
+<fd-descriptor step-model="newRecipe.description"></fd-descriptor>
+<h2>Recipe ingredients</h2>
+<fd-ingredients model="newRecipe.ingredients"></fd-ingredients>
+
+<button ng-click="postRecipe(newRecipe)">Submit it!</button>

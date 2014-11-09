@@ -1,8 +1,10 @@
-angular.module('fdCommon', []).
-factory('baseService', ['$http', '$q', function ($http, $q) {
+angular.module('fdCommon', [])
 
+
+//Mock baseService which will call storage instead
+.factory('baseService', ['$http', '$q','$timeout', 'storage', function ($http, $q, $timeout, storage) {
+    mock = true;
     return {
-
     /**
      * @ngdoc method
      * @name fdCommon.service#getResources
@@ -11,11 +13,14 @@ factory('baseService', ['$http', '$q', function ($http, $q) {
      * @description Gets an JSON array containing a list of a specific resource.
      * @returns {JSON object} A list containing a subset resources.
      */
-    /*getResources: function(url) {
+    getResources: function(url) {
+        if(mock) {
+            return this.getMock(url);
+        }
+        else {
         var deferred = $q.defer();
         $http.get(url).success(function(data){
             //Passing data to deferred's resolve function on successful completion
-            console.log('data'+ data);
             deferred.resolve(data);
         }).error(function(error){
 
@@ -23,7 +28,8 @@ factory('baseService', ['$http', '$q', function ($http, $q) {
             deferred.reject(error);
         });
         return deferred.promise;
-    },*/
+        }
+    },
 
 
     /**
@@ -36,6 +42,9 @@ factory('baseService', ['$http', '$q', function ($http, $q) {
      * @returns {JSON object} A success message (If promise is resolved)
      */
     postResource: function(url, resource) {
+        if(mock) {
+            return this.postMock(url, resource);
+        }
         var deferred = $q.defer();
             console.log(resource)
         $http.post(url, resource).success(function(data){
@@ -93,28 +102,117 @@ factory('baseService', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
     },
 
-    getResources: function(url, id) {
+    /*
+    GetMock will simulate a http request by doing a timeout, a promise
+    is returned , and after the timeout the promise is resolved. The 
+    mock data is retrieved from local storage.
+    */
+    getMock: function(url) {
         var deferred = $q.defer();
-        $http.get(url).success(function(data){
-            //Passing data to deferred's resolve function on successful completion
-            console.log('data'+ data);
-            //Customized for a json mock object, containing several resources
-            if(angular.isUndefined(id)) {
-                //If id parameter has not been specified return all resources found
-                //at address.
-                deferred.resolve(data);
-            }
-            else {
-                deferred.resolve(data[id]);
-            }
-        }).error(function(error){
+        $timeout(function () {
+            u = url.split('/');
+            key = u[1]
+            element = u[2] || undefined;
+            deferred.resolve(storage.get(key, element));
+        }, 200);
+        return deferred.promise;
+    },
 
-            //Sending a friendly error message in case of failure
-            deferred.reject(error);
-        });
+    postMock: function(url, resource) {
+        var deferred = $q.defer();
+        $timeout(function () {
+            u = url.split('/');
+            key = u[1]
+            deferred.resolve(storage.post(key, resource));
+        }, 200);
         return deferred.promise;
     },
     };
 
+}])
 
+.factory('backend', ['$http', '$q', 'storage', function ($http, $q, storage) {
+    return {
+        init: function() {
+            this.load('/data/recipes.json')
+            .then(function(data) {
+                storage.setData('recipe', data);
+            });
+            this.load('/data/groups.json')
+            .then(function(data) {
+                storage.setData('group', data);
+            });
+            this.load('/data/users.json')
+            .then(function(data) {
+                storage.setData('user', data);
+            });
+        },
+
+        load: function(url) {
+            var deferred = $q.defer();
+            $http.get(url).success(function(data){
+                deferred.resolve(data);
+            }).error(function(error){
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        }
+    };
+}])  
+.factory('storage', ['$window',  function ($window) {
+    return {
+
+        get: function(key, id) {
+            if(id === undefined) {
+                return this.getData(key);
+            }
+            else {
+                return this.getData(key)[id];
+            }
+        },
+
+        post: function(key, data) {
+            if(key==='recipe') {
+                this.addRecipe(data);
+            }
+            elif(key==='user') {
+                this.addUser(data);
+            }
+        },
+        //On application load all json data should be loaded into storage,
+        //and storage will be used by baseService the retrieve mocked backend resources
+        addRecipe: function(recipe, user) {
+            //Need to append recipe to users posted recipes
+            recipe.creator = user
+            this.appendData('recipe', recipe)
+        },
+        addUser: function(user) {
+            //Need to append recipe to users posted recipes
+            this.appendData('user', user)
+        },
+         addGroup: function(group, user) {
+            //Fake a user logged in status. The user id should be
+            // be added to the group data
+            group.creator = user
+            this.appendData('group', group)
+        },
+        appendData: function(key, data) {
+            datalist = this.getData(key);
+            if(datalist === undefined) {
+                datalist = [];
+            }
+            data['id'] = datalist.length;
+            datalist.push(data);
+            this.setData(key, datalist);
+        },
+
+        setData: function(key, val) {
+          $window.localStorage && $window.localStorage.setItem(key, JSON.stringify(val));
+          return this;
+        },
+        getData: function(key) {
+
+            return $window.localStorage && JSON.parse($window.localStorage.getItem(key));
+        }
+    };
 }]);
