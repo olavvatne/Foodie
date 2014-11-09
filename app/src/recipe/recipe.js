@@ -35,7 +35,7 @@ angular.module('fdRecipe', ['fdCommon'])
   $scope.newRecipe.description = [];
 
   $scope.postRecipe = function(recipe) {
-    recipes.store(recipe)
+    recipes.store(recipe);
   };
 }])
 
@@ -45,14 +45,14 @@ function (baseService) {
     return {
         get: function(id) {
         //Mocked backend
-        var url = '/data/recipes.json'
-        return baseService.getResources(url, id);
+        var url = 'api/recipe/' + id
+        return baseService.getResources(url);
         },
 
         store: function(newRecipe) {
           //mocked backend
-        	var url ="recipe"
-          return baseService.postResoure(url, newRecipe);
+        	var url ="api/recipe/"
+          return baseService.postResource(url, newRecipe);
         }
        
     };
@@ -106,9 +106,9 @@ function (baseService) {
     template: 
     '<ul>'+
       '<li ng-repeat="step in model track by $index">'+
-        '<input type="number" ng-model="model[$index].quantity" ></input>' +
-        '<input placeholder="unit" type="number" ng-model="model[$index].unit" ></input>' +
-        '<input placeholder="name"type="number" ng-model="model[$index].name" ></input>' +
+        '<input type="number" ng-model="step.quantity" ></input>' +
+        '<input placeholder="unit" type="text" ng-model="model[$index].unit" ></input>' +
+        '<input placeholder="name"type="text" ng-model="model[$index].name" ></input>' +
         '<button ng-click="removeStep($index)">Remove</button>' +
       '</li>'+
       '<button ng-click="addStep()">Add ingredients</button>' +

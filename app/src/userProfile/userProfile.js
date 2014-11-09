@@ -26,13 +26,13 @@ function (baseService) {
     return {
         get: function(id) {
         //Mocked backend
-        var url = '/data/users.json'
+        var url = 'api/user/' + id
         return baseService.getResources(url, id);
         },
 
         getAll: function() {
         //Mocked backend
-        var url = '/data/users.json'
+        var url = 'api/user'
         return baseService.getResources(url);
         }
        
