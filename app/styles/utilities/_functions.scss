@@ -6,3 +6,8 @@
 @function em($target, $context: $base__font-size) {
 	@return ($target / $context) * 1em;
 }
+
+
+@function palette($palette, $shade: "base") {
+	@return map-get(map-get($color-palettes, $palette), $shade);
+}

@@ -1,2 +1,18 @@
 
+.navbar {
+	background: $color-primary;
+	position: fixed;
+	border-radius: 0px;
+	width: 100%;
+	height: em(55px);
+
+	margin-bottom: 100px;
+
+	p {
+		@extend h1;
+		padding: 5px;
+		padding-left: 30px;
+
+	}
+}
 

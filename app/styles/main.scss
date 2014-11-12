@@ -8,8 +8,24 @@
 // ----------------
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 
-//Utilities
-@import "Utilities/index";
+//@import "http://folk.ntnu.no/hallvarc/dist/font-awesome/css/font-awesome.min.css";
 
+@import "compass/layout";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/opacity";
+
+//Utilities
+@import "utilities/index";
+
+//Base
+@import "base/index";
+
+//Layout
+@import "layout/index";
 //Modules
 @import "modules/index";
+
+
+//Shame
+@import "shame";

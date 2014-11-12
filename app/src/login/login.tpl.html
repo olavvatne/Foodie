@@ -1,5 +1,10 @@
-<div>
-	<input placeholder="username" type="text" ng-model="credentials.username">
-	<input placeholder="password" type="password" ng-model="credentials.password">
-	<button ng-click="signIn(credentials)">Sign in</button>
+<div class="form__login">
+	<p>
+		<input class="form__login--username" placeholder="username" type="text" ng-model="credentials.username">
+		<input class="form__login--password" placeholder="password" type="password" ng-model="credentials.password">
+	</p>
+	<button ng-click="signIn(credentials)">
+		<i>></i>
+		<span>Sign in</span>
+	</button>
 </div>

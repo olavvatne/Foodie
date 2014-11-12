@@ -67,14 +67,15 @@ function (baseService) {
     scope: {
       stepModel: '='
     },
-    template: 
-    '<ol>'+
+    template:
+    '<ul>'+
       '<li ng-repeat="step in stepModel track by $index">'+
-        '<textarea type="text" ng-model="stepModel[$index]" ></textarea>' +
-        '<button ng-click="removeStep($index)">Remove</button>' +
+        '<label>Step {{$index+1}}</label>'+
+        '<button class="btn--remove" ng-click="removeStep($index)">Remove</button>' +
+        '<span><textarea type="text" ng-model="stepModel[$index]" ></textarea></span>' +
       '</li>'+
       '<button ng-click="addStep()">Add step</button>' +
-    '</ol>',
+    '</ul>',
     controller: ['$scope', function($scope) {
       $scope.addStep= function() {
         $scope.stepModel.push("");
@@ -106,10 +107,11 @@ function (baseService) {
     template: 
     '<ul>'+
       '<li ng-repeat="step in model track by $index">'+
-        '<input type="number" ng-model="step.quantity" ></input>' +
-        '<input placeholder="unit" type="text" ng-model="model[$index].unit" ></input>' +
-        '<input placeholder="name"type="text" ng-model="model[$index].name" ></input>' +
+        '<label> Ingredient {{$index+1}}</label>' +
         '<button ng-click="removeStep($index)">Remove</button>' +
+        '<span><input type="number" ng-model="step.quantity" ></input>' +
+        '<input placeholder="unit" type="text" ng-model="model[$index].unit" ></input>' +
+        '<input class="ingredient-name" placeholder="name"type="text" ng-model="model[$index].name" ></input></span>' +
       '</li>'+
       '<button ng-click="addStep()">Add ingredients</button>' +
     '</ul>',
