@@ -1,0 +1,22 @@
+
+%login-extention {
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+    
+    border: none;
+    background: palette(grey, xx-light);
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.5);
+
+    text-indent: 10px;
+    text-shadow: $text-shadow--default;
+    font-size: 20px;
+
+    &:hover,
+    &:focus {
+        background: $white;
+        outline: none;
+        color: $color-primary;
+    }
+}
+

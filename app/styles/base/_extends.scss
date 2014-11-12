@@ -1,0 +1,16 @@
+
+%headline-primary {
+	color: $color-contrast;
+	font-weight: $font-weight--light;
+	font-size: em(42px);
+	line-height: (46px/42px);
+  	margin-top: 0;
+  	margin-bottom: em(20px);
+}
+
+%headline-secondary {
+  	color: palette(grey, light);
+  	font-weight: $font-weight--thin;
+  	font-size: em(24px);
+  	font-family: $font-family--secondary;
+}

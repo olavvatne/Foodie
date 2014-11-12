@@ -1,0 +1,33 @@
+body {
+	color: palette(grey, dark);
+	font-size:	$base__font-size;
+	font-family: $font-family--primary;
+	line-height: ($base__line/$base__font-size);
+}
+
+h1 {
+	@extend %headline-primary;
+}
+h2 {
+	@extend %headline-secondary;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main-footer {
+	margin-top: 100px;
+	background: palette(black, light);
+	width: 100%;
+	p {
+		color: $white;
+		font-size: base__font-size;
+		text-align: center;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+//	height: 200px;
+}
