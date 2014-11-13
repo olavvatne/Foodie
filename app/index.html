@@ -12,9 +12,14 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+
+    <link href="//fonts.googleapis.com/css?family=Pacifico:400" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+
     <!-- endbuild -->
   </head>
-  <body ng-app="foodieApp">
+  <body ng-app="foodieApp" id="wrap">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -24,6 +29,27 @@
     <div class="navbar">
       <p>Foodie</p>
     </div>
+-->
+  <header class="top-header">
+  </header>
+  <div class="navBanner">
+    <div class="navBanner__contents">
+        <h1>Foodie</h1>
+    </div>
+    <div class="navBanner__user">
+      <div class="navBanner__user--picture">
+        <img src="http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"/>
+      </div>
+      <h3 class="navBanner__user--username">Username{{username}}</h3>
+      <li><a href="#/notification/">Notifications</a></li>
+      <li><a href="#/notification/">Log out</a></li>
+
+    </div>
+  </div>
+<!--
+  <div class="top">
+    <div class="hero"></div>
+  </div>
 -->
     <div class="container">
       <div class="header">
@@ -107,5 +133,35 @@
         <script src="src/login/login.js"></script>
         <script src="src/sitemap/sitemap.js"></script>
         <!-- endbuild -->
+    <script>
+      var made = false;
+      $(window).scroll(function() {
+
+      if ($(this).scrollTop() > 50) {
+//          document.getElementByClassName("navBanner__contents").style.backgroundColor = '#000';
+      }
+
+      if (($(this).scrollTop() > 300)) {
+          if(!made) {
+            $('header').addClass("fix-user");
+            var div = "<div class='top__user'><div class='top__user--picture'> <img class='picture' src='http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg'/></div></div>";
+
+              $("header.fix-user").append(div);
+              made = true;
+            }
+        }
+        else {
+          var node = $('header.fix-user');
+          while (node.firstChild) {
+            node.removeChild(node.firstChild);
+          }
+          node.empty();
+          $('header').removeClass("fix-user");
+          $("navBanner__contents").removeClass("startTrans");
+          made = false;
+        }
+      });
+
+    </script>
 </body>
 </html>

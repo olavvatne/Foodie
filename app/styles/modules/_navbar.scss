@@ -1,18 +1,142 @@
 
-.navbar {
-	background: $color-primary;
-	position: fixed;
-	border-radius: 0px;
+header {
+ 	position: fixed;
+ 	top: 0;
+ 	left: 0;
+ 	width: 100%;
+ 	height: 100px;
+ 	z-index: 3;
+ 	@include transition(background-color 0.3s);
+}
+header.fix-user {
+ 		background: palette(black, light);
+
+ 		.top {
+ 			@include e(user) {
+ 				float: right;
+ 				width: 30%;
+				height: 100%;
+				max-width: 350px;
+				min-width: 200px;
+
+ 				@include m(picture) {
+ 					width: 70px;
+					height: 70px;
+
+					overflow: hidden;
+					margin-top: 10px;
+					margin-left: auto;
+					margin-right: auto;
+//					@include transition(all 0.2s linear);
+
+					@include border-radius(calc(50%), calc(50%));
+
+					.picture {
+						width: 70px;
+						height: auto;
+					}
+ 				}
+ 			}
+ 		}
+ }
+
+ .top {
+ 	height: 250px;
+ 	padding-top: 40px;
+ 	position: relative;
+ }
+
+.navBanner {
+
+	position: relative;
+
+	height: 400px;
 	width: 100%;
-	height: em(55px);
+	min-height: 80px;
+	background: $color-accent url(http://tympanus.net/Tutorials/CustomLoginFormStyling/images/bg3.jpg) no-repeat center top;
+	@include background-size(cover);
 
-	margin-bottom: 100px;
+//	@include transition(background-color 1s);
+	
+	display: block;
+	overflow: hidden;
 
-	p {
-		@extend h1;
-		padding: 5px;
-		padding-left: 30px;
+	@include e(contents){
+		width: 70%;
+		height: 100%;
+//		margin-right: 10px auto 10px;
+		float: left;
 
+		h1 {
+			margin-top: 150px;
+			height: 100%;
+			text-align: center;
+			font-size: em(70px);
+			font-family: "Pacifico", sans-serif;
+		}
+
+		transition: background-color 0.4s;
+
+		&:hover {
+//			background-color: palette(black, light);
+		}
+
+		&:before {
+			position: absolute;
+			top: 0;		bottom: 0;	right: 0;	left: 0;
+//			background-color: inherit;
+			content: ' ';
+		}
+	}
+
+	@include e(user) {
+		width: 30%;
+		height: 100%;
+		max-width: 350px;
+		min-width: 200px;
+		float: right;
+		background: palette(black, light);
+
+		@include m(picture) {
+			width: 175px;
+			height: 175px;
+
+			overflow: hidden;
+			margin-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
+
+			@include border-radius(calc(50%), calc(50%));
+
+			img {
+				width: 175px;
+				height: auto;
+			}
+		}
+
+		@include m(username) {
+			color: palette(grey, x-light);
+			margin-bottom: em(50px);
+		} 
+
+		text-align: center;
+
+		li {
+			list-style-type: none;
+			margin-bottom: em(5px);
+		}
+		a {
+			text-decoration: none;
+			color: $color-primary;
+			font-family: 'Open Sans', sans-serif;
+			&:hover {
+				color: $color-secondary;
+			}	
+		}
+
+		.fix-user & {
+			position: fixed;
+			top: 10px;
+		}
 	}
 }
-

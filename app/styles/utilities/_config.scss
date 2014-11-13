@@ -4,6 +4,7 @@
 
 // Font sources
 $font-url--google		: "http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
+$font-top 				: "http://fonts.googleapis.com/css?family=Pacifico:400";
 
 // Defailt fonts
 $font-family--primary 	: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -38,16 +39,23 @@ $casablanca	: #F7B04D;
 $froly		: #F78374;
 $mandy		: #E74263;
 
-// Monochromatic scheme
+// Scheme 2
+$patina		: #588C7E;
+$khaki		: #F2E394;
+$sandyBrown	: #F2AE72;
+$roman		: #D96459;
+$copperRust	: #8C4646;
 
+
+//https://color.adobe.com/Campfire-color-theme-2528696/ 
 
 // Color Usage
-$color-primary	: 	$mandy;
+$color-primary	: 	$java;
 $color-secondary: 	$pear;
-$color-accent	:	$froly;
-$color-accent2	:	$casablanca;
+$color-accent	:	$casablanca;
+$color-accent2	:	$froly;
 $color-shadow	:	$grey;
-$color-contrast	: 	$java;
+$color-contrast	: 	$mandy;
 
 //Color Palette Modifiers
 $color-palettes: (

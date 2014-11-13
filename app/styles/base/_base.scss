@@ -1,5 +1,5 @@
 body {
-	color: palette(grey, dark);
+	color: palette(black);
 	font-size:	$base__font-size;
 	font-family: $font-family--primary;
 	line-height: ($base__line/$base__font-size);
@@ -10,6 +10,12 @@ h1 {
 }
 h2 {
 	@extend %headline-secondary;
+}
+
+h3 {
+	font-family: $font-family--secondary;
+	color: $color-primary;
+	text-align: center;
 }
 
 .clearfix:after {
