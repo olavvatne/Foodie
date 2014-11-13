@@ -48,15 +48,20 @@ header.fix-user {
 			font-size: em(70px);
 			font-family: "Pacifico", sans-serif;
 		}
-/*
-		@include m(overlay) {
-			width: 100%;
-			z-index: 4;
+
+		.overlay {
+			position: absolute;
+			top: 0;
+			width: 70%;
+			@include mq(large) {
+				width: calc(100% - 320px); //hack
+			}
+			float: left;
 			height: 100%;
-			overflow: hidden;
 			background: palette(black, light);
+			opacity: 0;
 		}
-*/
+
 	}
 
 	@include e(user) {
