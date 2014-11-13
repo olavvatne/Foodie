@@ -25,15 +25,36 @@ h3 {
 }
 
 .main-footer {
-	margin-top: 100px;
+//	margin-top: 100px;
 	background: palette(black, light);
 	width: 100%;
+//	position: absolute;
+	height: 200px;
+	padding-top: 50px;
 	p {
 		color: $white;
 		font-size: base__font-size;
 		text-align: center;
-		margin-top: auto;
-		margin-bottom: auto;
 	}
-//	height: 200px;
 }
+
+.content {
+	position: relative;
+	top: 400px;
+	background: $white;
+	padding-top: 50px;
+	margin-bottom: 200px;
+	min-height: calc(100% - 400px);
+	margin-bottom: -200px;
+	
+	&:after {
+		content: "";
+		display: block;
+		height: 200px;
+	}
+}
+
+html, body {
+	height: 100%;
+}
+

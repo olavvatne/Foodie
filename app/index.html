@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="styles/main.css">
 
     <link href="//fonts.googleapis.com/css?family=Pacifico:400" rel="stylesheet" type="text/css">
+    
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
 
     <!-- endbuild -->
   </head>
@@ -35,6 +35,7 @@
   <div class="navBanner">
     <div class="navBanner__contents">
         <h1>Foodie</h1>
+        <div class="navBanner__contents--overlay"></div>
     </div>
     <div class="navBanner__user">
       <div class="navBanner__user--picture">
@@ -51,6 +52,7 @@
     <div class="hero"></div>
   </div>
 -->
+  <div class="content">
     <div class="container">
       <div class="header">
         <p>Temp example pages list</p>
@@ -72,8 +74,9 @@
 
       <div ng-view=""></div>
 
-      <div class="root-footer"></div>
       </div>
+      </div>
+      <div class="root-footer"></div>
     <footer class="main-footer">
       <p>&copy; 2014 Something</p>
     </footer>
@@ -141,7 +144,7 @@
 //          document.getElementByClassName("navBanner__contents").style.backgroundColor = '#000';
       }
 
-      if (($(this).scrollTop() > 300)) {
+      if (($(this).scrollTop() > 310)) {
           if(!made) {
             $('header').addClass("fix-user");
             var div = "<div class='top__user'><div class='top__user--picture'> <img class='picture' src='http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg'/></div></div>";
