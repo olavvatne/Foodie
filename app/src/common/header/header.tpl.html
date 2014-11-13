@@ -1,0 +1,24 @@
+<div minimizer>
+  <!--minimizer directive creates scope, and adds minimized boolean to the scope.-->
+  <header class="top-header" ng-class="{'fix-user': minimized}">
+    <div class='top__user' ng-show="minimized">
+      <div class='top__user--picture'>
+        <img class='picture' src='http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg'/>
+      </div>
+    </div>
+  </header>
+  <div class="navBanner" ng-controller="HeaderCtrl" >
+    <div class="navBanner__contents">
+        <h1>Foodie</h1>
+        <div class="navBanner__contents--overlay"></div>
+    </div>
+    <div class="navBanner__user">
+      <div class="navBanner__user--picture">
+        <img src="http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"/>
+      </div>
+      <h3 class="navBanner__user--username"><a href="#/profile/{{userId}}">{{username | capitalize}}</a></h3>
+      <li><a href="#/notification/">Notifications</a></li>
+      <li><a ng-click="signOut()">Log out</a></li>
+    </div>
+  </div>
+</div>

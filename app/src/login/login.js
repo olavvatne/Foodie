@@ -28,5 +28,4 @@ angular.module('fdLogin', ['fdCommon'])
   $scope.signOut =function() {
     sessionManager.destroyContext();
   }
-  
 }]);

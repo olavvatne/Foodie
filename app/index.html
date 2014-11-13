@@ -26,24 +26,8 @@
 
     <!-- Add your site or application content here -->
 
-  <header class="top-header">
-  </header>
-  <div class="navBanner">
-    <div class="navBanner__contents">
-        <h1>Foodie</h1>
-        <div class="navBanner__contents--overlay"></div>
-    </div>
-    <div class="navBanner__user">
-      <div class="navBanner__user--picture">
-        <img src="http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"/>
-      </div>
-      <h3 class="navBanner__user--username">Username{{username}}</h3>
-      <li><a href="#/notification/">Notifications</a></li>
-      <li><a href="#/notification/">Log out</a></li>
 
-    </div>
-  </div>
-
+  <navbar></navbar>
   <div class="content">
     <div class="container">
       <div class="header">
@@ -120,6 +104,7 @@
         <script src="app.js"></script>
         <script src="src/common/common.js"></script>
         <script src="src/common/backend.js"></script>
+        <script src="src/common/header/header.js"></script>
         <script src="src/homePage/home.js"></script>
         <script src="src/group/group.js"></script>
         <script src="src/notifications/notifications.js"></script>
@@ -128,35 +113,5 @@
         <script src="src/login/login.js"></script>
         <script src="src/sitemap/sitemap.js"></script>
         <!-- endbuild -->
-    <script>
-      var made = false;
-      $(window).scroll(function() {
-
-      if ($(this).scrollTop() > 50) {
-//          document.getElementByClassName("navBanner__contents").style.backgroundColor = '#000';
-      }
-
-      if (($(this).scrollTop() > 310)) {
-          if(!made) {
-            $('header').addClass("fix-user");
-            var div = "<div class='top__user'><div class='top__user--picture'> <img class='picture' src='http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg'/></div></div>";
-
-              $("header.fix-user").append(div);
-              made = true;
-            }
-        }
-        else {
-          var node = $('header.fix-user');
-          while (node.firstChild) {
-            node.removeChild(node.firstChild);
-          }
-          node.empty();
-          $('header').removeClass("fix-user");
-          $("navBanner__contents").removeClass("startTrans");
-          made = false;
-        }
-      });
-
-    </script>
 </body>
 </html>
