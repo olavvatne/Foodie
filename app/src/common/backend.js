@@ -3,8 +3,7 @@ angular.module('fdCommon')
     return {
         init: function() {
             //Only load mock json if they are not in localstore
-            if(storage.getData('user') === undefined) {
-
+                console.log("TEST");
                 this.load('/data/recipes.json')
                 .then(function(data) {
                     storage.setData('recipe', data);
@@ -21,7 +20,6 @@ angular.module('fdCommon')
                 .then(function(data) {
                     storage.setData('notification', data);
                 });
-            }
         },
 
         load: function(url) {
