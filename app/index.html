@@ -31,10 +31,10 @@
   <div class="navBanner">
     <div class="navBanner__contents">
         <h1>Foodie</h1>
-        <div class="navBanner__contents--overlay"></div>
+        <div class="overlay" id="overlay"></div>
     </div>
     <div class="navBanner__user">
-      <div class="navBanner__user--picture">
+      <div class="navBanner__user--picture" id="pictureAni">
         <img src="http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"/>
       </div>
       <h3 class="navBanner__user--username">Username{{username}}</h3>
@@ -132,29 +132,40 @@
       var made = false;
       $(window).scroll(function() {
 
-      if ($(this).scrollTop() > 50) {
-//          document.getElementByClassName("navBanner__contents").style.backgroundColor = '#000';
-      }
+        var navBP = 310; //breakpoint for banner/navigation
+        var navAniBP = 280; //breakpoint for the transition animation;
 
-      if (($(this).scrollTop() > 310)) {
-          if(!made) {
-            $('header').addClass("fix-user");
-            var div = "<div class='top__user'><div class='top__user--picture'> <img class='picture' src='http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg'/></div></div>";
-
-              $("header.fix-user").append(div);
-              made = true;
-            }
+        if($(this).scrollTop() > navAniBP) {
+          var value = (( $(this).scrollTop() - navAniBP)/ (navBP - navAniBP));
+          var nSize = (100 - (30*value)).toFixed();
+         
+          document.getElementById("overlay").setAttribute("style", "opacity: "+value+";");
+          document.getElementById("pictureAni").setAttribute("style", "width: "+nSize+"px; height: "+nSize+"px;");
         }
-        else {
-          var node = $('header.fix-user');
-          while (node.firstChild) {
-            node.removeChild(node.firstChild);
+        else { //Reset to original
+          document.getElementById("overlay").setAttribute("style", "opacity:0;");
+          document.getElementById("pictureAni").setAttribute("style", "width: 100px; height:100px;");
+        }
+
+        if (($(this).scrollTop() > navBP)) {
+            if(!made) {
+              $('header').addClass("fix-user");
+              var div = "<div class='top__user'><div class='top__user--picture'> <img class='picture' src='http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg'/></div></div>";
+
+                $("header.fix-user").append(div);
+                made = true;
+              }
           }
-          node.empty();
-          $('header').removeClass("fix-user");
-          $("navBanner__contents").removeClass("startTrans");
-          made = false;
-        }
+          else {
+            var node = $('header.fix-user');
+            while (node.firstChild) {
+              node.removeChild(node.firstChild);
+            }
+            node.empty();
+            $('header').removeClass("fix-user");
+            $("navBanner__contents").removeClass("startTrans");
+            made = false;
+          }
       });
 
     </script>

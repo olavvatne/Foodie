@@ -60,7 +60,6 @@ $color-contrast	: 	$mandy;
 //Color Palette Modifiers
 $color-palettes: (
 	grey: (
-		xxx-light: lighten($grey, 58%),
 		xx-light : lighten($grey, 43%),
 		x-light  : lighten($grey, 35%),
 	 	light    : lighten($grey, 12%),
@@ -74,7 +73,6 @@ $color-palettes: (
 		dark     : darken($black, 10%)
 	)
 );
-
 
 // =========================================================
 //		Text

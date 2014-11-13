@@ -15,7 +15,6 @@
 	}
 }
 
-
 @mixin roundImage($size) {
 	width: $size;
 	height: $size;
@@ -25,11 +24,10 @@
 	@include border-radius(calc(50%), calc(50%));
 
 	img {
-		width: $size;
+		width: 100%;
 		height: auto;
 	}
 }
-
 
 /*		Media Query
 **	Simple mixin that uses the given Media-Query. This
