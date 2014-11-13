@@ -26,6 +26,26 @@
 
     <!-- Add your site or application content here -->
 
+<<<<<<< HEAD
+=======
+  <header class="top-header">
+  </header>
+  <div class="navBanner">
+    <div class="navBanner__contents">
+        <h1>Foodie</h1>
+        <div class="overlay" id="overlay"></div>
+    </div>
+    <div class="navBanner__user">
+      <div class="navBanner__user--picture" id="pictureAni">
+        <img src="http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"/>
+      </div>
+      <h3 class="navBanner__user--username">Username{{username}}</h3>
+      <li><a href="#/notification/">Notifications</a></li>
+      <li><a href="#/notification/">Log out</a></li>
+
+    </div>
+  </div>
+>>>>>>> master
 
   <navbar></navbar>
   <div class="content">
@@ -113,5 +133,49 @@
         <script src="src/login/login.js"></script>
         <script src="src/sitemap/sitemap.js"></script>
         <!-- endbuild -->
+<<<<<<< HEAD
+=======
+    <script>
+      var made = false;
+      $(window).scroll(function() {
+
+        var navBP = 310; //breakpoint for banner/navigation
+        var navAniBP = 280; //breakpoint for the transition animation;
+
+        if($(this).scrollTop() > navAniBP) {
+          var value = (( $(this).scrollTop() - navAniBP)/ (navBP - navAniBP));
+          var nSize = (100 - (30*value)).toFixed();
+         
+          document.getElementById("overlay").setAttribute("style", "opacity: "+value+";");
+          document.getElementById("pictureAni").setAttribute("style", "width: "+nSize+"px; height: "+nSize+"px;");
+        }
+        else { //Reset to original
+          document.getElementById("overlay").setAttribute("style", "opacity:0;");
+          document.getElementById("pictureAni").setAttribute("style", "width: 100px; height:100px;");
+        }
+
+        if (($(this).scrollTop() > navBP)) {
+            if(!made) {
+              $('header').addClass("fix-user");
+              var div = "<div class='top__user'><div class='top__user--picture'> <img class='picture' src='http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg'/></div></div>";
+
+                $("header.fix-user").append(div);
+                made = true;
+              }
+          }
+          else {
+            var node = $('header.fix-user');
+            while (node.firstChild) {
+              node.removeChild(node.firstChild);
+            }
+            node.empty();
+            $('header').removeClass("fix-user");
+            $("navBanner__contents").removeClass("startTrans");
+            made = false;
+          }
+      });
+
+    </script>
+>>>>>>> master
 </body>
 </html>
