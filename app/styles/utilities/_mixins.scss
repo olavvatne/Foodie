@@ -14,3 +14,17 @@
 		@content;
 	}
 }
+
+
+@mixin roundImage($size) {
+	width: $size;
+	height: $size;
+	overflow: hidden;
+	margin: em(10px) auto 0 auto;
+
+	@include border-radius(calc(50%), calc(50%));
+	img {
+		width: $size;
+		height: auto;
+	}
+}

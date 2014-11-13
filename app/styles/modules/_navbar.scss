@@ -6,52 +6,25 @@ header {
  	width: 100%;
  	height: 90px;
  	z-index: 10;
-// 	@include transition(background-color 0.3s);
 }
+
 header.fix-user {
 	background: palette(black, light);
 
 	.top {
 		@include e(user) {
-			float: right;
-			width: 30%;
-			height: 100%;
-			max-width: 350px;
-			min-width: 200px;
+			@extend %user-base;
 
  			@include m(picture) {
- 				width: 70px;
-				height: 70px;
-
-				overflow: hidden;
-				margin-top: 10px;
-				margin-left: auto;
-				margin-right: auto;
-//				@include transition(all 0.2s linear);
-
-				@include border-radius(calc(50%), calc(50%));
-
-				.picture {
-					width: 70px;
-					height: auto;
-					z-index: 5;
-				}
+ 				@include roundImage(em(70px));
  			}
  		}
  	}
  }
 
 
-
- .top {
- 	height: 250px;
- 	padding-top: 40px;
- 	position: relative;
- }
-
 .navBanner {
 
-//	position: relative;
 	position: fixed;
 
 	height: 400px;
@@ -60,15 +33,12 @@ header.fix-user {
 	background: $color-accent url(http://tympanus.net/Tutorials/CustomLoginFormStyling/images/bg3.jpg) no-repeat center top;
 	@include background-size(cover);
 
-//	@include transition(background-color 1s);
-	
 	display: block;
 	overflow: hidden;
 
 	@include e(contents){
 		width: 70%;
 		height: 100%;
-//		margin-right: 10px auto 10px;
 		float: left;
 
 		h1 {
@@ -87,43 +57,13 @@ header.fix-user {
 			background: palette(black, light);
 		}
 */
-//		transition: background-color 0.4s;
-
-		&:hover {
-//			background-color: palette(black, light);
-		}
-
-		&:before {
-			position: absolute;
-			top: 0;		bottom: 0;	right: 0;	left: 0;
-//			background-color: inherit;
-			content: ' ';
-		}
 	}
 
 	@include e(user) {
-		width: 30%;
-		height: 100%;
-		max-width: 350px;
-		min-width: 150px;
-		float: right;
-		background: palette(black, light);
+		@extend %user-base;
 
 		@include m(picture) {
-			width: 100px;
-			height: 100px;
-
-			overflow: hidden;
-			margin-top: 10px;
-			margin-left: auto;
-			margin-right: auto;
-
-			@include border-radius(calc(50%), calc(50%));
-
-			img {
-				width: 100px;
-				height: auto;
-			}
+			@include roundImage(em(100px));
 		}
 
 		@include m(username) {
@@ -131,12 +71,11 @@ header.fix-user {
 			margin-bottom: em(50px);
 		} 
 
-		text-align: center;
-
 		li {
 			list-style-type: none;
 			margin-bottom: em(5px);
 		}
+
 		a {
 			text-decoration: none;
 			color: $color-primary;
