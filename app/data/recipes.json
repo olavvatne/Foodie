@@ -43,7 +43,7 @@
 		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"
 	},
 	{
-		"id": 3,
+		"id": 2,
 		"title": "Quick and easy chicken",
 		"created": "2014-11-08T14:58:54+00:00",
 		"creator": {"id": 1, "username": "Thomas"},

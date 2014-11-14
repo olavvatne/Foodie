@@ -1,0 +1,23 @@
+.recipeThumb {
+
+	
+
+	@include e(container){
+		margin: 10px;
+		border: 1px solid grey;
+		:hover {
+			background-color:red;
+			text-decoration: none;
+		}
+	}
+
+	@include e(contents){
+		padding: 10px;
+
+		
+
+	}
+	@include e(image) {
+
+	}
+}

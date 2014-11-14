@@ -41,11 +41,6 @@
           <li><a ng-href="#/sitemap/">Sitemap</a></li>
           <li><a ng-href="#/login/">Login</a></li>
         </ul>
-        <div ng-controller="HeaderCtrl">
-          <p>{{username}}</p>
-          <button ng-click="signOut()" ng-show="username">Sign out</button>
-        </div>
-        <h1 class="text-muted">Foodie</h1>
       </div>
 
       <div ng-view=""></div>
@@ -109,6 +104,7 @@
         <script src="src/group/group.js"></script>
         <script src="src/notifications/notifications.js"></script>
         <script src="src/recipe/recipe.js"></script>
+        <script src="src/recipe/grid/recipeGrid.js"></script>
         <script src="src/userProfile/userProfile.js"></script>
         <script src="src/login/login.js"></script>
         <script src="src/sitemap/sitemap.js"></script>

@@ -38,7 +38,8 @@ angular.module('fdCommon')
         //and storage will be used by baseService the retrieve mocked backend resources
         addRecipe: function(recipe, user) {
             //Need to append recipe to users posted recipes
-            recipe.creator = user
+            recipe.creator = user;
+            recipe.created = new Date();
             storage.appendData('recipe', recipe)
         },
         login: function(data) {
@@ -77,6 +78,10 @@ angular.module('fdCommon')
                 return storage.getData(key);
             }
             else {
+                if(id === "popular") {
+                    //Just return all recipes if popular recipes are requested
+                    return storage.getData(key);
+                }
                 return storage.getData(key)[id];
             }
         },

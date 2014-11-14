@@ -1,0 +1,14 @@
+<div class="recipeThumb__container">
+<a ng-href="#/recipe/{{recipe.id}}">
+<div class="recipeThumb__contents">
+    <div class="recipeThumb__image">
+        <img ng-src="{{recipe.image}}" style="max-width:100%" alt="recipe.title">
+    </div>
+    <div>
+        <h4>{{recipe.title}}</h4>
+        <p>{{recipe.created | date}}</p>
+        <p>{{recipe.creator.username}}</p> 
+    </div>
+</div>
+</a>
+</div>
