@@ -14,14 +14,15 @@ angular.module('fdLogin', ['fdCommon'])
   }])
 
 
- .controller('LoginCtrl', ['$scope', 'sessionManager',
-  function ($scope, sessionManager) {
+ .controller('LoginCtrl', ['$scope', 'sessionManager', '$location',
+  function ($scope, sessionManager, $location) {
   $scope.credentials = {};
 
   $scope.signIn = function(credentials) {
     sessionManager.postCredentials(credentials)
     .then(function(user) {
       sessionManager.setContext(user);
+      $location.path('/')
     });
   }; 
 }])
@@ -34,10 +35,8 @@ angular.module('fdLogin', ['fdCommon'])
   }
 }])
 
-.controller('AccountFormCtrl', ['$scope','sessionManager',
-  function ($scope, sessionManager) {
-  
-  $scope.signOut =function() {
-    sessionManager.destroyContext();
-  }
+.controller('AccountFormCtrl', ['$scope', function ($scope) {
+  $scope.register = function(newAccount) {
+    window.alert("NOT IMPLEMENTED");
+  }; 
 }]);
