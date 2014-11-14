@@ -7,17 +7,22 @@ angular.module('fdLogin', ['fdCommon'])
         templateUrl: 'src/login/login.tpl.html',
         controller: 'LoginCtrl',
       })
+      .when('/create-account', {
+        templateUrl: 'src/login/create-account.tpl.html',
+        controller: 'AccountFormCtrl',
+      });
   }])
 
 
- .controller('LoginCtrl', ['$scope', 'sessionManager',
-  function ($scope, sessionManager) {
+ .controller('LoginCtrl', ['$scope', 'sessionManager', '$location',
+  function ($scope, sessionManager, $location) {
   $scope.credentials = {};
 
   $scope.signIn = function(credentials) {
     sessionManager.postCredentials(credentials)
-    .then(function(data) {
-      sessionManager.setContext(data.username, data.token, data.userId);
+    .then(function(user) {
+      sessionManager.setContext(user);
+      $location.path('/')
     });
   }; 
 }])
@@ -28,4 +33,10 @@ angular.module('fdLogin', ['fdCommon'])
   $scope.signOut =function() {
     sessionManager.destroyContext();
   }
+}])
+
+.controller('AccountFormCtrl', ['$scope', function ($scope) {
+  $scope.register = function(newAccount) {
+    window.alert("NOT IMPLEMENTED");
+  }; 
 }]);
