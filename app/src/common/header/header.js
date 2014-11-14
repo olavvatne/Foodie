@@ -4,7 +4,6 @@ angular.module('fdCommon')
       scope.minimized = false;
       angular.element($window).bind("scroll", function() {
           var scrollTop = jQuery(window).scrollTop();
-          console.log("")
           var navBP = 310; //breakpoint for banner/navigation
           var navAniBP = 280; //breakpoint for the transition animation;
           if(scrollTop > navAniBP) {
@@ -44,7 +43,6 @@ angular.module('fdCommon')
   return {
     templateUrl: 'src/common/header/header.tpl.html',
     link: function(scope, element, attrs) {
-      console.log("HEI");
     },
   };
 });
