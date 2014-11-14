@@ -1,8 +1,13 @@
 <div minimizer>
-<header class="top-header">
+<header class="top-header" ng-class="{'fix-user': minimized}">
+  <div class='top__user' ng-show="minimized">
+    <div class='top__user--picture'>
+      <img class='picture' src='http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg'/>
+    </div>
+  </div>
   </header>
   <div class="navBanner" ng-controller="HeaderCtrl">
-    <div class="navBanner__contents">
+    <div class="navBanner__contents" ng-class="{'startTrans': minimized}">
         <h1>Foodie</h1>
         <div class="overlay" id="overlay"></div>
     </div>

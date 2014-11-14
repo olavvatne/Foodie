@@ -3,6 +3,7 @@ angular.module('fdCommon')
   return function(scope, element, attrs) {
       scope.minimized = false;
       angular.element($window).bind("scroll", function() {
+          scope.minimized = false
           var scrollTop = jQuery(window).scrollTop();
           var navBP = 310; //breakpoint for banner/navigation
           var navAniBP = 280; //breakpoint for the transition animation;
@@ -18,22 +19,11 @@ angular.module('fdCommon')
             document.getElementById("pictureAni").setAttribute("style", "width: 100px; height:100px;");
           }
           if ((scrollTop > navBP)) {
-              if(!made) {
-                $('header').addClass("fix-user");
-                var div = "<div class='top__user'><div class='top__user--picture'> <img class='picture' src='http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg'/></div></div>";
-                  $("header.fix-user").append(div);
-                  made = true;
-                }
+              
+                  scope.minimized = true;
             }
             else {
-              var node = $('header.fix-user');
-              while (node.firstChild) {
-                node.removeChild(node.firstChild);
-              }
-              node.empty();
-              $('header').removeClass("fix-user");
-              $("navBanner__contents").removeClass("startTrans");
-              made = false;
+              scope.minimized = false;
             }
             scope.$apply();
         });
