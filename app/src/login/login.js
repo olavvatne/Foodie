@@ -7,6 +7,10 @@ angular.module('fdLogin', ['fdCommon'])
         templateUrl: 'src/login/login.tpl.html',
         controller: 'LoginCtrl',
       })
+      .when('/create-account', {
+        templateUrl: 'src/login/create-account.tpl.html',
+        controller: 'AccountFormCtrl',
+      });
   }])
 
 
@@ -16,13 +20,21 @@ angular.module('fdLogin', ['fdCommon'])
 
   $scope.signIn = function(credentials) {
     sessionManager.postCredentials(credentials)
-    .then(function(data) {
-      sessionManager.setContext(data.username, data.token, data.userId);
+    .then(function(user) {
+      sessionManager.setContext(user);
     });
   }; 
 }])
 
 .controller('HeaderCtrl', ['$scope','sessionManager',
+  function ($scope, sessionManager) {
+  
+  $scope.signOut =function() {
+    sessionManager.destroyContext();
+  }
+}])
+
+.controller('AccountFormCtrl', ['$scope','sessionManager',
   function ($scope, sessionManager) {
   
   $scope.signOut =function() {

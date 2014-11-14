@@ -148,28 +148,26 @@ function (baseService, $rootScope, storage, $http) {
         return baseService.postResource(url, credentials);
         },
 
-        setContext: function(username, token, userId) {
-            if(username === undefined) {
+        setContext: function(user) {
+            if(user === undefined || user=== null) {
                 var cred = storage.getData('credentials');
+                $rootScope.user = {};
                 if(cred && cred.username && cred.token) {
 
-                $rootScope.username = cred.username;
-                $rootScope.userId = cred.userId;
+                $rootScope.user = cred;
                 $http.defaults.headers.common['X-AUTH-TOKEN'] = cred.token
                 }
             }
             else {
-                $rootScope.username = username;
-                $rootScope.userId = userId
-                storage.setData('credentials', {username: username, token: token, userId: userId})
-                $http.defaults.headers.common['X-AUTH-TOKEN'] = token;
+                $rootScope.user = user;
+                storage.setData('credentials', user)
+                $http.defaults.headers.common['X-AUTH-TOKEN'] = user.token;
                 
             }
         },
         destroyContext: function() {
             storage.setData('credentials', null);
-            $rootScope.username = undefined;
-            $rootScope.userId = undefined;
+            $rootScope.user = {};
         }
   } ;
 

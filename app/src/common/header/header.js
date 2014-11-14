@@ -1,3 +1,9 @@
+/*
+Minimizer directive will create a scope and put the mimimized boolean variable
+in the scope. It also set the css attribute of some classes. 
+The variable is used by the template to decide if the top banner is expanded
+or not. 
+*/
 angular.module('fdCommon')  
 .directive("minimizer", function ($window) {
   return function(scope, element, attrs) {
@@ -29,6 +35,10 @@ angular.module('fdCommon')
         });
   };
 })
+
+/*
+A pretty wrapper for the top banner. Reduce the clutter in index.html.
+*/
 .directive("navbar", function () {
   return {
     templateUrl: 'src/common/header/header.tpl.html',

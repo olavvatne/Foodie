@@ -5,7 +5,7 @@
 		"recipes": [{"id": 0, "title": "Spaghetti bolognese"}],
 		"about": "I'm a passionate foodie, that love everything tomato sauce",
 		"joined": "2014-11-08T14:58:54+00:00",
-		"image": "url-something"
+		"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
 	},
 	{
 		"id": 1,
@@ -13,7 +13,7 @@
 		"recipes": [{"id": 1, "title": "Best paella ever"}, {"id": 2, "title": "Quick and easy chicken"}],
 		"about": "My greatest joy in life is to share my delicious recipes with others.",
 		"joined": "2014-11-08T14:58:54+00:00",
-		"image": "url-something"
+		"image": "http://www.fastcompany.com/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg"
 	},
 	{
 		"id": 2,
@@ -21,6 +21,6 @@
 		"recipes": [],
 		"about": "I'm a lousy cook! Most of my fridge is filled with hot dogs. Since I've grown tired of hot dogs, I'm really eager to learn more recipes!",
 		"joined": "2014-11-08T15:09:02+00:00",
-		"image": "url-something"
+		"image": "http://media.cirrusmedia.com.au/LW_Media_Library/594partner-profile-pic-An.jpg"
 	}
 ]
