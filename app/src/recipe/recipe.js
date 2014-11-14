@@ -48,7 +48,10 @@ function (baseService) {
         var url = 'api/recipe/' + id
         return baseService.getResources(url);
         },
-
+        getPopular: function() {
+          var url = 'api/recipe/popular'
+          return baseService.getResources(url);
+        },
         store: function(newRecipe) {
           //mocked backend
         	var url ="api/recipe"

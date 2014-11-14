@@ -1,11 +1,4 @@
-<p>FrontPage</p>
-{{foodName}}
-{{inner}}
-<input type="text" ng-model="foodName" />
-
-<div ng-repeat="food in foodList">
-	<p>I Love <span ng-class={{food.color}}>{{food.name}}</span></p>
-</div>
-<style type="text/css"> .black {color:red;}</style>
-
-
+<h1 class="text-muted">Where food is shared and loved SOMETHING SOMETHING</h1>
+<p>Purpose of site to new visitors</p>
+<h2>Recipes to discover</h2>
+<fd-grid grid-content="popularRecipes"></fd-grid>

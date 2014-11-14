@@ -1,25 +1,23 @@
 'use strict';
 
-angular.module('fdHome', [])
+angular.module('fdHome', ['fdRecipe'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'src/homePage/home.tpl.html',
         controller: 'HomeCtrl',
+        resolve: {
+            recipes: ['recipes', function(recipes) {
+                return recipes.getPopular().then(function (response) {
+                    return response;
+                });
+            }]
+        },
       })
   }])
 
 
- .controller('HomeCtrl', ['$scope',  function ($scope) {
-  $scope.foodName = '';
-  $scope.food_feelings = function(quality) {
-    if(quality > 5) {
-      return 'love'
-    }
-    else {
-      return 'hate'
-    }
-  }
-  $scope.foodList = [{name:'pizza', color:'red'}, {name:'potatoes', color: 'green'}, {name:'onion soup', color: "black"}];
-}]) ;
+.controller('HomeCtrl', ['$scope', 'recipes',  function ($scope, recipes) {
+  $scope.popularRecipes = recipes;
+}]);
     
