@@ -1,0 +1,46 @@
+//Should probably be in _shame, since there is no responsiveness.
+//Like overview under directions div when on small screen
+.recipe {
+	@include e(container){
+		div {
+			margin: em(10px);
+		}
+	}
+	@include e(image){
+
+		overflow:hidden;
+		height: em(500px);
+		border-radius: em(5px);
+		border: 1px solid palette(grey, x-light);
+		//To center a image that is to big for parent div, a trick
+		//is to use background-image. This ensures that the image
+		//is fitted to the parent div correctly. It will work for any
+		//image dimensions and will keep the aspect ratio.
+		//Angular makes sure to put the background-image attribute into
+		//the css.
+		.wrapper	{
+			margin: 0px;
+			width: 100%;
+			height: 100%;
+		    overflow: hidden;
+		    background-size: cover;
+		    background-position: center center;
+		}
+		img {
+			//The actual html img is hidden, to preserve accessibility
+			visibility: hidden;
+		}
+	}
+
+	@include e(ingredients){
+		background-color: green;
+	}
+	@include e(directions) {
+		
+		background-color: blue;
+	}
+
+	@include e(overview) {
+		background-color: blue;
+	}
+}
