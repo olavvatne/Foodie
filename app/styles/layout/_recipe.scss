@@ -48,7 +48,11 @@
 		width: 68%;
 		padding: em(5px);
 		float: left;
-		
+
+		section {
+			margin-bottom: em(70px);
+		}
+
 		ol {
 			padding-left: em(35px); 
 			list-style-type: upper-roman;
@@ -56,7 +60,7 @@
 		  	color: $color-accent2;
 
 		  	li {
-			margin-bottom: em(50px);
+			margin-bottom: em(40px);
 			}
 		}
 		ol p {

@@ -16,6 +16,7 @@
 	</div>
 </div>
 <div class="recipe__ingredients">
+	<section>
 	<h2>Ingredients</h2>
 	<table>
 		<tr ng-repeat="item in recipe.ingredients">
@@ -23,16 +24,21 @@
 			<td>{{item.name}}</td>
 		</tr>
 	</table>
+	</section>
 </div>
 <div class="recipe__directions">
-	<h2 ng-if="recipe.motivation">Because</h2>
-	<p ng-if="recipe.motivation">{{recipe.motivation}}</p>
-	<h2>Directions</h2>
-	<ol class="custom-counter">
-		<li ng-repeat="step in recipe.description">
-			<p>{{step}}</p>
-		</li>
-	</ol>
+	<section>
+		<h2 ng-if="recipe.motivation">Because</h2>
+		<p ng-if="recipe.motivation">{{recipe.motivation}}</p>
+	</section>
+	<section>
+		<h2>Directions</h2>
+		<ol class="custom-counter">
+			<li ng-repeat="step in recipe.description">
+				<p>{{step}}</p>
+			</li>
+		</ol>
+	</section>
 </div>
 <div class="recipe__groups" ng-controller="GroupList">
 	<p>Groups</p>
