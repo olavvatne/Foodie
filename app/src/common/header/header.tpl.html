@@ -14,7 +14,8 @@
     </div>
     <div class="navBanner__user">
       <div class="navBanner__user--picture" id="pictureAni" ng-show="user.username">
-        <img ng-src="{{user.image}}"/>
+        <img ng-if="user.image" ng-src="{{user.image}}"/>
+        <img ng-if="!user.image" ng-src="img/no-profile-image.png"/>
       </div>
       <h3 class="navBanner__user--username">{{user.username | capitalize}}</h3>
       <ul style="padding: 0px">

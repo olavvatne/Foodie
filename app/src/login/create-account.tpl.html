@@ -2,7 +2,7 @@
 <form class="form">
 	<label for="username">Username</label>
 	<span>
-		<input name="username" placeholder="Desired username" type="text" ng-model="newAccount.username" />
+		<input name="username" placeholder="Desired username" type="text" ng-model="newAccount.username" required="required"  />
 	</span>
 	<br></br>
 	<label for="description">Describe yourself</label>
@@ -18,12 +18,12 @@
 	<br><br>
 	<label for="password">Password</label>
 	<span>
-		<input name="password" placeholder="password" type="password" ng-model="newAccount.password" />
+		<input name="password" placeholder="password" type="password" ng-model="newAccount.password" required="required" />
 	</span>
 	<br><br>
 	<label for="repeatpassword">Repeat password</label>
 	<span>
-		<input name="repeatPassword" placeholder="repeat password" type="password" ng-model="password" />
+		<input name="repeatPassword" placeholder="repeat password" type="password" ng-model="password" required="required" />
 	</span>
 	<br><br>
 	<button ng-click="register(newAccount)">Register</button>
