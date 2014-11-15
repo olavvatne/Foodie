@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fdLogin', ['fdCommon'])
+angular.module('fdLogin', ['fdCommon', 'fdUser'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/login', {
@@ -35,8 +35,11 @@ angular.module('fdLogin', ['fdCommon'])
   }
 }])
 
-.controller('AccountFormCtrl', ['$scope', function ($scope) {
+.controller('AccountFormCtrl', ['$scope', 'users', function ($scope, users) {
   $scope.register = function(newAccount) {
-    window.alert("NOT IMPLEMENTED");
+    users.create(newAccount)
+    .then(function(success) {
+      console.log("Created new user");
+    });
   }; 
 }]);

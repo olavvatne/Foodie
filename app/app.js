@@ -7,7 +7,7 @@
     'fdHome',
     'fdNotifications',
     'fdGroup',
-    'fdUserProfile',
+    'fdUser',
     'fdRecipe',
     'fdCommon',
     'fdLogin'

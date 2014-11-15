@@ -1,10 +1,29 @@
-<h2>Create account</h2>
-<form>
-<label for="username">Username</label>
-<input name="username" placeholder="Desired username" type="text" ng-model="newAccount.username" />
-<label for="description">Describe yourself</label>
-<input name="description" placeholder="Who are you?" type="text" ng-model="newAccount.description" />
-<label for="password">password</label>
-<input name="password" placeholder="password" type="password" ng-model="newAccount.password" />
-<button ng-click="register(newAccount)">Register</button>
-</form>
+<h1>Create account</h1>
+<div class="form">
+	<label for="username">Username</label>
+	<span>
+		<input name="username" placeholder="Desired username" type="text" ng-model="newAccount.username" />
+	</span>
+	<br></br>
+	<label for="description">Describe yourself</label>
+	<span>
+		<input name="description" placeholder="Who are you?" type="text" ng-model="newAccount.description" />
+	</span>
+	<br><br>
+	<label for="image">image of yourself</label>
+	<span>
+		<input name="image" placeholder="image URL" type="text" ng-model="newAccount.image" />
+	</span>
+	<br><br>
+	<label for="password">Password</label>
+	<span>
+		<input name="password" placeholder="password" type="password" ng-model="newAccount.password" />
+	</span>
+	<br><br>
+	<label for="repeatpassword">Repeat password</label>
+	<span>
+		<input name="repeatPassword" placeholder="repeat password" type="password" ng-model="password" />
+	</span>
+	<br><br>
+	<button ng-click="register(newAccount)">Register</button>
+</div>
