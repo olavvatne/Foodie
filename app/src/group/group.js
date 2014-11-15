@@ -25,6 +25,26 @@ angular.module('fdGroup', [])
 
 //Can be used at controller on recipe page
 .controller('RecipeGroupCtrl', ['$scope', 'groups',  function ($scope, groups) {
+    $scope.noRecipes = true;
+    $scope.groupList = [];
+    /*
+    RecipeGroupCtrl is always created as a child of RecipeCtrl, and therefore get
+    a child scope of the recipeCtrl. Therefore it is possible to access the
+    parent scopes variables. For example the recipe id.
+    */
+    var init = function() {
+        var recipeId = $scope.$parent.recipe.id;
+        groups.getAllForRecipe(recipeId)
+        .then(function(success) {
+            $scope.groupList = success;
+            if(success.length > 0) {
+                $scope.noRecipes = false;
+            }
+        }, function(error) {
+            //No recipes
+        })
+    };
+    init();
 }])
 
 .factory('groups', ['baseService',

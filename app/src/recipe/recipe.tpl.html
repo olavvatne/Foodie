@@ -39,8 +39,16 @@
 			</li>
 		</ol>
 	</section>
-</div>
-<div class="recipe__groups" ng-controller="GroupList">
-	<p>Groups</p>
+	<section>
+		<h2>Groups</h2>
+		<div class="recipe__groups" ng-controller="RecipeGroupCtrl">
+			<p ng-if="noRecipes">Nobody wants to make this recipe! Do you want to start a group?</p>
+			<ul>
+				<li ng-repeat="group in groupList">
+					<p>group {{group.id}}, attendees: {{group.participants.length}}, creator: {{group.creator.username}}</p>
+				</li>
+			</ul>
+		</div>
+	</section>
 </div>
 </div>
