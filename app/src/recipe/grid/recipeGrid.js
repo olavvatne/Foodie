@@ -19,7 +19,7 @@ angular.module('fdRecipe')
     template:
 
           '<div>'+
-            '<table width="100%">'+
+            '<table class="recipeThumb__grid">'+
               '<tr ng-repeat="row in matrix">'+
                 '<td class="col-centered" ng-repeat="recipe in row track by $index">'+
                     '<ng-include src="thumbTemplate"></ng-include>'+

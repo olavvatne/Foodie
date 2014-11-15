@@ -88,7 +88,7 @@ angular.module('fdCommon')
         },
 
         post: function(key, data) {
-            var user = {id: $rootScope.userId, username: $rootScope.username};
+            var user = $rootScope.user
             if(key==='recipe') {
                 return this.addRecipe(data, user);
             }
