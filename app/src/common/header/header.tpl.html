@@ -3,7 +3,8 @@
 <header class="top-header" ng-class="{'fix-user': minimized}">
   <div class="top__user" ng-show="minimized">
     <div class="top__user--picture" ng-show="user.username">
-      <img class="picture" ng-src="{{user.image}}"/>
+      <img class="picture" ng-if="user.image" ng-src="{{user.image}}"/>
+      <img class="picture" ng-if="!user.image" ng-src="img/no-profile-image.png"/>
     </div>
   </div>
   </header>
@@ -25,7 +26,6 @@
         <li ng-if="user.username"><a href="#/recipe">Share a recipe</a></li>
         <li ng-if="user.username"><a ng-click="signOut()">Log out</a></li>
       </ul>
-
     </div>
   </div>
 </div>
