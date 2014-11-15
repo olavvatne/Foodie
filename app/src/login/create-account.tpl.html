@@ -1,5 +1,5 @@
 <h1>Create account</h1>
-<div class="form">
+<form class="form">
 	<label for="username">Username</label>
 	<span>
 		<input name="username" placeholder="Desired username" type="text" ng-model="newAccount.username" />
@@ -7,7 +7,8 @@
 	<br></br>
 	<label for="description">Describe yourself</label>
 	<span>
-		<input name="description" placeholder="Who are you?" type="text" ng-model="newAccount.description" />
+		<textarea name="description" placeholder="Who are you?" type="text" ng-model="newAccount.description">
+		</textarea>
 	</span>
 	<br><br>
 	<label for="image">image of yourself</label>
@@ -26,4 +27,4 @@
 	</span>
 	<br><br>
 	<button ng-click="register(newAccount)">Register</button>
-</div>
+</form>
