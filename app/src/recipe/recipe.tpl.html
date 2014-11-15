@@ -1,18 +1,54 @@
-<h1>{{recipe.title}}</h1>
-<a class="username" ng-href="#/profile/{{recipe.creator.id}}">
-	{{recipe.creator.username}}
-</a>
-<p class="date">{{recipe.created | date}}</p>
-<p>{{recipe.motivation}}</p>
-<img ng-src="{{recipe.image}}" />
-<ol>
-	<li ng-repeat="step in recipe.description">
-		<p>{{step}}</p>
-	</li>
-</ol>
-<table>
-	<tr ng-repeat="item in recipe.ingredients">
-		<td>{{item.quantity}} {{item.unit}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-</table>
+<div class="recipe__container">
+<div  style="float:right; padding: 5px">
+	<p class="date">{{recipe.created | date}}</p>
+	<a class="username" ng-href="#/profile/{{recipe.creator.id}}">
+		{{recipe.creator.username}}
+	</a>
+</div>
+<div class="recipe__overview">
+	<h1>{{recipe.title}}</h1>
+</div>
+<div class="recipe__image">
+	<!--Trick to center cropped image inside a div. Also include the image tag, to
+	address accessability-->
+	<div class="wrapper" ng-style="{'background-image': 'url({{recipe.image}})'}">
+		<img ng-src="{{recipe.image}}" alt="Recipe image for {{recipe.title}}"/>
+	</div>
+</div>
+<div class="recipe__ingredients">
+	<section>
+	<h2>Ingredients</h2>
+	<table>
+		<tr ng-repeat="item in recipe.ingredients">
+			<td><b>{{item.quantity}}</b> {{item.unit}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+	</table>
+	</section>
+</div>
+<div class="recipe__directions">
+	<section>
+		<h2 ng-if="recipe.motivation">Because</h2>
+		<p ng-if="recipe.motivation">{{recipe.motivation}}</p>
+	</section>
+	<section>
+		<h2>Directions</h2>
+		<ol class="custom-counter">
+			<li ng-repeat="step in recipe.description">
+				<p>{{step}}</p>
+			</li>
+		</ol>
+	</section>
+	<section>
+		<h2>Groups</h2>
+		<div class="recipe__groups" ng-controller="RecipeGroupCtrl">
+			<p ng-if="noRecipes">Nobody wants to make this recipe! Do you want to start a group?</p>
+			<ul>
+				<li ng-repeat="group in groupList">
+					<p>group {{group.id}}, attendees: {{group.participants.length}}, creator: {{group.creator.username}}</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+</div>
+</div>
