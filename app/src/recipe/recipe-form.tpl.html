@@ -1,8 +1,8 @@
 <h1>Share your best recipes!</h1>
-<div class="form">
+<form class="form">
 	<label>Title</label>
 	<span>
-		<input placeholder="Title" type="text" ng-model="newRecipe.title" />
+		<input placeholder="Title" type="text" ng-model="newRecipe.title" required="required" />
 	</span>
 	<br></br>
 	<label>Motivation</label>
@@ -20,4 +20,4 @@
 	<fd-ingredients model="newRecipe.ingredients"></fd-ingredients>
 
 	<button ng-click="postRecipe(newRecipe)">Submit it!</button>
-</div>
+</form>

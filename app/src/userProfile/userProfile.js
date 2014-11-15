@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fdUserProfile', [])
+angular.module('fdUser', [])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/profile/:uid', {
@@ -36,8 +36,12 @@ function (baseService) {
         //Tested
         var url = 'api/user'
         return baseService.getResources(url);
-        }
+        },
        
+        create: function(user) {
+          var url = 'api/user';
+          return baseService.postResource(url, user);
+        }
     };
 
 }]);
