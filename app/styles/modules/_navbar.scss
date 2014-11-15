@@ -4,12 +4,13 @@ header {
  	top: 0;
  	left: 0;
  	width: 100%;
- 	height: 90px;
+ 	height: em(90px);
  	z-index: 10;
 }
 
 header.fix-user {
 	background: palette(black, light);
+ 	@include box-shadow(0 5px 10px rgba(0,0,0,0.3));
 
 	.top {
 		@include e(user) {

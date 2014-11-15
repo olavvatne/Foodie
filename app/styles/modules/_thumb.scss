@@ -4,9 +4,11 @@
 
 	@include e(container){
 		margin: 10px;
-		border: 1px solid grey;
+//		border: 1px solid palette(grey);
+		background-color: palette(white, dark);
 		:hover {
-			background-color:red;
+			@include transition(background-color 0.3s ease-out);
+			background-color: $color-accent;
 			text-decoration: none;
 		}
 	}
