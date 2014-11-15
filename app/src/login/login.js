@@ -35,10 +35,15 @@ angular.module('fdLogin', ['fdCommon', 'fdUser'])
   }
 }])
 
-.controller('AccountFormCtrl', ['$scope', 'users', function ($scope, users) {
+.controller('AccountFormCtrl', ['$scope', 'users', 'sessionManager', function ($scope, users, sessionManager) {
   $scope.register = function(newAccount) {
+    $scope.user = {};
+    $scope.registrationSuccessful = false;
     users.create(newAccount)
     .then(function(success) {
+      $scope.user = success;
+      $scope.registrationSuccessful = true;
+      sessionManager.setContext($scope.user);
       console.log("Created new user");
     });
   }; 

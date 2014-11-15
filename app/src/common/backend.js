@@ -57,6 +57,7 @@ angular.module('fdCommon')
             //Need to append recipe to users posted recipes
             user.joined = new Date();
             storage.appendData('user', user)
+            return user;
         },
         addGroup: function(group, user) {
             //Fake a user logged in status. The user id should be

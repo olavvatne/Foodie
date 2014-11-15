@@ -45,7 +45,7 @@
 			<p ng-if="noRecipes">Nobody wants to make this recipe! Do you want to start a group?</p>
 			<ul>
 				<li ng-repeat="group in groupList">
-					<p>group {{group.id}}, attendees: {{group.participants.length}}, creator: {{group.creator.username}}</p>
+					<p>group {{group.id}}, attendees: {{group.participants.length}}, creator: {{group.creator.username}}</p><a ng-href="#/group/{{group.id}}">Check out</a>
 				</li>
 			</ul>
 		</div>
