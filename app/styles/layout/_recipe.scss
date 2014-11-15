@@ -42,11 +42,27 @@
 			padding: em(5px);
 		}
 	}
+
 	@include e(directions) {
 		//Will be put under correctly if float left is used.
 		width: 68%;
 		padding: em(5px);
 		float: left;
+		
+		ol {
+			padding-left: em(35px); 
+			list-style-type: upper-roman;
+		  	font-weight: bold;
+		  	color: $color-accent2;
+
+		  	li {
+			margin-bottom: em(50px);
+			}
+		}
+		ol p {
+		  	font-weight: normal;
+		  	color: $black;
+}
 	}
 
 	@include e(overview) {

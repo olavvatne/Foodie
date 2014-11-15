@@ -19,16 +19,16 @@
 	<h2>Ingredients</h2>
 	<table>
 		<tr ng-repeat="item in recipe.ingredients">
-			<td>{{item.quantity}} {{item.unit}}</td>
+			<td><b>{{item.quantity}}</b> {{item.unit}}</td>
 			<td>{{item.name}}</td>
 		</tr>
 	</table>
 </div>
 <div class="recipe__directions">
-	<h2>Because</h2>
-	<p>{{recipe.motivation}}</p>
+	<h2 ng-if="recipe.motivation">Because</h2>
+	<p ng-if="recipe.motivation">{{recipe.motivation}}</p>
 	<h2>Directions</h2>
-	<ol>
+	<ol class="custom-counter">
 		<li ng-repeat="step in recipe.description">
 			<p>{{step}}</p>
 		</li>
