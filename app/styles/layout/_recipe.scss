@@ -3,11 +3,10 @@
 .recipe {
 	@include e(container){
 		div {
-			margin: em(10px);
+			margin: em(5px);
 		}
 	}
 	@include e(image){
-
 		overflow:hidden;
 		height: em(500px);
 		border-radius: em(5px);
@@ -33,14 +32,28 @@
 	}
 
 	@include e(ingredients){
-		background-color: green;
+		//Temp. Not sure how to address responsiveness
+		padding: em(5px);
+		width: 30%;
+		float: left;
+		border: 1px solid palette(grey, x-light);
+
+		td {
+			padding: em(5px);
+		}
 	}
 	@include e(directions) {
-		
-		background-color: blue;
+		//Will be put under correctly if float left is used.
+		width: 68%;
+		padding: em(5px);
+		float: left;
 	}
 
 	@include e(overview) {
-		background-color: blue;
+		padding: em(5px);
+	}
+
+	@include e(groups) {
+		padding: em(5px);
 	}
 }

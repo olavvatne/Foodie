@@ -1,10 +1,12 @@
 <div class="recipe__container">
-<div class="recipe__overview">
-	<h1>{{recipe.title}}</h1>
+<div  style="float:right; padding: 5px">
 	<p class="date">{{recipe.created | date}}</p>
 	<a class="username" ng-href="#/profile/{{recipe.creator.id}}">
 		{{recipe.creator.username}}
 	</a>
+</div>
+<div class="recipe__overview">
+	<h1>{{recipe.title}}</h1>
 </div>
 <div class="recipe__image">
 	<!--Trick to center cropped image inside a div. Also include the image tag, to
@@ -23,11 +25,16 @@
 	</table>
 </div>
 <div class="recipe__directions">
+	<h2>Because</h2>
 	<p>{{recipe.motivation}}</p>
+	<h2>Directions</h2>
 	<ol>
 		<li ng-repeat="step in recipe.description">
 			<p>{{step}}</p>
 		</li>
 	</ol>
+</div>
+<div class="recipe__groups" ng-controller="GroupList">
+	<p>Groups</p>
 </div>
 </div>
