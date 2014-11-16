@@ -64,6 +64,7 @@ angular.module('fdCommon')
         addUser: function(user) {
             //Need to append recipe to users posted recipes
             user.joined = new Date();
+            user.recipes = [];
             storage.appendData('user', user)
             return user;
         },
