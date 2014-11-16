@@ -72,11 +72,10 @@ header.fix-user {
 
 			position: absolute;
 			top: 0;
+			z-index: -1;
 			background: palette(black, light);
-			opacity: 0;
 
-			@include mq(large) {
-			}
+			@include opacity(0);
 		}
 	}
 
@@ -92,12 +91,12 @@ header.fix-user {
 			margin-bottom: em(50px);
 		} 
 
-		> li {
+		li {
 			list-style-type: none;
 			margin-bottom: em(5px);
 		}
 
-		> a {
+		a {
 			text-decoration: none;
 			color: $color-primary;
 			font-family: 'Open Sans', sans-serif;

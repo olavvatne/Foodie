@@ -41,7 +41,15 @@ angular.module('fdCommon')
             recipe.creator = user;
             recipe.created = new Date();
             storage.appendData('recipe', recipe)
+            var users = storage.getData('user');
+            for (var i = 0; i< users.length; i++) {
+                if (users[i].username === user.username) {
+                    users[i].recipes.push({id: recipe.id, title: recipe.title, image: recipe.image, created: recipe.created});
+                    storage.replaceData('user', users[i], i);
+                }
+            }
         },
+
         login: function(data) {
             var users = storage.getData('user');
             for(var i = 0; i<users.length; i++) {
@@ -56,6 +64,7 @@ angular.module('fdCommon')
         addUser: function(user) {
             //Need to append recipe to users posted recipes
             user.joined = new Date();
+            user.recipes = [];
             storage.appendData('user', user)
             return user;
         },

@@ -28,13 +28,13 @@ function (baseService) {
     return {
         get: function(id) {
         //Tested
-        var url = 'api/user/' + id
+        var url = 'api/user/' + id;
         return baseService.getResources(url, id);
         },
 
         getAll: function() {
         //Tested
-        var url = 'api/user'
+        var url = 'api/user';
         return baseService.getResources(url);
         },
        

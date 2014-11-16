@@ -42,6 +42,7 @@
     height: 100%;
     font-size: em(70px);
     font-family: "Pacifico", sans-serif;
+    text-decoration: none;
 }
 
 %base-header {
@@ -51,5 +52,4 @@
     width: 100%;
     height: em(90px);
     z-index: 10;
-    @include opacity(0);
 }
