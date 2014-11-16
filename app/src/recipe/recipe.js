@@ -29,14 +29,18 @@ angular.module('fdRecipe', ['fdCommon'])
   $scope.recipe = recipe;
 }])
 
-.controller('RecipeFormCtrl', ['$scope', 'recipes',  function ($scope, recipes) {
+.controller('RecipeFormCtrl', ['$scope', 'recipes', '$location',
+  function ($scope, recipes, $location) {
   $scope.newRecipe = {};
   $scope.newRecipe.ingredients = [];
   $scope.newRecipe.description = [];
 
   $scope.postRecipe = function(recipe) {
     if($scope.recipeForm.$valid) {
-      recipes.store(recipe);
+      recipes.store(recipe)
+      .then(function(success) {
+        $location.path('/recipe/' + success.recipeId);
+      });
     }
     else {
       console.log("NOT VALID YET");

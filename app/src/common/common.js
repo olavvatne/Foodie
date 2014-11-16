@@ -120,6 +120,7 @@ angular.module('fdCommon', [])
             data['id'] = datalist.length;
             datalist.push(data);
             this.setData(key, datalist);
+            return data['id'];
         },
         replaceData: function(key, data, idx) {
             var datalist = this.getData(key);
