@@ -187,7 +187,7 @@ function (baseService, $rootScope, storage, $http) {
       ctrl.$focused = false;
       element.bind('focus', function(evt) {
         element.addClass(FOCUS_CLASS);
-        scope.$apply(function() {ctrl.$focused = true;});
+        scope.$apply(function() {ctrl.$focused = true; ctrl.$dirty = true;});
       }).bind('blur', function(evt) {
         element.removeClass(FOCUS_CLASS);
         scope.$apply(function() {ctrl.$focused = false;});

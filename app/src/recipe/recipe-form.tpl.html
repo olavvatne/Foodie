@@ -3,12 +3,12 @@
 	<label>Title</label>
 	<span>
 		<input name="title" placeholder="Title" type="text"  ng-class="{error: recipeForm.title.$dirty && recipeForm.title.$invalid && !recipeForm.title.$focused}"
-		ng-model="newRecipe.title" autofocus required ng-minlength="4" ng-maxlength="40" ng-focus/>
+		ng-model="newRecipe.title" required ng-minlength="4" ng-maxlength="40" ng-focus/>
 	</span>
-	<div ng-show="recipeForm.title.$dirty && recipeForm.title.$invalid && !recipeForm.title.$focused">
-    <small class="error" >
-        The title is required and should be between 3 and 40 characters long
-    </small>
+	<div class="error-container" ng-show="recipeForm.title.$dirty && recipeForm.title.$invalid && !recipeForm.title.$focused">
+	    <small>
+	        The title is required and should be between 3 and 40 characters long
+	    </small>
     </div>
 	<br></br>
 	<label>Motivation</label>

@@ -35,7 +35,12 @@ angular.module('fdRecipe', ['fdCommon'])
   $scope.newRecipe.description = [];
 
   $scope.postRecipe = function(recipe) {
-    recipes.store(recipe);
+    if($scope.recipeForm.$valid) {
+      recipes.store(recipe);
+    }
+    else {
+      console.log("NOT VALID YET");
+    }
   };
 }])
 
