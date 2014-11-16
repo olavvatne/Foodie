@@ -1,3 +1,10 @@
+/*
+fdGrid takes a array of data and create a matrix of data suitable for 
+grid presentation of data. Currently the template or content template is not 
+transcluded and therefore fixed. The thumbTemplate will inherit the scope of
+the ng-repeat. In this case all data contained in one recipe can be used
+by the thumbTemplate
+*/
 angular.module('fdRecipe')
 .directive('fdGrid', [ function() {
   return {
@@ -12,7 +19,7 @@ angular.module('fdRecipe')
     template:
 
           '<div>'+
-            '<table width="100%">'+
+            '<table class="recipeThumb__grid">'+
               '<tr ng-repeat="row in matrix">'+
                 '<td class="col-centered" ng-repeat="recipe in row track by $index">'+
                     '<ng-include src="thumbTemplate"></ng-include>'+
@@ -52,6 +59,9 @@ angular.module('fdRecipe')
       }
       else {
         if(scope.maxColumn) {
+          //If user specify another number of columns the constructGridLayout
+          //will adapt and construct a new matrix of elements, where number of 
+          //columns adhere to the maxColumn variable.
           scope.internalMaxCols = scope.maxColumn;
         }
       }

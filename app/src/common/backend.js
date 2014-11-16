@@ -46,14 +46,16 @@ angular.module('fdCommon')
             var users = storage.getData('user');
             for(var i = 0; i<users.length; i++) {
                 if(users[i].username === data.username.toLowerCase()) {
-                    return {username: data.username, token: 'abc', userId: users[i].id};
+                    users[i].token = 'abc';
+                    return users[i];
                 }
             }
             //No way to create error with mock backend
-            return {username: null, token: null};
+            return undefined;
         },
         addUser: function(user) {
             //Need to append recipe to users posted recipes
+            user.joined = new Date();
             storage.appendData('user', user)
         },
         addGroup: function(group, user) {
@@ -87,7 +89,7 @@ angular.module('fdCommon')
         },
 
         post: function(key, data) {
-            var user = {id: $rootScope.userId, username: $rootScope.username};
+            var user = $rootScope.user
             if(key==='recipe') {
                 return this.addRecipe(data, user);
             }

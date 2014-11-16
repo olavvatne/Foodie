@@ -1,14 +1,16 @@
 .recipeThumb {
-
-	
+	@include e(grid) {
+		table-layout: fixed;
+		width: 100%;
+	}
 
 	@include e(container){
 		margin: 10px;
-//		border: 1px solid palette(grey);
-		background-color: palette(white, dark);
+
+		border: 1px solid palette(grey,x-light);
 		:hover {
 			@include transition(background-color 0.3s ease-out);
-			background-color: $color-accent;
+			background-color: palette(grey,xx-light);
 			text-decoration: none;
 		}
 	}
@@ -20,6 +22,11 @@
 
 	}
 	@include e(image) {
+		height: 200px;
+		overflow: hidden;
 
+		img {
+			width: 100%;
+		}
 	}
 }
