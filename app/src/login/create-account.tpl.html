@@ -9,16 +9,19 @@
 		<input name="username" placeholder="Desired username" type="text" 
 		ng-class="{error: (accountForm.username.$dirty && !accountForm.username.$focused || submitted) && accountForm.username.$invalid }"
 		ng-model="newAccount.username"  
-		pattern="[a-zA-Z0-9 /\\]+"
-		ng-minlength="4"
-		ng-max-length="20"
+		ng-pattern="/^[a-zA-Z0-9]*$/"
+		ng-minlength="2"
+		ng-maxlength="20"
 		required 
 		ng-focus/>
 	</span>
 	<div class="error-container" ng-show="(accountForm.username.$dirty && !accountForm.username.$focused || submitted) && accountForm.username.$invalid ">
-	    <small>
-	        Username required, between 4 and 20 characters, and should only contain letters and numbers
-	    </small>
+	    <div ng-messages="accountForm.username.$error">
+		    <small ng-message="required">Username required.</small>
+		    <small ng-message="pattern">Only numbers and letters are allowed.</small>
+		    <small ng-message="minlength">Username should be more than 2 characters long.</small>
+		    <small ng-message="maxlength">Max 20 characters long.</small>
+		 </div>
     </div>
 	<br></br>
 	<label for="description">Describe yourself</label>
@@ -40,14 +43,16 @@
 		ng-model="newAccount.password"
 		ng-class="{error: (accountForm.password.$dirty && !accountForm.password.$focused || submitted) && accountForm.password.$invalid , valid: accountForm.repeatPassword.$dirty && accountForm.repeatPassword.$valid}"
 		ng-minlength="6"
-		ng-max-length="200"
+		ng-maxlength="200"
 		ng-focus
 		required/>
 	</span>
 	<div class="error-container" ng-show="(accountForm.password.$dirty && !accountForm.password.$focused || submitted) && accountForm.password.$invalid ">
-	    <small>
-	        Password should be at least 6 characters.
-	    </small>
+		<div ng-messages="accountForm.password.$error">
+		    <small ng-message="required">Password required.</small>
+		    <small ng-message="minlength">At least 6 character long.</small>
+		    <small ng-message="maxlength">Password can't be over 200 characters long.</small>
+		 </div>
     </div>
 	<br><br>
 	<label for="repeatpassword">Repeat password</label>
@@ -60,9 +65,10 @@
 		required/>
 	</span>
 	<div class="error-container" ng-show="(accountForm.repeatPassword.$dirty  && !accountForm.repeatPassword.$focused || submitted) && accountForm.repeatPassword.$invalid">
-	    <small>
-	        The repeated password does not match the password!
-	    </small>
+	    <div ng-messages="accountForm.repeatPassword.$error">
+		    <small ng-message="required">Repeating the password is required.</small>
+		    <small ng-message="identical">The passwords are not the same!</small>
+		 </div>
     </div>
 	<br><br>
 	<button type="submit" ng-click="submitted=true">Register</button>
