@@ -73,30 +73,30 @@ function (baseService) {
 .directive('fdDescriptor', function() {
   return {
     scope: {
-      stepModel: '='
+      model: '='
     },
     template:
     '<ul>'+
-      '<li ng-repeat="step in stepModel track by $index">'+
+      '<li ng-repeat="step in model track by $index">'+
         '<label>Step {{$index+1}}</label>'+
         '<button class="btn--remove" ng-click="removeStep($index)">Remove</button>' +
-        '<span><textarea type="text" ng-model="stepModel[$index]" ></textarea></span>' +
+        '<span><textarea type="text" ng-model="model[$index]" ></textarea></span>' +
       '</li>'+
       '<button ng-click="addStep()">Add step</button>' +
     '</ul>',
     controller: ['$scope', function($scope) {
       $scope.addStep= function() {
-        $scope.stepModel.push("");
+        $scope.model.push("");
       };
 
       $scope.removeStep = function(idx) {
         //
-        $scope.stepModel.splice(idx, 1);
+        $scope.model.splice(idx, 1);
       };
 
       $scope.init = function() {
-        if($scope.stepModel.length <= 0) {
-          $scope.stepModel.push("");
+        if($scope.model.length <= 0) {
+          $scope.model.push("");
         }
       };
       $scope.init();
@@ -142,3 +142,20 @@ function (baseService) {
     }]
   };
 });
+
+/*.directive('fdLeastOne',  function() {
+  return {
+    link: function(scope, ele, attrs, c) {
+      scope.$watch(scope.model, function(newVal, oldVal) {
+        console.log(scope);
+        console.log(scope);
+        if(scope.model && scope.model.length > 0 && scope.model[0] && scope.model[0].length >0) {
+          c.$setValidity('leastOne', true);
+        }
+        else {
+          c.$setValidity('leastOne', false);
+        }
+      });
+    }
+  }
+});*/

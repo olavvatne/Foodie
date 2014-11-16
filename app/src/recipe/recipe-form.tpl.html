@@ -2,10 +2,10 @@
 <form name="recipeForm" class="form" ng-submit="postRecipe(newRecipe)" novalidate>
 	<label>Title</label>
 	<span>
-		<input name="title" placeholder="Title" type="text"  ng-class="{error: recipeForm.title.$dirty && recipeForm.title.$invalid && !recipeForm.title.$focused}"
+		<input name="title" placeholder="Title" type="text"  ng-class="{error: ((recipeForm.title.$dirty && !recipeForm.title.$focused) || submitted) && recipeForm.title.$invalid }"
 		ng-model="newRecipe.title" required ng-minlength="4" ng-maxlength="40" ng-focus/>
 	</span>
-	<div class="error-container" ng-show="recipeForm.title.$dirty && recipeForm.title.$invalid && !recipeForm.title.$focused">
+	<div class="error-container" ng-show="(recipeForm.title.$dirty && !recipeForm.title.$focused || submitted) && recipeForm.title.$invalid ">
 	    <small>
 	        The title is required and should be between 3 and 40 characters long
 	    </small>
@@ -21,9 +21,9 @@
 		<input name="image-url" placeholder="Image url" type="text" ng-model="newRecipe.image"/> 
 	</span>
 	<h2>Recipe steps</h2>
-	<fd-descriptor step-model="newRecipe.description"></fd-descriptor>
+	<fd-descriptor model="newRecipe.description"></fd-descriptor>
 	<h2>Recipe ingredients</h2>
 	<fd-ingredients model="newRecipe.ingredients"></fd-ingredients>
 	<br><br>
-	<button type="submit">Submit it!</button>
+	<button type="submit" ng-click="submitted=true">Submit it!</button>
 </form>
