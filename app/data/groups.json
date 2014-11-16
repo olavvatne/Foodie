@@ -1,6 +1,7 @@
 [
 	{
 		"id": 0,
+		"title": "Dinnerparty in Trondheim",
 		"recipe": {"id": 1, "title": "Best paella ever"},
 		"creator": {"id": 2, "username": "Thomas"},
 		"description": "I'm making paella next saturday. Join me!",
@@ -9,10 +10,20 @@
 	},
 	{
 		"id": 1,
+		"title": "Let's make this together",
 		"recipe": {"id": 0, "title": "Spaghetti bolognese"},
 		"creator": {"id": 0, "username": "Helen"},
 		"description": "Help me make spaghetti. Im a noob",
 		"participants": [{"id": 2, "username": "Thomas"}],
+		"created": "2014-11-08T14:58:54+00:00"
+	},
+	{
+		"id": 2,
+		"title": "Dinnerparty in Oslo",
+		"recipe": {"id": 1, "title": "Best paella ever"},
+		"creator": {"id": 1, "username": "Helen"},
+		"description": "I'm making paella soon. Who wants to join me",
+		"participants": [{"id": 1, "username": "Helen"},{"id": 2, "username": "Thomas"}],
 		"created": "2014-11-08T14:58:54+00:00"
 	}
 ]

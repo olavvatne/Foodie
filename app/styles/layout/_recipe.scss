@@ -75,5 +75,14 @@
 
 	@include e(groups) {
 		padding: em(5px);
+
+		li {
+			p {
+				display: inline;
+			}
+			a {
+				display: inline;
+			}
+		}
 	}
 }
