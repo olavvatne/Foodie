@@ -1,23 +1,29 @@
 <h1>Share your best recipes!</h1>
-<form class="form" ng-submit="postRecipe(newRecipe)">
+<form name="recipeForm" class="form" ng-submit="postRecipe(newRecipe)" novalidate>
 	<label>Title</label>
 	<span>
-		<input placeholder="Title" type="text" ng-model="newRecipe.title" autofocus required/>
+		<input name="title" placeholder="Title" type="text"  ng-class="{error: recipeForm.title.$dirty && recipeForm.title.$invalid && !recipeForm.title.$focused}"
+		ng-model="newRecipe.title" autofocus required ng-minlength="4" ng-maxlength="40" ng-focus/>
 	</span>
+	<div ng-show="recipeForm.title.$dirty && recipeForm.title.$invalid && !recipeForm.title.$focused">
+    <small class="error" >
+        The title is required and should be between 3 and 40 characters long
+    </small>
+    </div>
 	<br></br>
 	<label>Motivation</label>
 	<span>
-		<textarea placeholder="Motivation" type="text" ng-model="newRecipe.motivation" />
+		<textarea name="motivation" placeholder="Tell us why this recipe is great!" type="text" ng-model="newRecipe.motivation" />
 	</span>
 	<br><br>
 	<label>Image URL</label>
 	<span>
-		<input placeholder="Image url" type="text" ng-model="newRecipe.image"/> 
+		<input name="image-url" placeholder="Image url" type="text" ng-model="newRecipe.image"/> 
 	</span>
 	<h2>Recipe steps</h2>
 	<fd-descriptor step-model="newRecipe.description"></fd-descriptor>
 	<h2>Recipe ingredients</h2>
 	<fd-ingredients model="newRecipe.ingredients"></fd-ingredients>
-
+	<br><br>
 	<button type="submit">Submit it!</button>
 </form>

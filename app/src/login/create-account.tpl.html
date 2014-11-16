@@ -6,7 +6,7 @@
 <form class="form" ng-submit="register(newAccount)">
 	<label for="username">Username</label>
 	<span>
-		<input name="username" placeholder="Desired username" type="text" ng-model="newAccount.username"  autofocus required />
+		<input name="username" placeholder="Desired username" type="text" ng-model="newAccount.username"  autofocus required pattern="[a-zA-Z0-9 /\\@#$%&]+"/>
 	</span>
 	<br></br>
 	<label for="description">Describe yourself</label>

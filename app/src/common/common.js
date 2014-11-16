@@ -177,6 +177,25 @@ function (baseService, $rootScope, storage, $http) {
 
 }])
 
+//show error after blur
+.directive('ngFocus', [function() {
+  var FOCUS_CLASS = "ng-focused";
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    link: function(scope, element, attrs, ctrl) {
+      ctrl.$focused = false;
+      element.bind('focus', function(evt) {
+        element.addClass(FOCUS_CLASS);
+        scope.$apply(function() {ctrl.$focused = true;});
+      }).bind('blur', function(evt) {
+        element.removeClass(FOCUS_CLASS);
+        scope.$apply(function() {ctrl.$focused = false;});
+      });
+    }
+  }
+}])
+
 .filter('capitalize', function() {
     return function(input, all) {
       return (!!input) ? input.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
