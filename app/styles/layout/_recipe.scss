@@ -7,11 +7,11 @@
 		}
 	}
 	@include e(image){
+		@extend %image-fill-parent;
 		overflow:hidden;
 		height: em(500px);
 		border-radius: em(5px);
 		border: 1px solid palette(grey, x-light);
-		@extend %image-fill-parent;
 	}
 
 	@include e(ingredients){
