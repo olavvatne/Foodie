@@ -53,6 +53,7 @@ header.fix-user {
 			position: absolute;
 			top: 0;
 			width: 70%;
+			z-index: -2;
 			@include mq(large) {
 				width: calc(100% - 320px); //hack
 			}
