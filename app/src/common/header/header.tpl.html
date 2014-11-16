@@ -1,6 +1,9 @@
 <!-- Depending on whether the user is logged in or not, will display different json data-->
 <div ng-controller="HeaderCtrl" minimizer>
 <header class="top-header" ng-class="{'fix-user': minimized}">
+  <div class="top__info">
+    <h1 class="top__info--title">Foodie</h1>
+  </div>
   <div class="top__user" ng-show="minimized">
     <div class="top__user--picture" ng-show="user.username">
       <img class="picture" ng-if="user.image" ng-src="{{user.image}}"/>

@@ -1,17 +1,24 @@
 
 header {
- 	position: fixed;
- 	top: 0;
- 	left: 0;
- 	width: 100%;
- 	height: em(90px);
- 	z-index: 10;
+ 	@extend %base-header;
+
+ 	@include opacity(0);
+
+ 	@include e(info) {
+ 		@include m(title) {
+  			@include transition(opacity 0.6s fade-out);
+ 		}
+ 	}
 }
 
 header.fix-user {
-	background: palette(black, light);
- 	@include box-shadow(0 5px 10px rgba(0,0,0,0.3));
+	@extend %base-header;
 
+	background: palette(black, light);
+ 	
+	@include opacity(1);
+	@include box-shadow(0 5px 10px rgba(0,0,0,0.3));
+ 	
 	.top {
 		@include e(user) {
 			@extend %user-base;
@@ -20,6 +27,20 @@ header.fix-user {
  				@include roundImage(em(70px));
  			}
  		}
+ 		@include e(info) {
+ 			@extend %navbar-content;
+
+ 			@include m(title) {
+ 				@extend %title-headline;
+
+ 				font-size: em(40px);
+ 				font-weight: $font-weight--light;
+ 				text-align: left;
+ 				margin-top: 15px;
+ 				margin-left: 30px;
+ 			}
+
+ 		}
  	}
  }
 
@@ -27,42 +48,36 @@ header.fix-user {
 .navBanner {
 
 	position: fixed;
-
 	height: 400px;
 	width: 100%;
 	min-height: 80px;
 	background: $color-accent url(http://tympanus.net/Tutorials/CustomLoginFormStyling/images/bg3.jpg) no-repeat center top;
-	@include background-size(cover);
-
 	display: block;
 	overflow: hidden;
 
+	@include background-size(cover);
+
 	@include e(contents){
-		width: 70%;
-		height: 100%;
-		float: left;
+		@extend %navbar-content;
 
 		h1 {
+			@extend %title-headline;
+
 			margin-top: 150px;
-			height: 100%;
-			text-align: center;
-			font-size: em(70px);
-			font-family: "Pacifico", sans-serif;
+    		text-align: center;
 		}
 
 		.overlay {
+			@extend %navbar-content;
+
 			position: absolute;
 			top: 0;
-			width: 70%;
-			@include mq(large) {
-				width: calc(100% - 320px); //hack
-			}
-			float: left;
-			height: 100%;
 			background: palette(black, light);
 			opacity: 0;
-		}
 
+			@include mq(large) {
+			}
+		}
 	}
 
 	@include e(user) {
@@ -77,12 +92,12 @@ header.fix-user {
 			margin-bottom: em(50px);
 		} 
 
-		li {
+		> li {
 			list-style-type: none;
 			margin-bottom: em(5px);
 		}
 
-		a {
+		> a {
 			text-decoration: none;
 			color: $color-primary;
 			font-family: 'Open Sans', sans-serif;
