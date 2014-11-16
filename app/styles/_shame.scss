@@ -1,9 +1,21 @@
 
+/* Simple layout for the temporary menu with links.
+*/
+
 .header {
 	ul li {
 		display: inline;
 	}
 	a {
 		padding-left: 20px;
+	}
+}
+
+/* Since the content part of the navbar ( left side) always are 70% while the right have a maximum size.
+** There will be a gap in the animation on certain screen sizes. This hack fixes that.
+*/
+.navBanner__contents.overlay{
+	@include mq(large) {
+		width: calc(100% - 320px);
 	}
 }

@@ -71,6 +71,10 @@ $color-palettes: (
 		light    : lighten($black, 10%),
 		base     : $black,
 		dark     : darken($black, 10%)
+	),
+	white: (
+		base 	 : $white,
+		dark 	 : darken($white, 1%)
 	)
 );
 

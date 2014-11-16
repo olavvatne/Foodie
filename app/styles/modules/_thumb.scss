@@ -6,8 +6,10 @@
 
 	@include e(container){
 		margin: 10px;
+
 		border: 1px solid palette(grey,x-light);
 		:hover {
+			@include transition(background-color 0.3s ease-out);
 			background-color: palette(grey,xx-light);
 			text-decoration: none;
 		}
