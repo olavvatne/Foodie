@@ -53,3 +53,15 @@
 		@error "Error! No value could be retrieved for #{$break}"
 	}
 }
+
+/*		Button
+**
+*/
+@mixin btn-themes($map) {
+	@each $theme, $color in $map {
+		&--#{$theme} {
+			background-color: $color;
+			@content;
+		}
+	}
+}

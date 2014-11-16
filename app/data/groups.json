@@ -3,7 +3,11 @@
 		"id": 0,
 		"title": "Dinnerparty in Trondheim",
 		"recipe": {"id": 1, "title": "Best paella ever"},
-		"creator": {"id": 2, "username": "Thomas"},
+		"creator": {
+			"id": 2, 
+			"username": "Thomas",
+			"image": "http://www.fastcompany.com/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg"
+			},
 		"description": "I'm making paella next saturday. Join me!",
 		"participants": [
 			{
@@ -23,7 +27,11 @@
 		"id": 1,
 		"title": "Let's make this together",
 		"recipe": {"id": 0, "title": "Spaghetti bolognese"},
-		"creator": {"id": 0, "username": "Helen"},
+		"creator": {
+			"id": 0, 
+			"username": "Helen",
+			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
+			},
 		"description": "Help me make spaghetti. Im a noob",
 		"participants": [
 			{
@@ -43,7 +51,11 @@
 		"id": 2,
 		"title": "Dinnerparty in Oslo",
 		"recipe": {"id": 1, "title": "Best paella ever"},
-		"creator": {"id": 1, "username": "Helen"},
+		"creator": {
+			"id": 1, 
+			"username": "Helen",
+			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
+			},
 		"description": "I'm making paella soon. Who wants to join me",
 		"participants": [
 			{
