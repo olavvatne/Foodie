@@ -1,3 +1,44 @@
 <!-- Page you enter when clicking on a group listed in a recipe-->
-<p>Groups</p>
-<pre>{{group | json}}</pre>
+<div class="group">
+	<div class="group__info">
+		<p class="date">{{group.created | date}}</p>
+		<div>
+			<a class="username" ng-href="#profile/{{group.creator.id}}">
+				{{group.creator.username}}
+			</a>
+			<img class="image" src="#profile/{{group.creator.id}}"/>
+		</div>
+	</div>
+	<div class="group__title">
+		<h1>{{group.title}}</h1>
+	</div>
+	<div class="group__description">
+		<section>
+			<div class="description">
+				<h2>Description</h2>
+				<p ng-if="group.description">{{group.description}}</p>
+			</div>
+			<div class="recipe-info">
+				<h2>{{group.recipe.title}}</h2>
+				<p ng-if="#recipe/{{group.recipe.id}}"></p>
+			</div>
+		</section>
+	</div>
+
+	<div class="group__participants">
+		<select>
+			<h2>Participants</h2>
+			<table>
+				<tr ng-repeat="member in group.participants">
+					<div>
+						<a class="username" ng-href="#profile/{{group.creator.id}}">
+							{{group.creator.username}}
+						</a>
+					</div>
+				</tr>
+			</table>
+		</select>
+	</div>
+</div>
+
+<button ng-click="join()"> {{group.title}} </button>
