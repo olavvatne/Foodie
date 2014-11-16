@@ -75,6 +75,13 @@
 
 	@include e(groups) {
 		padding: em(5px);
+		.groupPanel {
+			margin-left: 0px;
+			margin-right: 0px;
+			padding: em(20px);
+			background-color: palette(grey, xx-light);
+			border: 1px solid palette(grey, x-light);
+		}
 		ul	{
 			padding-left: em(0px);
 			li {
