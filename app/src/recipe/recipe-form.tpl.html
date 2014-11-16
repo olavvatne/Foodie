@@ -1,8 +1,8 @@
 <h1>Share your best recipes!</h1>
-<form class="form">
+<form class="form" ng-submit="postRecipe(newRecipe)">
 	<label>Title</label>
 	<span>
-		<input placeholder="Title" type="text" ng-model="newRecipe.title" required="required" />
+		<input placeholder="Title" type="text" ng-model="newRecipe.title" autofocus required/>
 	</span>
 	<br></br>
 	<label>Motivation</label>
@@ -19,5 +19,5 @@
 	<h2>Recipe ingredients</h2>
 	<fd-ingredients model="newRecipe.ingredients"></fd-ingredients>
 
-	<button ng-click="postRecipe(newRecipe)">Submit it!</button>
+	<button type="submit">Submit it!</button>
 </form>
