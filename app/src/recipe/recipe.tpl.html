@@ -46,9 +46,11 @@
 			<ul>
 				<li ng-repeat="group in groupList">
 					<h4>{{group.title}}</h4>
-					<p>Attendees: {{group.participants.length}}</p>
-					<p>creator {{group.creator.username}}</p>
-					<a ng-href="#/group/{{group.id}}">Check out</a>
+					<p class="title">Attendees</p>
+					<p>{{group.participants.length}}</p>
+					<p class="title">Creator</p>
+					<p><a ng-href="#/profile/{{group.creator.id}}">{{group.creator.username}}</a></p>
+					<a class="groupButton" ng-href="#/group/{{group.id}}">Check out</a>
 				</li>
 			</ul>
 		</div>

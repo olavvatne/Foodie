@@ -22,8 +22,8 @@
 			width: 100%;
 			height: 100%;
 		    overflow: hidden;
-		    background-size: cover;
 		    background-position: center center;
+		    @include background-size(cover);
 		}
 		img {
 			//The actual html img is hidden, to preserve accessibility
@@ -75,13 +75,31 @@
 
 	@include e(groups) {
 		padding: em(5px);
-
-		li {
-			p {
-				display: inline;
-			}
-			a {
-				display: inline;
+		ul	{
+			padding-left: em(0px);
+			li {
+				border: 1px solid palette(grey, x-light);
+				list-style: none;
+				margin-bottom: em(40px);
+				padding: em(10px);
+				h4 {
+					font-weight: bold;
+				}
+				.title {
+					color: $color-primary;
+					font-weight: normal;
+					margin-left: em(10px);
+					margin-right: em(3px);
+				}
+				p {
+					text-transform: capitalize;
+					font-weight: bold;
+					display: inline;
+				}
+				.groupButton {
+					display: inline-flex;
+					float: right;
+				}
 			}
 		}
 	}
