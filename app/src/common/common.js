@@ -113,7 +113,7 @@ angular.module('fdCommon', [])
 
         
         appendData: function(key, data) {
-            datalist = this.getData(key);
+            var datalist = this.getData(key);
             if(datalist === undefined) {
                 datalist = [];
             }
@@ -121,7 +121,11 @@ angular.module('fdCommon', [])
             datalist.push(data);
             this.setData(key, datalist);
         },
-
+        replaceData: function(key, data, idx) {
+            var datalist = this.getData(key);
+            datalist[idx] = data;
+            this.setData(key, datalist)
+        },
         setData: function(key, val) {
           $window.localStorage && $window.localStorage.setItem(key, JSON.stringify(val));
           return this;
