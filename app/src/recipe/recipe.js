@@ -112,9 +112,9 @@ function (baseService) {
       '<li ng-repeat="step in model track by $index">'+
         '<label> Ingredient {{$index+1}}</label>' +
         '<button ng-click="removeStep($index)">Remove</button>' +
-        '<span><input type="number" ng-model="step.quantity" ></input>' +
+        '<input  type="number" ng-model="step.quantity" ></input>' +
         '<input placeholder="unit" type="text" ng-model="model[$index].unit" ></input>' +
-        '<input class="ingredient-name" placeholder="name"type="text" ng-model="model[$index].name" ></input></span>' +
+        '<input  class="ingredient-name" placeholder="name"type="text" ng-model="model[$index].name" ></input>' +
       '</li>'+
       '<button ng-click="addStep()">Add ingredients</button>' +
     '</ul>',
