@@ -38,7 +38,7 @@
 	<span>
 		<input name="password" placeholder="password" type="password"
 		ng-model="newAccount.password"
-		ng-class="{error: accountForm.password.$dirty && accountForm.password.$invalid && !accountForm.password.$focused}"
+		ng-class="{error: accountForm.password.$dirty && accountForm.password.$invalid && !accountForm.password.$focused, valid: accountForm.repeatPassword.$dirty && accountForm.repeatPassword.$valid}"
 		ng-minlength="6"
 		ng-max-length="200"
 		ng-focus
@@ -54,7 +54,7 @@
 	<span>
 		<input name="repeatPassword" placeholder="repeat password" type="password"
 		ng-model="newAccount.repeatPassword" 
-		ng-class="{error: accountForm.repeatPassword.$dirty && accountForm.repeatPassword.$invalid && !accountForm.repeatPassword.$focused}"
+		ng-class="{error: accountForm.repeatPassword.$dirty && accountForm.repeatPassword.$invalid && !accountForm.repeatPassword.$focused, valid: accountForm.repeatPassword.$dirty && accountForm.repeatPassword.$valid}"
 		ng-focus
 		fd-identical="{{newAccount.password}}"
 		required/>
