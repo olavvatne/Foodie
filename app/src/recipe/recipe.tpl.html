@@ -42,13 +42,18 @@
 	<section>
 		<h2>Groups</h2>
 		<div class="recipe__groups" ng-controller="RecipeGroupCtrl">
-			<p ng-if="noRecipes">Nobody wants to make this recipe! Do you want to start a group?</p>
+			<div class="recipe__groups groupPanel">
+				<p>Start a group for this recipe! Invite people, or let other foodie's join you at your dinner table! Exchange cooking advice...</p>
+			</div>
+			<p ng-if="noRecipes">Nobody is currently making this recipe! Why not start a group?</p>
 			<ul>
 				<li ng-repeat="group in groupList">
 					<h4>{{group.title}}</h4>
-					<p>Attendees: {{group.participants.length}}</p>
-					<p>creator {{group.creator.username}}</p>
-					<a ng-href="#/group/{{group.id}}">Check out</a>
+					<p class="title">Attendees</p>
+					<p>{{group.participants.length}}</p>
+					<p class="title">Creator</p>
+					<p><a ng-href="#/profile/{{group.creator.id}}">{{group.creator.username}}</a></p>
+					<a class="groupButton" ng-href="#/group/{{group.id}}">Check out</a>
 				</li>
 			</ul>
 		</div>
