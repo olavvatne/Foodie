@@ -36,6 +36,11 @@ angular.module('fdRecipe', ['fdCommon'])
   $scope.newRecipe.description = [];
 
   $scope.postRecipe = function(recipe) {
+    if(!$scope.user.username) {
+      //To avoid any recipes being posted where no user is logged in.
+      $location.path('/login');
+      return;
+    }
     if($scope.recipeForm.$valid) {
       recipes.store(recipe)
       .then(function(success) {
