@@ -39,6 +39,8 @@ angular.module('fdRecipe', ['fdCommon'])
     if($scope.recipeForm.$valid) {
       recipes.store(recipe)
       .then(function(success) {
+        //Should a message be displayed after the redirect?
+        //Should a message be displayed before redirect?
         $location.path('/recipe/' + success.recipeId);
       });
     }
@@ -71,14 +73,9 @@ function (baseService) {
 
 }])
 
-//Each recipe has to be descriped by a set of steps. This directive creates
-//form input for the user to insert a recipe step, and a button to add more
-//recipe steps
+
 .directive('fdDescriptor', function() {
   return {
-    scope: {
-      model: '='
-    },
     template:
     '<ul>'+
       '<li ng-repeat="step in model track by $index">'+
@@ -88,6 +85,9 @@ function (baseService) {
       '</li>'+
       '<button ng-click="addStep()">Add step</button>' +
     '</ul>',
+    scope: {
+    model: '=ngModel'
+    },
     controller: ['$scope', function($scope) {
       $scope.addStep= function() {
         $scope.model.push("");
@@ -104,7 +104,9 @@ function (baseService) {
         }
       };
       $scope.init();
-    }]
+    }],
+    link: function(scope, element, attr) {
+    }
   };
 })
 
@@ -114,19 +116,18 @@ function (baseService) {
 .directive('fdIngredients', function() {
   return {
     scope: {
-      model: '='
+      model: '=ngModel'
     },
     template: 
     '<ul>'+
       '<li ng-repeat="step in model track by $index">'+
-        '<label> Ingredient {{$index+1}}</label>' +
+        '<label style="float:inherit"> Ingredient {{$index+1}}</label>' +
+        '<input  type="number" ng-model="step.quantity" />' +
+        '<input placeholder="unit" type="text" ng-model="model[$index].unit" />' +
+        '<input  class="ingredient-name" style="width: 45%" placeholder="name"type="text" ng-model="model[$index].name" />' +
         '<button ng-click="removeStep($index)">Remove</button>' +
-        '<input  type="number" ng-model="step.quantity" ></input>' +
-        '<input placeholder="unit" type="text" ng-model="model[$index].unit" ></input>' +
-        '<input  class="ingredient-name" placeholder="name"type="text" ng-model="model[$index].name" ></input>' +
-      '</li>'+
-      '<button ng-click="addStep()">Add ingredients</button>' +
-    '</ul>',
+      '</li></ul>'+
+      '<button ng-click="addStep()" style="float:right">Add ingredients</button>',
     controller: ['$scope', function($scope) {
       $scope.addStep= function() {
         $scope.model.push({quantity: 0, unit: '', name: ''});
@@ -145,21 +146,21 @@ function (baseService) {
       $scope.init();
     }]
   };
-});
+})
 
-/*.directive('fdLeastOne',  function() {
+.directive('fdLeastOne',  function() {
   return {
+    require: 'ngModel',
     link: function(scope, ele, attrs, c) {
-      scope.$watch(scope.model, function(newVal, oldVal) {
-        console.log(scope);
-        console.log(scope);
-        if(scope.model && scope.model.length > 0 && scope.model[0] && scope.model[0].length >0) {
+      scope.$watch(attrs.ngModel, function(newVal, oldVal) {
+        console.log(newVal[0].length);
+        if((newVal && newVal.length > 0) && newVal[0].length >0 || (newVal[0].name && newVal[0].name.length > 0)) {
           c.$setValidity('leastOne', true);
         }
         else {
           c.$setValidity('leastOne', false);
         }
-      });
+      },true);
     }
   }
-});*/
+});

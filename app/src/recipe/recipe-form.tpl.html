@@ -15,6 +15,7 @@
 		    <small ng-message="maxlength">Max 60 character long title.</small>
 		 </div>
     </div>
+
 	<br></br>
 	<label>Motivation</label>
 	<span>
@@ -25,10 +26,31 @@
 	<span>
 		<input name="image-url" placeholder="Image url" type="text" ng-model="newRecipe.image"/> 
 	</span>
+
 	<h2>Recipe steps</h2>
-	<fd-descriptor model="newRecipe.description"></fd-descriptor>
+	<!--<fd-descriptor model="newRecipe.description"></fd-descriptor>-->
+	<fd-descriptor name="descriptor"
+		ng-model="newRecipe.description" 
+		ng-class="{errorPacked: ((recipeForm.descriptor.$dirty && !recipeForm.descriptor.$focused) || submitted) && recipeForm.descriptor.$invalid }"
+		fd-least-one>
+	</fd-descriptor>
+	<div class="error-container" ng-show="(recipeForm.descriptor.$dirty && !recipeForm.descriptor.$focused || submitted) && recipeForm.descriptor.$invalid ">
+	   <div ng-messages="recipeForm.descriptor.$error">
+		    <small ng-message="leastOne">Recipe should at least have one step.</small>
+		</div>
+    </div>
+
 	<h2>Recipe ingredients</h2>
-	<fd-ingredients model="newRecipe.ingredients"></fd-ingredients>
+	<fd-ingredients name="ingredients"
+		ng-model="newRecipe.ingredients" 
+		ng-class="{errorPacked: ((recipeForm.ingredients.$dirty && !recipeForm.ingredients.$focused) || submitted) && recipeForm.ingredients.$invalid }"
+		fd-least-one>
+	</fd-ingredients>
+	<div class="error-container" ng-show="(recipeForm.ingredients.$dirty && !recipeForm.ingredients.$focused || submitted) && recipeForm.ingredients.$invalid ">
+	   <div ng-messages="recipeForm.ingredients.$error">
+		    <small ng-message="leastOne">Recipe should at least have one ingredient.</small>
+		</div>
+	</div>
 	<br><br>
 	<button type="submit" ng-click="submitted=true">Submit it!</button>
 </form>
