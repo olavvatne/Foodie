@@ -1,11 +1,30 @@
 <h1>sitemap</h1>
 <h2>Main</h2>
-<a style="margin: 20px" href="#/">Front page</a><br>
+<ul>
+	<li><a href="#/">Front page</a><br></li>
+</ul>
+
 <h2>Recipes</h2>
-<a style="margin: 20px" href="#/recipe/">Create recipe</a><br>
-<a style="margin: 20px" ng-href="#/recipe/{{recipe.id}}" ng-repeat="recipe in recipes">{{recipe.title}}</a>
+<ul>
+	<li><a href="#/recipe/">Create recipe</a></li>
+	<li ng-repeat="recipe in recipes">
+		<a ng-href="#/recipe/{{recipe.id}}" >{{recipe.title}}</a>
+		<ul>
+			<li><a href="#/recipe/{{recipe.id}}/group">Create group</a></li>
+		</ul>
+	</li>
+</ul>
+
 <h2>Groups</h2>
-<a style="margin: 20px" ng-href="#/group/{{group.id}}" ng-repeat="group in groups">{{group.title}}</a>
+<ul>
+	<li ng-repeat="group in groups">
+		<a ng-href="#/group/{{group.id}}" >{{group.title}}</a>
+	</li>
+</ul>
 <h2>Users</h2>
-<a style="margin: 20px" href="#/create-account/">Register new user</a><br>
-<a style="margin: 20px" ng-href="#/user/{{user.id}}" ng-repeat="user in users">{{user.username}}</a>
+<ul>
+	<li><a href="#/create-account/">Register new user</a></li>
+	<li ng-repeat="user in users">
+		<a ng-href="#/user/{{user.id}}" >{{user.username}}</a>
+	</li>
+</ul>
