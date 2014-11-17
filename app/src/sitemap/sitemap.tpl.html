@@ -1,1 +1,11 @@
-<p>sitemap</p>
+<h1>sitemap</h1>
+<h2>Main</h2>
+<a style="margin: 20px" href="#/">Front page</a><br>
+<h2>Recipes</h2>
+<a style="margin: 20px" href="#/recipe/">Create recipe</a><br>
+<a style="margin: 20px" ng-href="#/recipe/{{recipe.id}}" ng-repeat="recipe in recipes">{{recipe.title}}</a>
+<h2>Groups</h2>
+<a style="margin: 20px" ng-href="#/group/{{group.id}}" ng-repeat="group in groups">{{group.title}}</a>
+<h2>Users</h2>
+<a style="margin: 20px" href="#/create-account/">Register new user</a><br>
+<a style="margin: 20px" ng-href="#/user/{{user.id}}" ng-repeat="user in users">{{user.username}}</a>

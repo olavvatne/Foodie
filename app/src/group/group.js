@@ -116,6 +116,11 @@ function (baseService) {
             return baseService.getResources(url);
         },
 
+        getAll: function(groupId) {
+            var url = 'api/group';
+            return baseService.getResources(url);
+        },
+
         putUser: function(user, groupId) {
             var url = "api/group/"+groupId+"/participant";
             return baseService.putResource(url, user);
