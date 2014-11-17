@@ -5,19 +5,19 @@
 		"recipe": {"id": 1, "title": "Best paella ever"},
 		"creator": {
 			"id": 2, 
-			"username": "Thomas",
+			"username": "thomas",
 			"image": "http://www.fastcompany.com/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg"
 			},
 		"description": "I'm making paella next saturday. Join me!",
 		"participants": [
 			{
 			"id": 1,
-			"username": "Thomas",
+			"username": "thomas",
 			"image": "http://www.fastcompany.com/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg"
 			},
 			{
 			"id": 0,
-			"username": "Helen",
+			"username": "helen",
 			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
 			}
 		],
@@ -29,19 +29,19 @@
 		"recipe": {"id": 0, "title": "Spaghetti bolognese"},
 		"creator": {
 			"id": 0, 
-			"username": "Helen",
+			"username": "helen",
 			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
 			},
 		"description": "Help me make spaghetti. Im a noob",
 		"participants": [
 			{
 			"id": 0,
-			"username": "Helen",
+			"username": "helen",
 			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
 			},
 			{
 			"id": 1,
-			"username": "Thomas",
+			"username": "thomas",
 			"image": "http://www.fastcompany.com/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg"
 			}
 		],
@@ -53,19 +53,19 @@
 		"recipe": {"id": 1, "title": "Best paella ever"},
 		"creator": {
 			"id": 1, 
-			"username": "Helen",
+			"username": "helen",
 			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
 			},
 		"description": "I'm making paella soon. Who wants to join me",
 		"participants": [
 			{
 			"id": 0,
-			"username": "Helen",
+			"username": "helen",
 			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
 			},
 			{
 			"id": 2,
-			"username": "Hilda",
+			"username": "hilda",
 			"image": "http://media.cirrusmedia.com.au/LW_Media_Library/594partner-profile-pic-An.jpg"
 			}
 		],

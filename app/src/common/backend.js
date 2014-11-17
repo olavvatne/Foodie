@@ -103,6 +103,20 @@ angular.module('fdCommon')
             }
             return recipeGroups;
         },
+        getGroup: function(groupId, user) {
+            var group = storage.getData('group')[groupId];
+            group.joined = false;
+            if(user.username) {
+                for(var i = 0; i<group.participants.length; i++) {
+                    console.log(user.username);
+                    console.log(group.participants[i].username);
+                    if(user.username == group.participants[i].username) {
+                        group.joined = true;
+                    }
+                }
+            }
+            return group;
+        },
         get: function(key, id) {
             if(id === undefined) {
                 return storage.getData(key);
@@ -111,6 +125,10 @@ angular.module('fdCommon')
                 if(id === "popular") {
                     //Just return all recipes if popular recipes are requested
                     return storage.getData(key);
+                }
+                if(key === 'group') {
+                    var user = $rootScope.user;
+                    return this.getGroup(id, user);
                 }
                 return storage.getData(key)[id];
             }
