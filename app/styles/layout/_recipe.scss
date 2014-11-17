@@ -73,6 +73,14 @@
 			padding: em(20px);
 			background-color: palette(grey, xx-light);
 			border: 1px solid palette(grey, x-light);
+
+			.login-message {
+				border: 1px solid palette(grey, x-light);
+				text-align: center;
+				p {
+					margin: em(20px);
+				}
+			}
 		}
 		ul	{
 			padding-left: em(0px);
