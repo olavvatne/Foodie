@@ -24,6 +24,7 @@ angular.module('fdRecipe')
                 '<td class="col-centered" ng-repeat="recipe in row track by $index">'+
                     '<ng-include src="thumbTemplate"></ng-include>'+
                 '</td>'+
+                '<td ng-repeat="i in getNumber(internalMaxCols - row.length)"></td>'+
               '</tr>'+
             '</table>',
     controller: ['$scope', function($scope) {
@@ -32,6 +33,14 @@ angular.module('fdRecipe')
       $scope.internalMaxCols = 4;
       //Transclude this instead!
       $scope.thumbTemplate =  'src/recipe/grid/recipe-thumb.tpl.html';
+
+      $scope.getNumber = function(num) {
+        var numbers = [];
+        for(var i = 0; i<num; i++) {
+          numbers.push(i);
+        }
+        return numbers;   
+      }
 
       $scope.constructGridLayout = function(data) {
         var resultSet = angular.copy(data);

@@ -29,13 +29,24 @@ angular.module('fdRecipe', ['fdCommon'])
   $scope.recipe = recipe;
 }])
 
-.controller('RecipeFormCtrl', ['$scope', 'recipes',  function ($scope, recipes) {
+.controller('RecipeFormCtrl', ['$scope', 'recipes', '$location',
+  function ($scope, recipes, $location) {
   $scope.newRecipe = {};
   $scope.newRecipe.ingredients = [];
   $scope.newRecipe.description = [];
 
   $scope.postRecipe = function(recipe) {
-    recipes.store(recipe);
+    if($scope.recipeForm.$valid) {
+      recipes.store(recipe)
+      .then(function(success) {
+        //Should a message be displayed after the redirect?
+        //Should a message be displayed before redirect?
+        $location.path('/recipe/' + success.recipeId);
+      });
+    }
+    else {
+      console.log("NOT VALID YET");
+    }
   };
 }])
 
@@ -62,40 +73,40 @@ function (baseService) {
 
 }])
 
-//Each recipe has to be descriped by a set of steps. This directive creates
-//form input for the user to insert a recipe step, and a button to add more
-//recipe steps
+
 .directive('fdDescriptor', function() {
   return {
-    scope: {
-      stepModel: '='
-    },
     template:
     '<ul>'+
-      '<li ng-repeat="step in stepModel track by $index">'+
+      '<li ng-repeat="step in model track by $index">'+
         '<label>Step {{$index+1}}</label>'+
-        '<button class="btn--remove" ng-click="removeStep($index)">Remove</button>' +
-        '<span><textarea type="text" ng-model="stepModel[$index]" ></textarea></span>' +
+        '<button class="btn--remove" ng-click="removeStep($index)"><b>X</b></button>' +
+        '<span><textarea type="text" ng-model="model[$index]" ></textarea></span>' +
       '</li>'+
       '<button ng-click="addStep()">Add step</button>' +
     '</ul>',
+    scope: {
+    model: '=ngModel'
+    },
     controller: ['$scope', function($scope) {
       $scope.addStep= function() {
-        $scope.stepModel.push("");
+        $scope.model.push("");
       };
 
       $scope.removeStep = function(idx) {
         //
-        $scope.stepModel.splice(idx, 1);
+        $scope.model.splice(idx, 1);
       };
 
       $scope.init = function() {
-        if($scope.stepModel.length <= 0) {
-          $scope.stepModel.push("");
+        if($scope.model.length <= 0) {
+          $scope.model.push("");
         }
       };
       $scope.init();
-    }]
+    }],
+    link: function(scope, element, attr) {
+    }
   };
 })
 
@@ -105,19 +116,18 @@ function (baseService) {
 .directive('fdIngredients', function() {
   return {
     scope: {
-      model: '='
+      model: '=ngModel'
     },
     template: 
     '<ul>'+
       '<li ng-repeat="step in model track by $index">'+
-        '<label> Ingredient {{$index+1}}</label>' +
-        '<button ng-click="removeStep($index)">Remove</button>' +
-        '<span><input type="number" ng-model="step.quantity" ></input>' +
-        '<input placeholder="unit" type="text" ng-model="model[$index].unit" ></input>' +
-        '<input class="ingredient-name" placeholder="name"type="text" ng-model="model[$index].name" ></input></span>' +
-      '</li>'+
-      '<button ng-click="addStep()">Add ingredients</button>' +
-    '</ul>',
+        '<label style="float:inherit"> Ingredient {{$index+1}}</label>' +
+        '<input  type="number" ng-model="step.quantity" />' +
+        '<input placeholder="unit" type="text" ng-model="model[$index].unit" />' +
+        '<input  class="ingredient-name" style="width: 45%" placeholder="name"type="text" ng-model="model[$index].name" />' +
+        '<button ng-click="removeStep($index)" ng-show="$index >0"><b>X</b></button>' +
+      '</li></ul>'+
+      '<button ng-click="addStep()" style="float:right">Add ingredients</button>',
     controller: ['$scope', function($scope) {
       $scope.addStep= function() {
         $scope.model.push({quantity: 0, unit: '', name: ''});
@@ -136,4 +146,21 @@ function (baseService) {
       $scope.init();
     }]
   };
+})
+
+.directive('fdLeastOne',  function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, ele, attrs, c) {
+      scope.$watch(attrs.ngModel, function(newVal, oldVal) {
+        console.log(newVal[0].length);
+        if((newVal && newVal.length > 0) && newVal[0].length >0 || (newVal[0].name && newVal[0].name.length > 0)) {
+          c.$setValidity('leastOne', true);
+        }
+        else {
+          c.$setValidity('leastOne', false);
+        }
+      },true);
+    }
+  }
 });
