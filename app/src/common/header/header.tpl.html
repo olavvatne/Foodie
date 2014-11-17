@@ -23,6 +23,7 @@
       </div>
       <h3 class="navBanner__user--username">{{user.username | capitalize}}</h3>
       <ul style="padding: 0px">
+        <li><a href="#/sitemap/">Sitemap</li>
         <li ng-if="!user.username"><a href="#/create-account">Create account</a></li>
         <li ng-if="!user.username"><a href="#/login">Log in</li>
         <li ng-if="user.username"><a href="#/notification/">Notifications</a></li>
