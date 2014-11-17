@@ -38,7 +38,7 @@ angular.module('fdGroup', [])
         if($scope.user.username) {
             groups.putUser($scope.user, $scope.group.id)
             .then(function(success) {
-                $scope.group.participant = success.participant;
+                $scope.group.participants = success.participants;
             }, function(error) {
                 console.log("Could not join group");
             });
