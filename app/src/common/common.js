@@ -120,6 +120,7 @@ angular.module('fdCommon', [])
             data['id'] = datalist.length;
             datalist.push(data);
             this.setData(key, datalist);
+            return data['id'];
         },
         replaceData: function(key, data, idx) {
             var datalist = this.getData(key);
@@ -175,6 +176,25 @@ function (baseService, $rootScope, storage, $http) {
         }
   } ;
 
+}])
+
+//show error after blur
+.directive('ngFocus', [function() {
+  var FOCUS_CLASS = "ng-focused";
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    link: function(scope, element, attrs, ctrl) {
+      ctrl.$focused = false;
+      element.bind('focus', function(evt) {
+        element.addClass(FOCUS_CLASS);
+        scope.$apply(function() {ctrl.$focused = true; ctrl.$dirty = true;});
+      }).bind('blur', function(evt) {
+        element.removeClass(FOCUS_CLASS);
+        scope.$apply(function() {ctrl.$focused = false;});
+      });
+    }
+  }
 }])
 
 .filter('capitalize', function() {
