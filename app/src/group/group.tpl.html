@@ -1,7 +1,16 @@
 <!-- Page you enter when clicking on a group listed in a recipe-->
 <div class="group">
 	<span>
-		<button class="btn--positive" ng-click="join()">Join</button>
+		<div ng-if="user.username">
+			<div ng-if="user.username !== group.creator.username">
+			<button class="btn--positive" ng-if="!group.joined" ng-click="join()">
+				Join
+			</button>
+			<button class="btn--negative" ng-if="group.joined" ng-click="leave()">
+				Leave
+			</button>
+			</div>
+		</div>
 	</span>
 	<div class="group__headline">
 		<!--	User block	 -->
@@ -9,7 +18,7 @@
 			<div class="disp-user__info">
 				<p class="disp-user__date">{{group.created | date}}</p>
 				<a class="disp-user__username" ng-href="#/profile/{{group.creator.id}}">
-					{{group.creator.username}}
+					{{group.creator.username | capitalize}}
 				</a>
 			</div>
 			 <div class="disp-user__picture" ng-show="group.creator.username">
@@ -39,7 +48,7 @@
 			<h2>Participants</h2>
 			<div ng-repeat="member in group.participants">
 				<div class="disp-user userinfo" style="margin-bottom: 10px;">
-					<a class="disp-user__info" ng-href="#/profile/{{member.id}}">{{member.username}}</a>
+					<a class="disp-user__info" ng-href="#/profile/{{member.id}}">{{member.username | capitalize}}</a>
 					<img class="disp-user__picture" ng-src="{{member.image}}"/>
 				</div>
 			</div>

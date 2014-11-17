@@ -41,6 +41,7 @@ angular.module('fdLogin', ['fdCommon', 'fdUser'])
   $scope.registrationSuccessful = false;
   $scope.register = function(newAccount) {
     if($scope.accountForm.$valid) {
+      newAccount.username = newAccount.username.toLowerCase();
       users.create(newAccount).then(function(success) {
         $scope.user = success;
         $scope.registrationSuccessful = true;

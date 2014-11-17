@@ -66,6 +66,9 @@ angular.module('fdCommon')
             //Need to append recipe to users posted recipes
             user.joined = new Date();
             user.recipes = [];
+            if(!user.image) {
+            user.image = '/img/no-profile-image.png'
+          }
             storage.appendData('user', user)
             return user;
         },
@@ -82,10 +85,24 @@ angular.module('fdCommon')
             return {message: "Your group was successfully created", groupId: groupId};
         },
 
-        addParticipant: function(object, value) {
-
+        addParticipant: function(groupId, user) {
+            var group = storage.getData('group')[groupId];
+            var par = {id: user.id, username: user.username, image: user.image};
+            group.participants.push(par);
+            storage.replaceData('group', group, groupId);
+            return {message: "Your group was successfully created", participants: group.participants};
         },
-
+        removeParticipant: function(groupId, user) {
+            var group = storage.getData('group')[groupId];
+            for(var i = 0; i<group.participants.length; i++) {
+                console.log("HEI");
+                if(user.username === group.participants[i].username) {
+                    group.participants.splice(i, 1);
+                }
+            }
+            storage.replaceData('group', group, groupId);
+            return {message: "Your group was successfully created", participants: group.participants};
+        },
         getGroupsForRecipe: function(recipeId) {
             var groups = storage.getData('group');
             var recipeGroups = [];
@@ -96,6 +113,18 @@ angular.module('fdCommon')
             }
             return recipeGroups;
         },
+        getGroup: function(groupId, user) {
+            var group = storage.getData('group')[groupId];
+            group.joined = false;
+            if(user.username) {
+                for(var i = 0; i<group.participants.length; i++) {
+                    if(user.username == group.participants[i].username) {
+                        group.joined = true;
+                    }
+                }
+            }
+            return group;
+        },
         get: function(key, id) {
             if(id === undefined) {
                 return storage.getData(key);
@@ -104,6 +133,10 @@ angular.module('fdCommon')
                 if(id === "popular") {
                     //Just return all recipes if popular recipes are requested
                     return storage.getData(key);
+                }
+                if(key === 'group') {
+                    var user = $rootScope.user;
+                    return this.getGroup(id, user);
                 }
                 return storage.getData(key)[id];
             }
@@ -126,9 +159,15 @@ angular.module('fdCommon')
             return null;
         },
 
-        put: function(key, object, value) {
+        put: function(key, object, value, operation) {
             if( key == 'group') {
-                return this.addParticipant(value, object);
+                if(operation === 'join') {
+                    return this.addParticipant(value, object);
+                }
+                else if(operation === 'leave') {
+                     console.log("HEI");
+                    return this.removeParticipant(value, object);
+                }
             }
             return null;
         },
@@ -147,9 +186,9 @@ angular.module('fdCommon')
 	    getMock: function(url) {
 	        var deferred = $q.defer();
 	        $timeout(function () {
-	            u = url.split('/');
-	            key = u[1]
-	            element = u[2] || undefined;
+	            var u = url.split('/');
+	            var key = u[1]
+	            var element = u[2] || undefined;
                 if(u.length > 3 && u[3] === 'group') {
                     deferred.resolve(backend.getGroupsForRecipe(element))
                 }
@@ -163,8 +202,8 @@ angular.module('fdCommon')
 	    postMock: function(url, resource) {
 	        var deferred = $q.defer();
 	        $timeout(function () {
-	            u = url.split('/');
-	            key = u[1]
+	            var u = url.split('/');
+	            var key = u[1]
 	            deferred.resolve(backend.post(key, resource));
 	        }, 200);
 	        return deferred.promise;
@@ -173,10 +212,11 @@ angular.module('fdCommon')
         putMock: function(url, object) {
             var deferred = $q.defer();
             $timeout(function () {
-                u = url.split('/');
-                key = u[1]
-                value = u[2]
-                deferred.resolve(backend.put(key, object, value));
+                var u = url.split('/');
+                var key = u[1]
+                var value = u[2]
+                var operation = u[3]
+                deferred.resolve(backend.put(key, object, value, operation));
             }, 200);
             return deferred.promise;
         }
