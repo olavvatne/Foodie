@@ -4,7 +4,7 @@
 	<P>Welcome to foodie, {{user.username}}</P>
 </div>
 <form name="accountForm" class="form" ng-submit="register(newAccount)" novalidate>
-	<label for="username">Username</label>
+	<label for="username">* Username</label>
 	<span>
 		<input name="username" placeholder="Desired username" type="text" 
 		ng-class="{error: (accountForm.username.$dirty && !accountForm.username.$focused || submitted) && accountForm.username.$invalid }"
@@ -37,7 +37,7 @@
 		/>
 	</span>
 	<br><br>
-	<label for="password">Password</label>
+	<label for="password">* Password</label>
 	<span>
 		<input name="password" placeholder="password" type="password"
 		ng-model="newAccount.password"
@@ -55,7 +55,7 @@
 		 </div>
     </div>
 	<br><br>
-	<label for="repeatpassword">Repeat password</label>
+	<label for="repeatpassword">* Repeat password</label>
 	<span>
 		<input name="repeatPassword" placeholder="repeat password" type="password"
 		ng-model="newAccount.repeatPassword" 

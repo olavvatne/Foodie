@@ -79,11 +79,11 @@ function (baseService) {
     template:
     '<ul>'+
       '<li ng-repeat="step in model track by $index">'+
-        '<label>Step {{$index+1}}</label>'+
+        '<label><i ng-if="$index==0">* </i>Step {{$index+1}}</label>'+
         '<button class="btn--negative" ng-click="removeStep($index)"><b>X</b></button>' +
         '<span><textarea type="text" ng-model="model[$index]" ></textarea></span>' +
       '</li>'+
-      '<button class="btn--neutral" ng-click="addStep()">Add step</button>' +
+      '<button type="button" class="btn--neutral" ng-click="addStep()">Add step</button>' +
     '</ul>',
     scope: {
     model: '=ngModel'
@@ -121,13 +121,13 @@ function (baseService) {
     template: 
     '<ul>'+
       '<li ng-repeat="step in model track by $index">'+
-        '<label style="float:inherit"> Ingredient {{$index+1}}</label>' +
+        '<label style="float:inherit"><i ng-if="$index==0">* </i> Ingredient {{$index+1}}</label>' +
         '<input  type="number" ng-model="step.quantity" />' +
         '<input placeholder="unit" type="text" ng-model="model[$index].unit" />' +
         '<input  class="ingredient-name" style="width: 45%" placeholder="name"type="text" ng-model="model[$index].name" />' +
         '<button class="btn--negative" ng-click="removeStep($index)" ng-show="$index >0"><b>X</b></button>' +
       '</li></ul>'+
-      '<button class="btn--neutral" ng-click="addStep()" style="float:right">Add ingredients</button>',
+      '<button type="button" class="btn--neutral" ng-click="addStep()" style="float:right">Add ingredients</button>',
     controller: ['$scope', function($scope) {
       $scope.addStep= function() {
         $scope.model.push({quantity: 0, unit: '', name: ''});
