@@ -125,7 +125,7 @@ function (baseService) {
         '<input  type="number" ng-model="step.quantity" />' +
         '<input placeholder="unit" type="text" ng-model="model[$index].unit" />' +
         '<input  class="ingredient-name" style="width: 45%" placeholder="name"type="text" ng-model="model[$index].name" />' +
-        '<button class="btn--negative-" ng-click="removeStep($index)" ng-show="$index >0"><b>X</b></button>' +
+        '<button class="btn--negative" ng-click="removeStep($index)" ng-show="$index >0"><b>X</b></button>' +
       '</li></ul>'+
       '<button class="btn--neutral" ng-click="addStep()" style="float:right">Add ingredients</button>',
     controller: ['$scope', function($scope) {
