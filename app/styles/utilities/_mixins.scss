@@ -61,7 +61,16 @@
 	@each $theme, $color in $map {
 		&--#{$theme} {
 			background-color: $color;
+			
 			@content;
+
+			&:hover {
+				@include box-shadow(inset 0px 0px 0px 2px $color);
+				color: $color;
+			}
+			&:active {
+				background-color: $color;
+			}
 		}
 	}
 }

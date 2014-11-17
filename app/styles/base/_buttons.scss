@@ -2,6 +2,21 @@
 
 .btn {
 	@include btn-themes($themes) {
-		border: 1px solid palette(black);
+		@extend %base-buttonstyle;
+		width: 150px;
+		@include transition(all 0.15s linear);
+		&:hover {
+			background-color: palette(white);
+		}
 	}
 }
+
+button {
+	@extend %base-buttonstyle;
+	width: 30%;
+	
+	color: $white;
+    background: $color-primary;
+}
+
+
