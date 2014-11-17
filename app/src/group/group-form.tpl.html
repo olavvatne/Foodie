@@ -1,4 +1,9 @@
 <h1>Create a group!</h1>
+<div ng-if="!user.username" style="text-align: center">
+<p style="margin: 20px">You cant create a group unless your logged in! <a href="#/login">Sign in</a></p>
+
+</div>
+<div ng-if="user.username">
 <form name="groupForm" class="form" ng-submit="createGroup(group)" novalidate>
 	<label>Title *</label>
 	<span>
@@ -69,3 +74,4 @@
     <br><br>
 	<button class="btn--positive" type="submit" ng-click="submitted=true">Create group</button>
 </form>
+</div>

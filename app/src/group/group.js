@@ -73,6 +73,11 @@ angular.module('fdGroup', [])
     $scope.max = Number.MAX_VALUE;
     $scope.today = new Date();
     $scope.createGroup = function(newGroup) {
+        if(!$scope.user.username) {
+          //To avoid any recipes being posted where no user is logged in.
+          $location.path('/login');
+          return;
+        }
         if($scope.groupForm.$valid) {
             if(!newGroup.nr_participants) {
                 newGroup.nr_participants = $scope.max;

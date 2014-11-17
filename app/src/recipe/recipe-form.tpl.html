@@ -1,4 +1,9 @@
 <h1>Share your best recipes!</h1>
+<div ng-if="!user.username" style="text-align: center">
+<p style="margin: 20px">You can't create recipes unless your logged in! <a href="#/login">Sign in</a></p>
+
+</div>
+<div ng-if="user.username">
 <form name="recipeForm" class="form" ng-submit="postRecipe(newRecipe)" novalidate>
 	<label>* Title</label>
 	<span>
@@ -54,3 +59,4 @@
 	<br><br>
 	<button class="btn--positive" type="submit" ng-click="submitted=true">Submit it!</button>
 </form>
+</div>
