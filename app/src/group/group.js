@@ -14,6 +14,10 @@ angular.module('fdGroup', [])
                 });
             }]
         },
+      })
+      .when('/group/', {
+        templateUrl: 'src/group/group-form.tpl.html',
+        controller: 'GroupFormCtrl'
       });
   }])
 
@@ -50,6 +54,21 @@ angular.module('fdGroup', [])
         })
     };
     init();
+}])
+
+.controller('GroupFormCtrl', ['$scope', 'groups',  function ($scope, groups) {
+    $scope.group = {};
+    $scope.createGroup = function(newGroup) {
+        if($scope.groupForm.$valid) {
+            groups.store(newGroup) 
+            .then(function(data) {
+
+            });
+        }
+        else {
+            console.log("Form is not valid");
+        }
+    };
 }])
 
 .factory('groups', ['baseService',

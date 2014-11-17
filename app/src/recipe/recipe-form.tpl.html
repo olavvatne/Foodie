@@ -1,6 +1,6 @@
 <h1>Share your best recipes!</h1>
 <form name="recipeForm" class="form" ng-submit="postRecipe(newRecipe)" novalidate>
-	<label>Title</label>
+	<label>* Title</label>
 	<span>
 		<input name="title" placeholder="Title" type="text"  ng-class="{error: ((recipeForm.title.$dirty && !recipeForm.title.$focused) || submitted) && recipeForm.title.$invalid }"
 		ng-model="newRecipe.title"
