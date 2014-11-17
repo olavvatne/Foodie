@@ -61,16 +61,23 @@ function (baseService) {
     return {
         get: function(id) {
         //Mocked backend
-        var url = 'api/recipe/' + id
+        var url = 'api/recipe/' + id;
         return baseService.getResources(url);
         },
+
+        getAll: function() {
+        //Mocked backend
+        var url = 'api/recipe';
+        return baseService.getResources(url);
+        },
+
         getPopular: function() {
-          var url = 'api/recipe/popular'
+          var url = 'api/recipe/popular';
           return baseService.getResources(url);
         },
         store: function(newRecipe) {
           //mocked backend
-        	var url ="api/recipe"
+        	var url ="api/recipe";
           return baseService.postResource(url, newRecipe);
         }
        
