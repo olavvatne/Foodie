@@ -1,0 +1,7 @@
+
+
+.btn {
+	@include btn-themes($themes) {
+		border: 1px solid palette(black);
+	}
+}
