@@ -92,7 +92,17 @@ angular.module('fdCommon')
             storage.replaceData('group', group, groupId);
             return {message: "Your group was successfully created", participants: group.participants};
         },
-
+        removeParticipant: function(groupId, user) {
+            var group = storage.getData('group')[groupId];
+            for(var i = 0; i<group.participants.length; i++) {
+                console.log("HEI");
+                if(user.username === group.participants[i].username) {
+                    group.participants.splice(i, 1);
+                }
+            }
+            storage.replaceData('group', group, groupId);
+            return {message: "Your group was successfully created", participants: group.participants};
+        },
         getGroupsForRecipe: function(recipeId) {
             var groups = storage.getData('group');
             var recipeGroups = [];
@@ -108,8 +118,6 @@ angular.module('fdCommon')
             group.joined = false;
             if(user.username) {
                 for(var i = 0; i<group.participants.length; i++) {
-                    console.log(user.username);
-                    console.log(group.participants[i].username);
                     if(user.username == group.participants[i].username) {
                         group.joined = true;
                     }
@@ -151,9 +159,15 @@ angular.module('fdCommon')
             return null;
         },
 
-        put: function(key, object, value) {
+        put: function(key, object, value, operation) {
             if( key == 'group') {
-                return this.addParticipant(value, object);
+                if(operation === 'join') {
+                    return this.addParticipant(value, object);
+                }
+                else if(operation === 'leave') {
+                     console.log("HEI");
+                    return this.removeParticipant(value, object);
+                }
             }
             return null;
         },
@@ -201,7 +215,8 @@ angular.module('fdCommon')
                 var u = url.split('/');
                 var key = u[1]
                 var value = u[2]
-                deferred.resolve(backend.put(key, object, value));
+                var operation = u[3]
+                deferred.resolve(backend.put(key, object, value, operation));
             }, 200);
             return deferred.promise;
         }

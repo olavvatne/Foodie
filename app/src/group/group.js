@@ -39,8 +39,19 @@ angular.module('fdGroup', [])
             groups.putUser($scope.user, $scope.group.id)
             .then(function(success) {
                 $scope.group.participants = success.participants;
+                $scope.group.joined = true;
             }, function(error) {
                 console.log("Could not join group");
+            });
+        }
+    }
+
+    $scope.leave = function(userId) {
+        if($scope.user.username) {
+            groups.leaveUser($scope.user, $scope.group.id)
+            .then(function(success) {
+                $scope.group.participants = success.participants;
+                $scope.group.joined = false;
             });
         }
     }
@@ -133,10 +144,16 @@ function (baseService) {
         },
 
         putUser: function(user, groupId) {
-            var url = "api/group/"+groupId+"/participant";
+            var url = "api/group/"+groupId+"/join";
+            return baseService.putResource(url, user);
+        },
+
+        leaveUser: function(user, groupId) {
+            console.log("TEST");
+            var url = "api/group/"+groupId+"/leave";
             return baseService.putResource(url, user);
         }
-       
+        
     };
 
 }]);
