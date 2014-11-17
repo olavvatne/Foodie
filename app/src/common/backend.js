@@ -40,7 +40,7 @@ angular.module('fdCommon')
             //Need to append recipe to users posted recipes
             recipe.creator = user;
             recipe.created = new Date();
-            storage.appendData('recipe', recipe)
+            var idx = storage.appendData('recipe', recipe)
             var users = storage.getData('user');
             for (var i = 0; i< users.length; i++) {
                 if (users[i].username === user.username) {
@@ -48,6 +48,7 @@ angular.module('fdCommon')
                     storage.replaceData('user', users[i], i);
                 }
             }
+            return {message: "Your recipe was successfully posted", recipeId: idx};
         },
 
         login: function(data) {

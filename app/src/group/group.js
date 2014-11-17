@@ -21,6 +21,11 @@ angular.module('fdGroup', [])
 //resolve will preload the group, and the data put into the scope.
 .controller('GroupCtrl', ['$scope', 'group',  function ($scope, group) {
     $scope.group = group;
+
+    //TODO
+    $scope.join = function() {
+        
+    }
 }])
 
 //Can be used at controller on recipe page

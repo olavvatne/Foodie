@@ -4,6 +4,7 @@
   angular
   .module('foodieApp', [
     'ngRoute',
+    'ngMessages',
     'fdHome',
     'fdNotifications',
     'fdGroup',

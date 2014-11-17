@@ -32,3 +32,23 @@
 
 }
 
+%navbar-content {
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
+%title-headline {
+    height: 100%;
+    font-size: em(70px);
+    font-family: "Pacifico", sans-serif;
+}
+
+%base-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: em(90px);
+    z-index: 10;
+}

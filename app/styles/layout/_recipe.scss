@@ -7,11 +7,11 @@
 		}
 	}
 	@include e(image){
+		@extend %image-fill-parent;
 		overflow:hidden;
 		height: em(500px);
 		border-radius: em(5px);
 		border: 1px solid palette(grey, x-light);
-		@extend %image-fill-parent;
 	}
 
 	@include e(ingredients){
@@ -59,8 +59,9 @@
 	@include e(groups) {
 		padding: em(5px);
 		.groupPanel {
-			margin-left: 0px;
-			margin-right: 0px;
+			margin-left: 0em;
+			margin-right: 0em;
+			margin-bottom: em(50px);
 			padding: em(20px);
 			background-color: palette(grey, xx-light);
 			border: 1px solid palette(grey, x-light);
@@ -70,7 +71,7 @@
 			li {
 				border: 1px solid palette(grey, x-light);
 				list-style: none;
-				margin-bottom: em(40px);
+				margin-bottom: em(25px);
 				padding: em(10px);
 				h4 {
 					font-weight: bold;

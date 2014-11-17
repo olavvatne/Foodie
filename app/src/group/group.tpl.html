@@ -1,3 +1,47 @@
 <!-- Page you enter when clicking on a group listed in a recipe-->
-<p>Groups</p>
-<pre>{{group | json}}</pre>
+<div class="group">
+	<span>
+		<button class="btn--positive" ng-click="join()">Join</button>
+		<p class="date">{{group.created | date}}</p>
+	</span>
+	<div class="group__headline">
+		<!--	User block	 -->
+		<div class="disp-user userinfo">
+			<p class="disp-user__date">{{group.created | date}}</p>
+			<a class="disp-user__username" ng-href="#/profile/{{group.creator.id}}">
+				{{group.creator.username}}
+			</a>
+			 <div class="disp-user__picture" ng-show="group.creator.username">
+				<img ng-src="{{group.creator.image}}" alt="Profile image for {{group.creator.username}}"/>
+			</div>
+		</div>
+		<!---->
+		<div class="title">
+			<h1>{{group.title}}</h1>
+		</div>
+	</div>
+	<div class="line"/>
+	<div class="group__description">
+		<section>
+			<div class="description">
+				<h2>Description</h2>
+				<p ng-if="group.description">{{group.description}}</p>
+			</div>
+			<div class="recipe-info">
+				<a ng-href="#/recipe/{{group.recipe.id}}"><h2>{{group.recipe.title}}</h2></a>
+			</div>
+		</section>
+	</div>
+
+	<div class="group__participants">
+		<section>
+			<h2>Participants</h2>
+			<div ng-repeat="member in group.participants">
+				<div class="disp-user userinfo">
+					<a class="disp-user__username" ng-href="#/profile/{{member.username}}">{{member.username}}</a>
+					<img class="disp-user__picture" ng-src="{{member.image}}"/>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
