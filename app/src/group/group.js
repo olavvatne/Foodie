@@ -15,9 +15,15 @@ angular.module('fdGroup', [])
             }]
         },
       })
-      .when('/group/', {
+      .when('/recipe/:rid/group', {
         templateUrl: 'src/group/group-form.tpl.html',
-        controller: 'GroupFormCtrl'
+        controller: 'GroupFormCtrl',
+        resolve: {
+            recipeId: ['$route', function($route) {
+                var recipeId = $route.current.params.rid;
+                return recipeId;
+            }]
+        },
       });
   }])
 
@@ -33,9 +39,14 @@ angular.module('fdGroup', [])
 }])
 
 //Can be used at controller on recipe page
-.controller('RecipeGroupCtrl', ['$scope', 'groups',  function ($scope, groups) {
+.controller('RecipeGroupCtrl', ['$scope', 'groups', '$location', 
+    function ($scope, groups, $location) {
     $scope.noRecipes = true;
     $scope.groupList = [];
+
+    $scope.redirectToForm = function() {
+        $location.path('/recipe/' + $scope.$parent.recipe.id + '/group')
+    }
     /*
     RecipeGroupCtrl is always created as a child of RecipeCtrl, and therefore get
     a child scope of the recipeCtrl. Therefore it is possible to access the
@@ -56,13 +67,22 @@ angular.module('fdGroup', [])
     init();
 }])
 
-.controller('GroupFormCtrl', ['$scope', 'groups',  function ($scope, groups) {
+.controller('GroupFormCtrl', ['$scope', 'groups', '$location', 'recipeId',
+    function ($scope, groups, $location, recipeId) {
     $scope.group = {};
+    $scope.max = Number.MAX_VALUE;
+    $scope.today = new Date();
     $scope.createGroup = function(newGroup) {
         if($scope.groupForm.$valid) {
+            if(!newGroup.nr_participants) {
+                newGroup.nr_participants = $scope.max;
+            }
+            newGroup.recipe = {};
+            newGroup.recipe.title= "";
+            newGroup.recipe.id = recipeId;
             groups.store(newGroup) 
             .then(function(data) {
-
+                $location.path('/group/' + data.groupId);
             });
         }
         else {

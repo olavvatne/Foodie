@@ -48,7 +48,7 @@ angular.module('fdCommon')
                     storage.replaceData('user', users[i], i);
                 }
             }
-            return {message: "Your recipe was successfully posted", recipeId: idx};
+            return {message: "Your recipe was successfully created", recipeId: idx};
         },
 
         login: function(data) {
@@ -69,11 +69,17 @@ angular.module('fdCommon')
             storage.appendData('user', user)
             return user;
         },
+
         addGroup: function(group, user) {
             //Fake a user logged in status. The user id should be
             // be added to the group data
             group.creator = user
-            storage.appendData('group', group)
+            group.created = new Date();
+            group.participants = [];
+            var recipe =  this.get('recipe', group.recipe.id);
+            group.recipe.title = recipe.title;
+            var groupId = storage.appendData('group', group)
+            return {message: "Your group was successfully created", groupId: groupId};
         },
 
         getGroupsForRecipe: function(recipeId) {

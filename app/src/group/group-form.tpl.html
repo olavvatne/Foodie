@@ -23,7 +23,7 @@
 		<input name="nr_participants" placeholder="Number of participants" type="number"  ng-class="{error: ((groupForm.nr_participants.$dirty && !groupForm.nr_participants.$focused) || submitted) && groupForm.nr_participants.$invalid }"
 		ng-model="group.nr_participants"
 		ng-min="0"
-		ng-max="1000000000000000"
+		ng-max="{{max}}"
 		ng-focus/>
 	<div class="error-container" ng-show="(groupForm.nr_participants.$dirty && !groupForm.nr_participants.$focused || submitted) && groupForm.nr_participants.$invalid ">
 	     	<div ng-messages="groupForm.nr_participants.$error">
@@ -35,17 +35,15 @@
     <br><br>
 
 
-    <label>Max partipants</label>
+    <label>When</label>
 	<span>
-		<input name="nr_participants" placeholder="Number of participants" type="number"  ng-class="{error: ((groupForm.nr_participants.$dirty && !groupForm.nr_participants.$focused) || submitted) && groupForm.nr_participants.$invalid }"
-		ng-model="group.nr_participants"
-		ng-min="0"
-		ng-max="1000000000000000"
+		<input name="startDate" placeholder="Specify when if this is an event" type="date"  ng-class="{error: ((groupForm.startDate.$dirty && !groupForm.startDate.$focused) || submitted) && groupForm.startDate.$invalid }"
+		ng-model="group.startDate"
+		ng-min="today"
 		ng-focus/>
-	<div class="error-container" ng-show="(groupForm.nr_participants.$dirty && !groupForm.nr_participants.$focused || submitted) && groupForm.nr_participants.$invalid ">
-	     	<div ng-messages="groupForm.nr_participants.$error">
-		    <small ng-message="min">At least 0 participants</small>
-		    <small ng-message="max">Wow, your dinner table can seat a lot of people! Reduce the number of participants.</small>
+	<div class="error-container" ng-show="(groupForm.startDate.$dirty && !groupForm.startDate.$focused || submitted) && groupForm.startDate.$invalid ">
+	     	<div ng-messages="groupForm.startDate.$error">
+		    <small ng-message="min">A event can't happen in the past. There are no such things as time travel.</small>
 		</div>
     </div>
 	</span>
