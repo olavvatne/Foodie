@@ -69,6 +69,9 @@ angular.module('fdCommon', [])
      * @returns {JSON object} A success message (If promise is resolved)
      */
     putResource: function(url, resource) {
+        if(mock) {
+          return mockService.putMock(url, resource);
+        }
         var deferred = $q.defer();
         $http.post(url, resource).success(function(data){
             //Passing data to deferred's resolve function on successful completion

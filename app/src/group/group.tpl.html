@@ -1,7 +1,9 @@
 <!-- Page you enter when clicking on a group listed in a recipe-->
 <div class="group">
 	<span>
-		<button class="btn--positive" ng-click="join()">Join</button>
+		<button class="btn--positive" ng-if="user.username" ng-click="join()">
+			Join
+		</button>
 	</span>
 	<div class="group__headline">
 		<!--	User block	 -->

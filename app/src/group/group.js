@@ -7,7 +7,7 @@ angular.module('fdGroup', [])
         templateUrl: 'src/group/group.tpl.html',
         controller: 'GroupCtrl',
         resolve: {
-            group: ['groups', '$route', function(groups, $route) {
+            groupData: ['groups', '$route', function(groups, $route) {
                 var groupId = $route.current.params.gid;
                 return groups.get(groupId).then(function (response) {
                     return response;
@@ -27,16 +27,25 @@ angular.module('fdGroup', [])
       });
   }])
 
+
 //Skeleton for a group page. When /profile/1 for example is entered in url
 //resolve will preload the group, and the data put into the scope.
-.controller('GroupCtrl', ['$scope', 'group',  function ($scope, group) {
-    $scope.group = group;
+.controller('GroupCtrl', ['$scope', 'groupData', 'groups', function ($scope, groupData, groups) {
+    $scope.group = groupData;
 
     //TODO
     $scope.join = function(participant) {
-
+        if($scope.user.username) {
+            groups.putUser($scope.user, $scope.group.id)
+            .then(function(success) {
+                $scope.group.participant = success.participant;
+            }, function(error) {
+                console.log("Could not join group");
+            });
+        }
     }
 }])
+
 
 //Can be used at controller on recipe page
 .controller('RecipeGroupCtrl', ['$scope', 'groups', '$location', 
@@ -67,6 +76,7 @@ angular.module('fdGroup', [])
     init();
 }])
 
+
 .controller('GroupFormCtrl', ['$scope', 'groups', '$location', 'recipeId',
     function ($scope, groups, $location, recipeId) {
     $scope.group = {};
@@ -95,6 +105,7 @@ angular.module('fdGroup', [])
         }
     };
 }])
+
 
 .factory('groups', ['baseService',
 function (baseService) {

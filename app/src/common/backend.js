@@ -82,8 +82,12 @@ angular.module('fdCommon')
             return {message: "Your group was successfully created", groupId: groupId};
         },
 
-        addParticipant: function(object, value) {
-
+        addParticipant: function(groupId, user) {
+            var group = storage.getData('group')[groupId];
+            var par = {id: user.id, username: user.username, image: user.image};
+            group.participants.push(par);
+            storage.replaceData('group', group, groupId);
+            return {message: "Your group was successfully created", participants: group.participants};
         },
 
         getGroupsForRecipe: function(recipeId) {
@@ -147,9 +151,9 @@ angular.module('fdCommon')
 	    getMock: function(url) {
 	        var deferred = $q.defer();
 	        $timeout(function () {
-	            u = url.split('/');
-	            key = u[1]
-	            element = u[2] || undefined;
+	            var u = url.split('/');
+	            var key = u[1]
+	            var element = u[2] || undefined;
                 if(u.length > 3 && u[3] === 'group') {
                     deferred.resolve(backend.getGroupsForRecipe(element))
                 }
@@ -163,8 +167,8 @@ angular.module('fdCommon')
 	    postMock: function(url, resource) {
 	        var deferred = $q.defer();
 	        $timeout(function () {
-	            u = url.split('/');
-	            key = u[1]
+	            var u = url.split('/');
+	            var key = u[1]
 	            deferred.resolve(backend.post(key, resource));
 	        }, 200);
 	        return deferred.promise;
@@ -173,9 +177,9 @@ angular.module('fdCommon')
         putMock: function(url, object) {
             var deferred = $q.defer();
             $timeout(function () {
-                u = url.split('/');
-                key = u[1]
-                value = u[2]
+                var u = url.split('/');
+                var key = u[1]
+                var value = u[2]
                 deferred.resolve(backend.put(key, object, value));
             }, 200);
             return deferred.promise;
