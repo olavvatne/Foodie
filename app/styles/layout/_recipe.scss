@@ -21,6 +21,10 @@
 		float: left;
 		border: 1px solid palette(grey, x-light);
 
+		@include mq(small) {
+			width: 100%;
+		}
+
 		td {
 			padding: em(5px);
 		}
@@ -31,6 +35,10 @@
 		width: 68%;
 		padding: em(5px);
 		float: left;
+
+		@include mq(small) {
+			width: 100%;
+		}
 
 		section {
 			margin-bottom: em(70px);

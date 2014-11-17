@@ -1,0 +1,14 @@
+//.userprofile__image
+
+.userprofile {
+
+  @include e(image){
+    @extend %image-fill-parent;
+    overflow:hidden;
+    border-radius: em(5px);
+    border: 1px solid palette(grey, x-light);
+    height: em(80px);
+    width: em(80px);
+  }
+
+}

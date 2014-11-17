@@ -73,13 +73,17 @@ angular.module('fdCommon')
         addGroup: function(group, user) {
             //Fake a user logged in status. The user id should be
             // be added to the group data
-            group.creator = user
+            group.creator = user;
             group.created = new Date();
             group.participants = [];
             var recipe =  this.get('recipe', group.recipe.id);
             group.recipe.title = recipe.title;
             var groupId = storage.appendData('group', group)
             return {message: "Your group was successfully created", groupId: groupId};
+        },
+
+        addParticipant: function(object, value) {
+
         },
 
         getGroupsForRecipe: function(recipeId) {
@@ -121,6 +125,13 @@ angular.module('fdCommon')
             }
             return null;
         },
+
+        put: function(key, object, value) {
+            if( key == 'group') {
+                return this.addParticipant(value, object);
+            }
+            return null;
+        },
     };
 }])
 
@@ -158,6 +169,17 @@ angular.module('fdCommon')
 	        }, 200);
 	        return deferred.promise;
 	    },
+
+        putMock: function(url, object) {
+            var deferred = $q.defer();
+            $timeout(function () {
+                u = url.split('/');
+                key = u[1]
+                value = u[2]
+                deferred.resolve(backend.put(key, object, value));
+            }, 200);
+            return deferred.promise;
+        }
         
     };
 }])  

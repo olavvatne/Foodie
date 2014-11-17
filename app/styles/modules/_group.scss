@@ -1,0 +1,30 @@
+
+
+.group {
+	@include e(headline) {
+		height: 70px;
+		.title {
+			@extend %navbar-content;
+			width: calc(100% - 210px);
+			float: left;
+			height: 100%;
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+
+		.userinfo {
+			float: right;
+		}
+	}
+
+	@include e(description){
+
+	}
+
+	@include e(participants) {
+		.userinfo {
+
+			display: inline;
+		}
+	}
+}

@@ -5,7 +5,14 @@
 
     <div class="media">
         <a class="media-left" href="#">
-            <img src="http://static.squarespace.com/static/523ce201e4b0cd883dbb8bbf/t/53bf2302e4b06e125c374401/1405035267633/profile-icon.png" alt="...">
+            <div class="userprofile__image">
+                <!--Trick to center cropped image inside a div. Also include the image tag, to
+                address accessability-->
+                <div class="wrapper" ng-style="{'background-image': 'url(/img/no-profile-image.png)'}">
+                    <img ng-src="/img/no-profile-image.png"
+                         alt="Recipe image for {{recipe.title}}"/>
+                </div>
+            </div>
         </a>
         <div class="media-body">
             <h4 class="media-heading">Media heading</h4>
@@ -13,7 +20,6 @@
         </div>
     </div>
 
-    <p>{{notification.typetext}}</p>
 </div>
 
         <!--
