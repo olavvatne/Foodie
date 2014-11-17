@@ -1,0 +1,32 @@
+
+//User box
+.disp-user {
+	width: 200px;
+	height: 70px;
+	background: palette(white, dark);
+	padding: 10px;
+	display: block;
+
+	@include e(info) {
+		float: right;
+		width: 110px;
+		height: 100%;
+		text-align: center middle;
+	}
+
+	@include e(picture) {
+		float: left;
+		width: 60px;
+		height: 100%;
+		margin-left: 10px;
+
+		@include roundImage(50px);
+		margin-top: 0px; //override
+
+	}
+
+	@include e(date) {
+		margin-bottom: 0px;
+		font-size: $font-size__small;
+	}
+}

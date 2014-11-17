@@ -23,8 +23,8 @@ angular.module('fdGroup', [])
     $scope.group = group;
 
     //TODO
-    $scope.join = function() {
-        
+    $scope.join = function(participant) {
+
     }
 }])
 
@@ -70,6 +70,11 @@ function (baseService) {
         get: function(groupId) {
             var url = 'api/group/' + groupId;
             return baseService.getResources(url);
+        },
+
+        putUser: function(user, groupId) {
+            var url = "api/group/"+groupId+"/participant";
+            return baseService.putResource(url, user);
         }
        
     };

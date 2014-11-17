@@ -35,3 +35,14 @@
     visibility: hidden;
   }
 }
+
+%base-buttonstyle {
+  height: line-height;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;  
+}
