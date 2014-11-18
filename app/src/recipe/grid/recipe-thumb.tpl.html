@@ -5,6 +5,7 @@
     	<div class="wrapper"  ng-style="{'background-image': 'url({{recipe.image}})'}">
         	<img src="{{recipe.image}}" ng-show="false" alt="{{recipe.title}}">
 		    <div class="overlay">
+		    	<p class="typeText">Recipe</p>
 		        <h4>{{recipe.title}}</h4>
 		        <p>{{recipe.created | date}}</p>
 		        <p>By {{recipe.creator.username}}</p> 
