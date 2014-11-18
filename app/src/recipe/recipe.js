@@ -35,13 +35,13 @@ angular.module('fdRecipe', ['fdCommon'])
   $scope.newRecipe.ingredients = [];
   $scope.newRecipe.description = [];
 
-  $scope.postRecipe = function(recipe) {
+  $scope.postRecipe = function(recipe, valid) {
     if(!$scope.user.username) {
       //To avoid any recipes being posted where no user is logged in.
       $location.path('/login');
       return;
     }
-    if($scope.recipeForm.$valid) {
+    if(valid) {
       recipes.store(recipe)
       .then(function(success) {
         //Should a message be displayed after the redirect?

@@ -6,17 +6,34 @@
 		"creator": {"id": 0, "username": "Helen"},
 		"ingredients": 
 		[
-			{"quantity": "4", "unit": "tbs", "name": "Tomato paste"},
-			{"quantity": "200", "unit": "g", "name": "Pasta penne"},
-			{"quantity": "2", "unit": "cloves", "name": "Garlic"},
-			{"quantity": "40", "unit": "g", "name": "Oregano"}
+			{"quantity": "500", "unit": "g", "name": "Fresh Beef Mince"},
+			{"quantity": "400", "unit": "g", "name": "Dried Spaghetti"},
+			{"quantity": "4", "unit": "pieces", "name": " Smoked Streaky Bacon, finely diced"},
+			{"quantity": "2", "unit": "tins", "name": "Plum/Chopped Tomatoes"},
+			{"quantity": "6", "unit": "pieces", "name": "Fresh Cherry Tomatoes"},
+			{"quantity": "2", "unit": "pieces", "name": "Medium onions, peeled and finely diced"},
+			{"quantity": "2", "unit": "sticks", "name": "Celery, trimmed and finely diced"},
+			{"quantity": "2", "unit": "pieces", "name": "Carrots, trimmed and finely diced"},
+			{"quantity": "2", "unit": "cloves", "name": "Garlic, peeled and finely diced"},
+			{"quantity": "1", "unit": "pieces", "name": "Medium Chilli"},
+			{"quantity": "75", "unit": "g", "name": "Freshly grated Parmesan Cheese"},
+			{"quantity": "2", "unit": "tbsp", "name": "Tomato puree"},
+			{"quantity": "1", "unit": "cube", "name": "Beef stock"},
+			{"quantity": "1", "unit": "glass", "name": "Red wine"},
+			{"quantity": "1", "unit": "tsp", "name": "Dried oregano"},
+			{"quantity": "1-2", "unit": "nr", "name": "Bay leaves"},
+			{"quantity": "2-3", "unit": "figs", "name": "Fresh rosemary"},
+			{"quantity": "Some", "unit": "", "name": "Olive oil"},
+			{"quantity": "Some", "unit": "", "name": "Sea salt and black pepper"}
 		],
-		"motivation": "Fantastic tasting spaghetti bolognese. Will change your life",
+		"motivation": "My very best Spaghetti Bolognese, gorgeously meaty with a chilli kick!",
 		"description": 
 		[
-			"Put 1 liter of water in a pot",
-			"Let the water boil",
-			"Put the paste into the boiling pot"
+			"Get yourself a large heavy-bottomed saucepan, and place it on a medium heat. Add a good lug of olive oil and gently fry your bacon until golden and crisp, then reduce the heat slightly and add your onions, carrots, celery and garlic. Next remove the leaves from the Rosemary sprigs and add them to the pot, discarding the sprigs. Move everything around and fry for around 8-10 minutes until the veg has softened.",
+			"Next, increase the heat slightly, add the mince and stir until the meat is browned all over.",
+			"Stir in your tins of plum/chopped tomatoes, (plum tomatoes are best as they contain less water, but either will turn out great!). Add your remaining herbs, tomato puree, stock cube, chilli and if using, the wine. Slice your cherry tomatoes in half and throw them in aswell.",
+			"Give everything a stir with a wooden spoon, breaking up the plum tomatoes as you go and bring to a gentle simmer. Reduce the heat to low-medium, put the lid on and leave it blipping away for about an hour and 15 minutes until the flavours develop into a wonderfully rich tomatoey sauce. Stir occasionally to make sure it doesn't catch.",
+			"Just as the sauce is nearly ready, Add the parmesan and season to taste. Meanwhile add salt to a pan of boiling water and cook the spaghetti according the the packet instructions. Once the spaghetti is ready, drain it in a colander and add it to the pan with the sauce. Give it all a good stir, coating the pasta in the lovely tomato sauce. Serve with a little grated parmesan and use the extra basil leaves to make a great little garnish. Beautiful!"
 		],
 		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/1024px-Spaghettata.JPG"
 	},
@@ -27,33 +44,60 @@
 		"creator": {"id": 1, "username": "Thomas"},
 		"ingredients": 
 		[
-			{"quantity": "400", "unit": "g", "name": "Rice"},
-			{"quantity": "1", "unit": "kg", "name": "Salmon"},
-			{"quantity": "4", "unit": "cloves", "name": "Garlic"},
-			{"quantity": "40", "unit": "g", "name": "Sea water"}
+			{"quantity": "1", "unit": "tbs", "name": "Olive oil"},
+			{"quantity": "1", "unit": "piece", "name": "Onion, chopped"},
+			{"quantity": "1", "unit": "tbs", "name": "Hot smoked paprika spice"},
+			{"quantity": "1", "unit": "tbs", "name": "Dried thyme"},
+			{"quantity": "300", "unit": "g", "name": "Risotto rice"},
+			{"quantity": "3", "unit": "tbsp", "name": "Dry sherry or white wine"},
+			{"quantity": "400", "unit": "g", "name": "chopped tomatoes with garlic"},
+			{"quantity": "900", "unit": "ml", "name": "chicken stock"},
+			{"quantity": "400", "unit": "g", "name": "bag frozen seafood mix"},
+			{"quantity": "1/2", "unit": "piece", "name": "Lemon, wedges"},
+			{"quantity": "1/2", "unit": "piece", "name": "Lemon, juice"},
+			{"quantity": "1", "unit": "handful", "name": "Parslay, chopped"}
 		],
-		"motivation": "Just as the title states. You can almost taste the seawater!",
+		"motivation": "Whip up this traditional Spanish dish straight from the cupboard - You can almost taste the seawater!",
 		"description": 
 		[
-			"Go out to sea, remember a fishing rod",
-			"Use your fishing rod to catch sea creatures. The type of creatures does not matter.",
-			"Go home and boil 5 liters of water",
-			"Put sea creatures into the boiling water"
+			"Heat the oil in a large frying pan. Add the onion and soften for 5 mins.",
+			" Stir in the paprika, thyme and rice, stir for 1 min, then splash in the Sherry or wine, if using. Once it has evaporated, stir in the tomatoes and stock. Season and cook, uncovered, for about 15 mins, stirring now and again until rice is almost tender and still surrounded with some liquid.",
+			"Stir the frozen seafood into the pan and cover with a lid. Simmer for 5 mins, or until the prawns are cooked through and the rice is tender. ",
+			"Squeeze over the lemon juice, scatter with parsley and serve with extra lemon wedges."
 		],
 		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"
 	},
 	{
 		"id": 2,
-		"title": "Quick and easy chicken",
+		"title": "Moroccan roast chicken with apricots",
 		"created": "2014-11-08T14:58:54+00:00",
 		"creator": {"id": 1, "username": "Thomas"},
 		"ingredients":
 		[
-			{"quantity": "400", "unit": "g", "name": "Rice"},
-			{"quantity": "1", "unit": "kg", "name": "Chicken"}
+			{"quantity": "2", "unit": "pieces", "name": "Small chicken"},
+			{"quantity": "6", "unit": "tbsp", "name": "Olive oil"},
+			{"quantity": "1", "unit": "bunch", "name": "Coriander"},
+			{"quantity": "2", "unit": "tbsp", "name": "Sumac"},
+			{"quantity": "1", "unit": "tbsp", "name": "Cumin seed"},
+			{"quantity": "1", "unit": "tbsp", "name": "fennel seed"},
+			{"quantity": "2", "unit": "tsp", "name": "Chilli flakes"},
+			{"quantity": "2", "unit": "gloves", "name": "Garlic"},
+			{"quantity": "2", "unit": "whole", "name": "Lemons, juice"},
+			{"quantity": "4", "unit": "tbsp", "name": "Pomegranate molasses"},
+			{"quantity": "250", "unit": "g", "name": "Natural yoghurt mixed 1 pinch saffron"},
+			{"quantity": "12", "unit": "pieces", "name": "Apricots"},
+			{"quantity": "2", "unit": "pieces", "name": "Preserved lemons"},
+			{"quantity": "3", "unit": "tbsp", "name": "Clear honey"},
+			{"quantity": "1", "unit": "tbsp", "name": "Orange blossom water"},
+			{"quantity": "4", "unit": "tbsp", "name": "White vinegar"}
 		],
-		"motivation": "This chicken is so fast to make, yet so tasty. You will not regret making this!",
-		"description": ["Bla bla bla"],
+		"motivation": "Come rain or shine, serve up this sumac-marinated spatchcocked bird, that can be barbecued or oven cooked, with a sweet, fruity accompaniment",
+		"description": [
+			"Spatchcock the chickens – see tip, below, or ask your butcher to do it for you. Put the olive oil, coriander, sumac, cumin, fennel, chilli, garlic, lemon zest and juice, pomegranate molasses and some ground black pepper into a food processor or blender, and whizz to a paste. Divide between 2 large food bags, add a chicken to each, then squeeze out the air and seal before giving everything a good squelch to coat thoroughly. Marinate for 24-48 hrs in the fridge, turning and squishing every so often.",
+			"Fire up a barbecue and let the flames die down, or heat oven to 220C/200C fan/gas 7. Lift the chicken out of the bags and season well with salt. Barbecue or roast the chicken for 25-30 mins on each side until crisp and cooked through. Set aside on a platter, loosely cover with foil, to rest while you do the apricots. If you roasted rather than barbecued, keep the tin juices warm for serving.",
+			"Put the apricots in a small, snug roasting tin. Whisk the preserved lemon, honey, orange blossom and vinegar with some seasoning. Pour over the apricots and roast, or sit on the barbecue, for 20 mins until soft.",
+			"Serve the chicken with any cooking juices, the apricots and saffron yogurt."
+		],
 		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Rosemary_chicken.jpg/1024px-Rosemary_chicken.jpg"
 	},
 	{

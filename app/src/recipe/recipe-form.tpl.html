@@ -4,7 +4,7 @@
 
 </div>
 <div ng-if="user.username">
-<form name="recipeForm" class="form" ng-submit="postRecipe(newRecipe)" novalidate>
+<form name="recipeForm" class="form" ng-submit="postRecipe(newRecipe, recipeForm.$valid)" novalidate>
 	<label>* Title</label>
 	<span>
 		<input name="title" placeholder="Title" type="text"  ng-class="{error: ((recipeForm.title.$dirty && !recipeForm.title.$focused) || submitted) && recipeForm.title.$invalid }"

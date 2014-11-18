@@ -4,7 +4,7 @@
 
 </div>
 <div ng-if="user.username">
-<form name="groupForm" class="form" ng-submit="createGroup(group)" novalidate>
+<form name="groupForm" class="form" ng-submit="createGroup(group, groupForm.$valid)" novalidate>
 	<label>Title *</label>
 	<span>
 		<textarea name="title" placeholder="Title of group" type="text"  ng-class="{error: ((groupForm.title.$dirty && !groupForm.title.$focused) || submitted) && groupForm.title.$invalid }"

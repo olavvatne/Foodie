@@ -46,12 +46,12 @@
 
 		ol {
 			padding-left: em(35px); 
-			list-style-type: upper-roman;
 		  	font-weight: bold;
 		  	color: $color-accent2;
 
 		  	li {
 			margin-bottom: em(40px);
+			list-style-type: upper-roman !important;
 			}
 		}
 		ol p {
