@@ -2,12 +2,17 @@
 <a ng-href="#/recipe/{{recipe.id}}">
 <div class="recipeThumb__contents">
     <div class="recipeThumb__image">
-        <img ng-src="{{recipe.image}}" style="max-width:100%" alt="{{recipe.title}}">
+    	<div class="wrapper"  ng-style="{'background-image': 'url({{recipe.image}})'}">
+        	<img src="{{recipe.image}}" ng-show="false" alt="{{recipe.title}}">
+		    <div class="overlay">
+		        <h4>{{recipe.title}}</h4>
+		        <p>{{recipe.created | date}}</p>
+		        <p>By {{recipe.creator.username}}</p> 
+		    </div>
+    	</div>
     </div>
-    <div>
+    <div class="recipeThumb__title">
         <h4>{{recipe.title}}</h4>
-        <p>{{recipe.created | date}}</p>
-        <p>{{recipe.creator.username}}</p> 
     </div>
 </div>
 </a>

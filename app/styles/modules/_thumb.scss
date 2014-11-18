@@ -5,28 +5,66 @@
 	}
 
 	@include e(container){
-		margin: 10px;
-
-		border: 1px solid palette(grey,x-light);
+		margin: 5px;
+		overflow: hidden;
+		//border: 1px solid palette(grey,x-light);
 		:hover {
-			@include transition(background-color 0.3s ease-out);
-			background-color: palette(grey,xx-light);
+			@include transition(opacity 0.3s ease-out);
+			//background-color: palette(grey,xx-light);
 			text-decoration: none;
+			opacity: 1;
+		}
+
+		.overlay {
+			p {
+				margin: em(5px);
+				color: palette(grey, dark);
+			}
+			h4	{
+				font-weight: bold;
+				color: palette(grey, x-dark);
+			}
+			width: 100%;
+		    height: 100%;
+		    position: relative;
+		    top: 0;
+		    left: 0;
+			overflow: hidden;
+			z-index: 1;
+			background-color: rgba(255,255,255,0.85);
+			opacity: 0;
+			@include transition(opacity 0.3s ease-out);
+			backface-visibility: hidden;
 		}
 	}
 
 	@include e(contents){
-		padding: 10px;
+		//padding: 0px;
+		:hover {
+			text-decoration: none;
+			opacity: 1;
+		}
 
 		
-
+		p:hover {
+			background-color: none;
+		}
 	}
 	@include e(image) {
-		height: 200px;
-		overflow: hidden;
+		@extend %image-fill-parent;
+		overflow:hidden;
+		height: em(200px);
+		border-radius: em(5px);
+		border: 1px solid palette(grey, x-light);
 
 		img {
 			width: 100%;
 		}
+	}
+
+	
+
+	@include e(title) {
+		min-height: em(50px);
 	}
 }
