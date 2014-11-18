@@ -1,13 +1,13 @@
 <div>
-    <h1>{{user.username}}</h1>
-    <p>{{user.about}}</p>
+    <h1>{{userProfile.username}}</h1>
+    <p>{{userProfile.about}}</p>
 
-    <img ng-src="{{user.image}}" ng-show="user.image"/>
+    <img ng-src="{{userProfile.image}}" ng-show="userProfile.image"/>
+    <h2>{{userProfile.username}}'s recipes</h2>
+    <fd-grid grid-content="userProfile.recipes"></fd-grid>
 
-    <fd-grid grid-content="user.recipes"></fd-grid>
 
-
-    <br><br><br><pre>{{user | json}}</pre>
+    <br><br><br><pre>{{userProfile | json}}</pre>
 </div>
 
 

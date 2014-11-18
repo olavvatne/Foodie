@@ -19,7 +19,7 @@ angular.module('fdUser', [])
 
 
 .controller('UserProfileCtrl', ['$scope', 'user',  function ($scope, user) {
-	$scope.user = user;
+	$scope.userProfile = user;
 }])
 
 .factory('users', ['baseService',
