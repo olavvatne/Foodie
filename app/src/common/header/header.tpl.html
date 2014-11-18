@@ -2,7 +2,7 @@
 <div ng-controller="HeaderCtrl" minimizer>
 <header class="top-header" ng-class="{'fix-user': minimized}">
   <div class="top__info">
-    <h1 class="top__info--title">Foodie</h1>
+    <a href="#/"><h1 class="top__info--title">Foodie</h1></a>
   </div>
   <div class="top__user" ng-show="minimized">
     <div class="top__user--picture" ng-show="user.username">
@@ -21,7 +21,9 @@
         <img ng-if="user.image" ng-src="{{user.image}}"/>
         <img ng-if="!user.image" ng-src="img/no-profile-image.png"/>
       </div>
-      <h3 class="navBanner__user--username">{{user.username | capitalize}}</h3>
+      <a ng-href="#/profile/{{user.id}}">
+        <h3 class="navBanner__user--username">{{user.username | capitalize}}</h3>
+      </a>
       <ul style="padding: 0px">
         <li><a href="#/sitemap/">Sitemap</li>
         <li ng-if="!user.username"><a href="#/create-account">Create account</a></li>

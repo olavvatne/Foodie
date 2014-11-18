@@ -1,4 +1,12 @@
-<h1>Create a group!</h1>
+<h1>Create a group</h1>
+<div>
+	<p>Group for:</p>
+	<h2>{{recipe.title}}</h2>
+	<p>{{recipe.motivation}}</p>
+	<p>Created on {{recipe.created | date}}</p>
+	<p>by {{recipe.creator.username | capitalize}}</p>
+</div>
+<br>
 <div ng-if="!user.username" style="text-align: center">
 <p style="margin: 20px">You cant create a group unless your logged in! <a href="#/login">Sign in</a></p>
 

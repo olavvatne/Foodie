@@ -19,10 +19,12 @@ angular.module('fdGroup', [])
         templateUrl: 'src/group/group-form.tpl.html',
         controller: 'GroupFormCtrl',
         resolve: {
-            recipeId: ['$route', function($route) {
+            recipe: ['recipes', '$route', function(recipes, $route) {
                 var recipeId = $route.current.params.rid;
-                return recipeId;
-            }]
+                return recipes.get(recipeId).then(function (response) {
+                        return response;
+            });
+          }]
         },
       });
   }])
@@ -88,9 +90,10 @@ angular.module('fdGroup', [])
 }])
 
 
-.controller('GroupFormCtrl', ['$scope', 'groups', '$location', 'recipeId',
-    function ($scope, groups, $location, recipeId) {
+.controller('GroupFormCtrl', ['$scope', 'groups', '$location', 'recipe',
+    function ($scope, groups, $location, recipe) {
     $scope.group = {};
+    $scope.recipe = recipe;
     $scope.max = Number.MAX_VALUE;
     $scope.today = new Date();
     $scope.createGroup = function(newGroup, valid) {
@@ -105,7 +108,7 @@ angular.module('fdGroup', [])
             }
             newGroup.recipe = {};
             newGroup.recipe.title= "";
-            newGroup.recipe.id = recipeId;
+            newGroup.recipe.id = recipe.id;
             groups.store(newGroup) 
             .then(function(data) {
                 $location.path('/group/' + data.groupId);

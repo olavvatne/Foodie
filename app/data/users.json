@@ -45,7 +45,18 @@
 	{
 		"id": 2,
 		"username": "hilda",
-		"recipes": [],
+		"recipes": [
+			{
+				"id": 4,
+				"title": "Tasty spinach salad",
+				"image": "http://www.nuggetmarket.com/media/images/wilted_spinach_salad02.jpg"
+			},
+			{
+				"id": 5,
+				"title": "Best-ever chocolate raspberry brownies",
+				"image": "http://www.bbcgoodfood.com/sites/bbcgoodfood.com/files/recipe_images/recipe-image-legacy-id--950516_11.jpg"
+			}
+		],
 		"about": "I'm a lousy cook! Most of my fridge is filled with hot dogs. Since I've grown tired of hot dogs, I'm really eager to learn more recipes!",
 		"joined": "2014-11-08T15:09:02+00:00",
 		"image": "http://media.cirrusmedia.com.au/LW_Media_Library/594partner-profile-pic-An.jpg"
