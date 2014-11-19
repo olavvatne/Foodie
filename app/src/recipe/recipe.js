@@ -93,7 +93,7 @@ function (baseService) {
       '<li ng-repeat="step in model track by $index">'+
         '<label><i ng-if="$index==0">* </i>Step {{$index+1}}</label>'+
         '<button class="btn--negative" ng-click="removeStep($index)"><b>X</b></button>' +
-        '<span><textarea type="text" ng-model="model[$index]" ></textarea></span>' +
+        '<span><textarea type="text" ng-model="model[$index]"></textarea></span>' +
       '</li>'+
       '<button type="button" class="btn--neutral" ng-click="addStep()">Add step</button>' +
     '</ul>',
