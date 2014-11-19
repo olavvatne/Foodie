@@ -1,0 +1,13 @@
+<div> <h1>{{userProfile.username}}</h1> <p>{{userProfile.about}}</p> <img ng-src="{{userProfile.image}}" ng-show="userProfile.image"> <h2>{{userProfile.username}}'s recipes</h2> <fd-grid grid-content="userProfile.recipes"></fd-grid> <br><br><br><pre>{{userProfile | json}}</pre> </div> <!--{
+  "id": 0,
+  "username": "helen",
+  "recipes": [
+    {
+      "id": 0,
+      "title": "Spaghetti bolognese"
+    }
+  ],
+  "about": "I'm a passionate foodie, that love everything tomato sauce",
+  "joined": "2014-11-08T14:58:54+00:00",
+  "image": "url-something"
+}-->
