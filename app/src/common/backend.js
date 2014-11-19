@@ -40,7 +40,8 @@ angular.module('fdCommon')
             //Need to append recipe to users posted recipes
             recipe.creator = user;
             recipe.created = new Date();
-            var idx = storage.appendData('recipe', recipe)
+            recipe.approvals = 0;
+            var idx = storage.appendData('recipe', recipe);
             var users = storage.getData('user');
             for (var i = 0; i< users.length; i++) {
                 if (users[i].username === user.username) {
@@ -67,7 +68,7 @@ angular.module('fdCommon')
             user.joined = new Date();
             user.recipes = [];
             if(!user.image) {
-            user.image = '/img/no-profile-image.png'
+            user.image = 'images/no-profile-image.png'
           }
             storage.appendData('user', user)
             return user;
@@ -78,9 +79,12 @@ angular.module('fdCommon')
             // be added to the group data
             group.creator = user;
             group.created = new Date();
-            group.participants = [];
+            group.participants = [user];
             var recipe =  this.get('recipe', group.recipe.id);
             group.recipe.title = recipe.title;
+            group.recipe.id = recipe.id;
+            group.recipe.creator = recipe.creator;
+            group.recipe.image = recipe.image;
             var groupId = storage.appendData('group', group)
             return {message: "Your group was successfully created", groupId: groupId};
         },

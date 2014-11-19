@@ -2,56 +2,61 @@
 <div class="group">
 	<span>
 		<div ng-if="user.username">
-			<div ng-if="user.username !== group.creator.username">
-			<button class="btn--positive" ng-if="!group.joined" ng-click="join()">
-				Join
-			</button>
-			<button class="btn--negative" ng-if="group.joined" ng-click="leave()">
-				Leave
-			</button>
-			</div>
-		</div>
+      <div ng-if="user.username !== group.creator.username">
+        <button class="btn--positive" ng-if="!group.joined" ng-click="join()">
+          Join
+        </button>
+        <button class="btn--negative" ng-if="group.joined" ng-click="leave()">
+          Leave
+        </button>
+      </div>
+    </div>
 	</span>
-	<div class="group__headline">
-		<!--	User block	 -->
-		<div class="disp-user userinfo">
-			<div class="disp-user__info">
-				<p class="disp-user__date">{{group.created | date}}</p>
-				<a class="disp-user__username" ng-href="#/profile/{{group.creator.id}}">
-					{{group.creator.username | capitalize}}
-				</a>
-			</div>
-			 <div class="disp-user__picture" ng-show="group.creator.username">
-				<img ng-src="{{group.creator.image}}" alt="Profile image for {{group.creator.username}}"/>
-			</div>
-		</div>
-		<!---->
-		<div class="title">
-			<h1>{{group.title}}</h1>
-		</div>
-	</div>
-	<div class="line"/>
-	<div class="group__description">
-		<section>
-			<div class="description">
-				<h2>Description</h2>
-				<p ng-if="group.description">{{group.description}}</p>
-			</div>
-			<div class="recipe-info">
-				<a ng-href="#/recipe/{{group.recipe.id}}"><h2>{{group.recipe.title}}</h2></a>
-			</div>
-		</section>
-	</div>
+  <section>
+    <div class="group__headline">
+      <!--	User block	 -->
+      <div class="disp-user userinfo">
+        <div class="disp-user__info">
+          <p class="disp-user__date">{{group.created | date}}</p>
+          <a class="disp-user__username" ng-href="#/profile/{{group.creator.id}}">
+            {{group.creator.username | capitalize}}
+          </a>
+        </div>
+        <div class="disp-user__picture" ng-show="group.creator.username">
+          <img ng-src="{{group.creator.image}}" alt="Profile image for {{group.creator.username}}"/>
+        </div>
+      </div>
+      <!---->
+      <div class="title">
+        <h1>{{group.title}}</h1>
+      </div>
+    </div>
+  </section>
+  <div class="line"/>
+  <section>
+    <div class="group__description">
+      <div class="description">
+        <p ng-if="group.description" style="padding: 60px">{{group.description}}</p>
+      </div>
+      <div class="recipe">
+        <ng-include src="thumbTemplate"></ng-include>
+      </div>
+    </div>
+  </section>
+  <br>
 
-	<div class="group__participants">
-		<section>
-			<h2>Participants</h2>
-			<div ng-repeat="member in group.participants">
-				<div class="disp-user userinfo" style="margin-bottom: 10px;">
-					<a class="disp-user__info" ng-href="#/profile/{{member.id}}">{{member.username | capitalize}}</a>
-					<img class="disp-user__picture" ng-src="{{member.image}}"/>
-				</div>
-			</div>
-		</section>
-	</div>
+  <section>
+    <br><br><br><br><br><br><br><br><br><br>
+    <div class="line"></div>
+    <div class="group__participants">
+
+      <h2>Participants</h2>
+      <div ng-repeat="member in group.participants">
+        <div class="disp-user userinfo" style="margin-bottom: 10px;">
+          <a class="disp-user__info" ng-href="#/profile/{{member.id}}">{{member.username | capitalize}}</a>
+          <img class="disp-user__picture" ng-src="{{member.image}}"/>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

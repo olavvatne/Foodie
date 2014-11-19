@@ -26,17 +26,21 @@ h3 {
 }
 
 .main-footer {
-//	margin-top: 100px;
 	background: palette(black, light);
+	position: fixed;
+	z-index: -1;
+	left:0;	bottom:0;
+	height: em(200px);
 	width: 100%;
-//	position: absolute;
-	height: 200px;
-	padding-top: 50px;
+	margin-top: 50px;
+
 	p {
 		color: $white;
-		font-size: base__font-size;
+		font-size: $base__font-size;
 		text-align: center;
+		margin-top: 30px;
 	}
+
 }
 
 .content {
@@ -46,7 +50,7 @@ h3 {
 	padding-top: 50px;
 	margin-bottom: 200px;
 	min-height: calc(100% - 400px);
-	margin-bottom: -200px;
+	margin-bottom: 200px;
 	
 	&:after {
 		content: "";
@@ -55,9 +59,16 @@ h3 {
 	}
 }
 
-html, body {
-	height: 100%;
+html {
+	min-height: 100%;
+	position: relative;
 }
+
+body {
+	margin-bottom: 100px;
+}
+
+
 
 
 .line {

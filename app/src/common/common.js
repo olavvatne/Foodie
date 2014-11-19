@@ -3,7 +3,7 @@ angular.module('fdCommon', [])
 
 //Mock baseService which will call storage instead
 .factory('baseService', ['$http', '$q','mockService',  function ($http, $q, mockService) {
-    mock = true;
+    var mock = true;
     return {
     /**
      * @ngdoc method

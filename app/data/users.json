@@ -6,13 +6,14 @@
 			{
 				"id": 0,
 				"title": "Spaghetti bolognese",
+				"approvals": "10",
 				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/1024px-Spaghettata.JPG",
 				"created": "2014-11-08T14:58:54+00:00"
 			}
 		],
 		"about": "I'm a passionate foodie, that love everything tomato sauce",
 		"joined": "2014-11-08T14:58:54+00:00",
-		"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
+		"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
 	},
 	{
 		"id": 1,
@@ -21,12 +22,14 @@
 			{
 				"id": 1,
 				"title": "Best paella ever",
+				"approvals": "12",
 				"created": "2014-11-08T14:58:54+00:00",
 				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"
 			}, 
 			{
 				"id": 2,
-				"title": "Quick and easy chicken",
+				"title": "Moroccan roast chicken with Apricots",
+				"approvals": "0",
 				"created": "2014-11-08T14:58:54+00:00",
 				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Rosemary_chicken.jpg/1024px-Rosemary_chicken.jpg"
 
@@ -34,8 +37,9 @@
 			{
 				"id": 3, 
 				"title": "Barbeque Meatloaf",
+				"approvals": "2",
 				"created": "2014-11-15T15:13:30+00:00",
-				"image": "http://i.ytimg.com/vi/chhj0w4sF9M/hqdefault.jpg"
+				"image": "http://upload.wikimedia.org/wikipedia/commons/6/67/Korean_barbeque-beef-14.jpg?uselang=nb"
 			}
 		],
 		"about": "My greatest joy in life is to share my delicious recipes with others.",
@@ -49,16 +53,21 @@
 			{
 				"id": 4,
 				"title": "Tasty spinach salad",
-				"image": "http://www.nuggetmarket.com/media/images/wilted_spinach_salad02.jpg"
+				"created": "2014-11-15T15:13:30+00:00",
+				"approvals": "1",
+				"image": "http://upload.wikimedia.org/wikipedia/commons/2/25/Spinach_Salad_with_Raspberries.JPG?uselang=nb"
 			},
 			{
 				"id": 5,
 				"title": "Best-ever chocolate raspberry brownies",
-				"image": "http://www.bbcgoodfood.com/sites/bbcgoodfood.com/files/recipe_images/recipe-image-legacy-id--950516_11.jpg"
+				"created": "2014-11-15T15:13:30+00:00",
+				"approvals": "110",
+				"image": "http://upload.wikimedia.org/wikipedia/commons/5/5b/Brownies_to_die_for%2C_August_2010.jpg?uselang=nb"
 			}
 		],
 		"about": "I'm a lousy cook! Most of my fridge is filled with hot dogs. Since I've grown tired of hot dogs, I'm really eager to learn more recipes!",
 		"joined": "2014-11-08T15:09:02+00:00",
 		"image": "http://media.cirrusmedia.com.au/LW_Media_Library/594partner-profile-pic-An.jpg"
 	}
+
 ]

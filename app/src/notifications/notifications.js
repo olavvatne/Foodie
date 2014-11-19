@@ -12,6 +12,7 @@ angular.module('fdNotifications', [])
 
 .controller('NotificationCtrl', ['$scope', 'notifications', function ($scope, notifications) {
   $scope.notificationList = [];
+  $scope.image ="images/no-profile-image.png"
   //Instead of using a resolve a function in controller will retrieve new notifications
   //A timer should be used to periodically requst new notifications.
   $scope.getNewNotifications = function() {

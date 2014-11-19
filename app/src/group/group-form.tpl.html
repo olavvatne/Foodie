@@ -20,7 +20,7 @@
 		required
 		ng-minlength="4"
 		ng-maxlength="60"
-		ng-focus/>
+		ng-focus></textarea>
 	<div class="error-container" ng-show="(groupForm.title.$dirty && !groupForm.title.$focused || submitted) && groupForm.title.$invalid ">
 	   <div ng-messages="groupForm.title.$error">
 		    <small ng-message="required">Title is required.</small>
@@ -37,7 +37,7 @@
 		ng-model="group.nr_participants"
 		ng-min="0"
 		ng-max="{{max}}"
-		ng-focus/>
+		ng-focus />
 	<div class="error-container" ng-show="(groupForm.nr_participants.$dirty && !groupForm.nr_participants.$focused || submitted) && groupForm.nr_participants.$invalid ">
 	     	<div ng-messages="groupForm.nr_participants.$error">
 		    <small ng-message="min">At least 0 participants</small>

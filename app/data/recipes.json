@@ -35,7 +35,8 @@
 			"Give everything a stir with a wooden spoon, breaking up the plum tomatoes as you go and bring to a gentle simmer. Reduce the heat to low-medium, put the lid on and leave it blipping away for about an hour and 15 minutes until the flavours develop into a wonderfully rich tomatoey sauce. Stir occasionally to make sure it doesn't catch.",
 			"Just as the sauce is nearly ready, Add the parmesan and season to taste. Meanwhile add salt to a pan of boiling water and cook the spaghetti according the the packet instructions. Once the spaghetti is ready, drain it in a colander and add it to the pan with the sauce. Give it all a good stir, coating the pasta in the lovely tomato sauce. Serve with a little grated parmesan and use the extra basil leaves to make a great little garnish. Beautiful!"
 		],
-		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/1024px-Spaghettata.JPG"
+		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/1024px-Spaghettata.JPG",
+		"approvals": "10"
 	},
 	{
 		"id": 1,
@@ -65,7 +66,8 @@
 			"Stir the frozen seafood into the pan and cover with a lid. Simmer for 5 mins, or until the prawns are cooked through and the rice is tender. ",
 			"Squeeze over the lemon juice, scatter with parsley and serve with extra lemon wedges."
 		],
-		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"
+		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg",
+		"approvals": "12"
 	},
 	{
 		"id": 2,
@@ -98,7 +100,8 @@
 			"Put the apricots in a small, snug roasting tin. Whisk the preserved lemon, honey, orange blossom and vinegar with some seasoning. Pour over the apricots and roast, or sit on the barbecue, for 20 mins until soft.",
 			"Serve the chicken with any cooking juices, the apricots and saffron yogurt."
 		],
-		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Rosemary_chicken.jpg/1024px-Rosemary_chicken.jpg"
+		"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Rosemary_chicken.jpg/1024px-Rosemary_chicken.jpg",
+		"approvals": "0"
 	},
 	{
 		"id": 3,
@@ -125,7 +128,8 @@
 			"Spread barbeque sauce out into the bottom of a loaf pan; place meatloaf on top of barbeque sauce and press into pan.",
 			"Bake meatloaf in the preheated oven until no longer pink in the center, about 1 hour, 15 minutes. An instant-read thermometer inserted into the center should read at least 160 degrees F (70 degrees C). Drain the fat from the loaf pan and invert pan over a plate to transfer meatloaf. Let rest for 5 minutes before slicing."
 		],
-		"image": "http://i.ytimg.com/vi/chhj0w4sF9M/hqdefault.jpg"
+		"image": "http://upload.wikimedia.org/wikipedia/commons/6/67/Korean_barbeque-beef-14.jpg?uselang=nb",
+		"approvals": "2"
 	},
 	{
 		"id": 4,
@@ -140,7 +144,8 @@
 		"description": [
 			"Test"
 		],
-		"image": "http://www.nuggetmarket.com/media/images/wilted_spinach_salad02.jpg"
+		"image": "http://upload.wikimedia.org/wikipedia/commons/2/25/Spinach_Salad_with_Raspberries.JPG?uselang=nb",
+		"approvals": "1"
 	},
 	{
 		"id": 5,
@@ -155,7 +160,8 @@
 		"description": [
 			"Test"
 		],
-		"image": "http://www.bbcgoodfood.com/sites/bbcgoodfood.com/files/recipe_images/recipe-image-legacy-id--950516_11.jpg"
+		"image": "http://upload.wikimedia.org/wikipedia/commons/5/5b/Brownies_to_die_for%2C_August_2010.jpg?uselang=nb",
+		"approvals": "110"
 	}
 
 ]
