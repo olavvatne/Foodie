@@ -129,6 +129,13 @@ angular.module('fdCommon')
             }
             return group;
         },
+        incrementApprovals: function(value) {
+            console.log(value);
+            var recipe = storage.getData('recipe')[value];
+            recipe.approvals = recipe.approvals  + 1;
+            storage.replaceData('recipe', recipe, recipe.id);
+            return {message: "Like was successfully added", approvals: recipe.approvals};
+        },
         get: function(key, id) {
             if(id === undefined) {
                 return storage.getData(key);
@@ -172,6 +179,9 @@ angular.module('fdCommon')
                      console.log("HEI");
                     return this.removeParticipant(value, object);
                 }
+            }
+            if ( key == 'recipe') {
+                return this.incrementApprovals(value);
             }
             return null;
         },

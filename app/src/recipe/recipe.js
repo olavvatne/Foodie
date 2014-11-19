@@ -25,9 +25,20 @@ angular.module('fdRecipe', ['fdCommon'])
   }])
 
 
-.controller('RecipeCtrl', ['$scope', 'recipe',  function ($scope, recipe) {
+.controller('RecipeCtrl', ['$scope', 'recipe', 'recipes',  function ($scope, recipe, recipes) {
   $scope.recipe = recipe;
+
+  $scope.approve = function() {
+    if($scope.user.username) {
+      recipes.incrementLike($scope.recipe.id, $scope.user)
+      .then(function(success) {
+        //Put the new approvement counter
+        $scope.recipe.approvals = success.approvals;
+      });
+    }
+  }
 }])
+
 
 .controller('RecipeFormCtrl', ['$scope', 'recipes', '$location',
   function ($scope, recipes, $location) {
@@ -55,6 +66,7 @@ angular.module('fdRecipe', ['fdCommon'])
   };
 }])
 
+
 .factory('recipes', ['baseService',
 function (baseService) {
 
@@ -77,10 +89,14 @@ function (baseService) {
         },
         store: function(newRecipe) {
           //mocked backend
-        	var url ="api/recipe";
+        	var url ='api/recipe';
           return baseService.postResource(url, newRecipe);
-        }
+        },
        
+       incrementLike: function(recipeId, user) {
+         var url = 'api/recipe/' + recipeId + '/like';
+         return baseService.putResource(url, user);
+       }
     };
 
 }])

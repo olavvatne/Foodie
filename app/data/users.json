@@ -6,7 +6,7 @@
 			{
 				"id": 0,
 				"title": "Spaghetti bolognese",
-				"approvals": "10",
+				"approvals": 10,
 				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/1024px-Spaghettata.JPG",
 				"created": "2014-11-08T14:58:54+00:00"
 			}
@@ -22,7 +22,7 @@
 			{
 				"id": 1,
 				"title": "Best paella ever",
-				"approvals": "12",
+				"approvals": 12,
 				"created": "2014-11-08T14:58:54+00:00",
 				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"
 			}, 
@@ -37,7 +37,7 @@
 			{
 				"id": 3, 
 				"title": "Barbeque Meatloaf",
-				"approvals": "2",
+				"approvals": 2,
 				"created": "2014-11-15T15:13:30+00:00",
 				"image": "http://upload.wikimedia.org/wikipedia/commons/6/67/Korean_barbeque-beef-14.jpg?uselang=nb"
 			}
@@ -54,14 +54,14 @@
 				"id": 4,
 				"title": "Tasty spinach salad",
 				"created": "2014-11-15T15:13:30+00:00",
-				"approvals": "1",
+				"approvals": 1,
 				"image": "http://upload.wikimedia.org/wikipedia/commons/2/25/Spinach_Salad_with_Raspberries.JPG?uselang=nb"
 			},
 			{
 				"id": 5,
 				"title": "Best-ever chocolate raspberry brownies",
 				"created": "2014-11-15T15:13:30+00:00",
-				"approvals": "110",
+				"approvals": 110,
 				"image": "http://upload.wikimedia.org/wikipedia/commons/5/5b/Brownies_to_die_for%2C_August_2010.jpg?uselang=nb"
 			}
 		],
