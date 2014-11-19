@@ -1,11 +1,21 @@
 
 
+
 .group {
+
+	button {
+		margin-bottom: 20px;
+		
+	}
+
 	@include e(headline) {
 		height: 70px;
 		.title {
 			@extend %navbar-content;
-			width: calc(100% - 210px);
+			width: calc(100% - 200px);
+			@include mq(small){
+				width: 100%;
+			}
 			float: left;
 			height: 100%;
 			margin-top: auto;
@@ -14,17 +24,48 @@
 
 		.userinfo {
 			float: right;
+			width: em(200px);
+			@include mq(small) {
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
 	}
 
 	@include e(description){
 
+		.description {
+			width: calc(100% - 210px);
+			min-height: em(200px);
+			float: left;
+			background-color: palette(grey, xx-light);
+			@include mq(small) {
+				width: 100%;
+			}
+		}
+		.recipe {
+			width: em(200px);
+			float: right;
+			.recipeThumb{
+				@include e(container) {
+					margin: 0px;
+				}
+			}
+		}
+
 	}
 
 	@include e(participants) {
-		.userinfo {
+		display: block;
+		text-align: left;
 
-			display: inline;
+		h1{
+			margin-top: 300px;
+		}
+		.userinfo {
+			float: left;
+			width: em(200px);
+			margin-right: 10px;
 		}
 	}
 }

@@ -12,6 +12,7 @@
 			</div>
 		</div>
 	</span>
+	<section>
 	<div class="group__headline">
 		<!--	User block	 -->
 		<div class="disp-user userinfo">
@@ -30,21 +31,23 @@
 			<h1>{{group.title}}</h1>
 		</div>
 	</div>
+	</section>
 	<div class="line"/>
+	<section>
 	<div class="group__description">
-		<section>
 			<div class="description">
-				<h2>Description</h2>
-				<p ng-if="group.description">{{group.description}}</p>
+				<p ng-if="group.description" style="padding: 60px">{{group.description}}</p>
 			</div>
-			<div class="recipe-info">
-				<a ng-href="#/recipe/{{group.recipe.id}}"><h2>{{group.recipe.title}}</h2></a>
+			<div class="recipe">
+				<ng-include src="thumbTemplate"></ng-include>
 			</div>
-		</section>
 	</div>
-
+	</section>
+	<br>
+	<div class="line"></div>
+	<section>
 	<div class="group__participants">
-		<section>
+
 			<h2>Participants</h2>
 			<div ng-repeat="member in group.participants">
 				<div class="disp-user userinfo" style="margin-bottom: 10px;">
@@ -52,6 +55,6 @@
 					<img class="disp-user__picture" ng-src="{{member.image}}"/>
 				</div>
 			</div>
-		</section>
 	</div>
+	</section>
 </div>

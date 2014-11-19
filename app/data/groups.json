@@ -2,7 +2,7 @@
 	{
 		"id": 0,
 		"title": "Dinnerparty in Trondheim",
-		"recipe": {"id": 1, "title": "Best paella ever"},
+		"recipe": {"id": 1, "title": "Best paella ever", "image":"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"},
 		"creator": {
 			"id": 2, 
 			"username": "thomas",
@@ -26,7 +26,7 @@
 	{
 		"id": 1,
 		"title": "Let's make this together",
-		"recipe": {"id": 0, "title": "Spaghetti bolognese"},
+		"recipe": {"id": 0, "title": "Spaghetti bolognese", "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/1024px-Spaghettata.JPG"},
 		"creator": {
 			"id": 0, 
 			"username": "helen",
@@ -50,7 +50,7 @@
 	{
 		"id": 2,
 		"title": "Dinnerparty in Oslo",
-		"recipe": {"id": 1, "title": "Best paella ever"},
+		"recipe": {"id": 1, "title": "Best paella ever", "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"},
 		"creator": {
 			"id": 1, 
 			"username": "helen",
