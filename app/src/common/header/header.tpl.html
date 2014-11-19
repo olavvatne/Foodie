@@ -7,7 +7,6 @@
   <div class="top__user" ng-show="minimized">
     <div class="top__user--picture" ng-show="user.username">
       <img class="picture" ng-if="user.image" ng-src="{{user.image}}"/>
-      <img class="picture" ng-if="!user.image" ng-src="img/no-profile-image.png"/>
     </div>
   </div>
   </header>
@@ -19,7 +18,6 @@
     <div class="navBanner__user">
       <div class="navBanner__user--picture" id="pictureAni" ng-show="user.username">
         <img ng-if="user.image" ng-src="{{user.image}}"/>
-        <img ng-if="!user.image" ng-src="img/no-profile-image.png"/>
       </div>
       <a ng-href="#/profile/{{user.id}}">
         <h3 class="navBanner__user--username">{{user.username | capitalize}}</h3>
