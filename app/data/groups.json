@@ -2,7 +2,7 @@
 	{
 		"id": 0,
 		"title": "Dinnerparty in Trondheim",
-		"recipe": {"id": 1, "title": "Best paella ever", "image":"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"},
+		"recipe": {"id": 1, "title": "Best paella ever", "approvals": "12","image":"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"},
 		"creator": {
 			"id": 2, 
 			"username": "thomas",
@@ -18,7 +18,7 @@
 			{
 			"id": 0,
 			"username": "helen",
-			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
 			}
 		],
 		"created": "2014-11-08T14:58:54+00:00"
@@ -26,18 +26,18 @@
 	{
 		"id": 1,
 		"title": "Let's make this together",
-		"recipe": {"id": 0, "title": "Spaghetti bolognese", "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/1024px-Spaghettata.JPG"},
+		"recipe": {"id": 0, "title": "Spaghetti bolognese","approvals": "10", "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/1024px-Spaghettata.JPG"},
 		"creator": {
 			"id": 0, 
 			"username": "helen",
-			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
 			},
 		"description": "Help me make spaghetti. Im a noob",
 		"participants": [
 			{
 			"id": 0,
 			"username": "helen",
-			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
 			},
 			{
 			"id": 1,
@@ -50,18 +50,18 @@
 	{
 		"id": 2,
 		"title": "Dinnerparty in Oslo",
-		"recipe": {"id": 1, "title": "Best paella ever", "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"},
+		"recipe": {"id": 1, "title": "Best paella ever","approvals": "10", "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Red_paella_with_mussels.jpg/1024px-Red_paella_with_mussels.jpg"},
 		"creator": {
 			"id": 1, 
 			"username": "helen",
-			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
 			},
 		"description": "I'm making paella soon. Who wants to join me",
 		"participants": [
 			{
 			"id": 0,
 			"username": "helen",
-			"image": "http://www.dailynk.com/efile/201204/DNKF00009101_2.jpg"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
 			},
 			{
 			"id": 2,
