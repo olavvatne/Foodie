@@ -28,12 +28,12 @@ angular.module('fdRecipe', ['fdCommon'])
 .controller('RecipeCtrl', ['$scope', 'recipe', 'recipes',  function ($scope, recipe, recipes) {
   $scope.recipe = recipe;
 
-  $scope.approveRecipe = function() {
+  $scope.approve = function() {
     if($scope.user.username) {
       recipes.incrementLike($scope.recipe.id, $scope.user)
       .then(function(success) {
-        //Put the 
-        $scope.recipe.approvements = success.approvements;
+        //Put the new approvement counter
+        $scope.recipe.approvals = success.approvals;
       });
     }
   }
