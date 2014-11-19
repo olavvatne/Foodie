@@ -40,7 +40,8 @@ angular.module('fdCommon')
             //Need to append recipe to users posted recipes
             recipe.creator = user;
             recipe.created = new Date();
-            var idx = storage.appendData('recipe', recipe)
+            recipe.approvals = 0;
+            var idx = storage.appendData('recipe', recipe);
             var users = storage.getData('user');
             for (var i = 0; i< users.length; i++) {
                 if (users[i].username === user.username) {
@@ -128,6 +129,13 @@ angular.module('fdCommon')
             }
             return group;
         },
+        incrementApprovals: function(value) {
+            console.log(value);
+            var recipe = storage.getData('recipe')[value];
+            recipe.approvals = recipe.approvals  + 1;
+            storage.replaceData('recipe', recipe, recipe.id);
+            return {message: "Like was successfully added", approvals: recipe.approvals};
+        },
         get: function(key, id) {
             if(id === undefined) {
                 return storage.getData(key);
@@ -171,6 +179,9 @@ angular.module('fdCommon')
                      console.log("HEI");
                     return this.removeParticipant(value, object);
                 }
+            }
+            if ( key == 'recipe') {
+                return this.incrementApprovals(value);
             }
             return null;
         },

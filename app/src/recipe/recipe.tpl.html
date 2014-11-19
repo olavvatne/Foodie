@@ -5,6 +5,10 @@
 		{{recipe.creator.username}}
 	</a>
 </div>
+<div style="float:right; padding: 5px; width: 10%">
+	<p style="text-align:center">{{recipe.approvals}} <span style="font-size: 1.5em">♥</span></p>
+	<button  ng-if="user.username" style="width:100%" class="btn--negative" ng-click="approve()">Like</button>
+</div>
 <div class="recipe__overview">
 	<h1>{{recipe.title}}</h1>
 </div>
