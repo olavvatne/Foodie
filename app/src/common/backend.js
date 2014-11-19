@@ -67,7 +67,7 @@ angular.module('fdCommon')
             user.joined = new Date();
             user.recipes = [];
             if(!user.image) {
-            user.image = '/img/no-profile-image.png'
+            user.image = 'images/no-profile-image.png'
           }
             storage.appendData('user', user)
             return user;
