@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c293ade9-3470-4bb3-b4ca-294316cbbc53" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/base/_base.scss" afterPath="$PROJECT_DIR$/app/styles/base/_base.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/modules/_group.scss" afterPath="$PROJECT_DIR$/app/styles/modules/_group.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/modules/_index.scss" afterPath="$PROJECT_DIR$/app/styles/modules/_index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/modules/_navbar.scss" afterPath="$PROJECT_DIR$/app/styles/modules/_navbar.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/common/backend.js" afterPath="$PROJECT_DIR$/app/src/common/backend.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/group/group.js" afterPath="$PROJECT_DIR$/app/src/group/group.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/group/group.tpl.html" afterPath="$PROJECT_DIR$/app/src/group/group.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/userProfile/userProfile.tpl.html" afterPath="$PROJECT_DIR$/app/src/userProfile/userProfile.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/data/groups.json" afterPath="$PROJECT_DIR$/app/data/groups.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/data/users.json" afterPath="$PROJECT_DIR$/app/data/users.json" />
     </list>
     <ignored path="Foodie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +37,8 @@
       <file leaf-file-name="group.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/group/group.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2505">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="2535">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -51,9 +57,13 @@
       <file leaf-file-name="_group.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/styles/modules/_group.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="525">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="15" max-vertical-offset="1155">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <marker date="1416417374000" expanded="true" signature="57:961" placeholder="{...}" />
+                <marker date="1416417374000" expanded="true" signature="399:419" placeholder="{...}" />
+                <marker date="1416417374000" expanded="true" signature="823:959" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,9 +71,12 @@
       <file leaf-file-name="group.tpl.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/group/group.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9830097" vertical-offset="180" max-vertical-offset="945">
-              <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="41" selection-end-column="12" />
-              <folding />
+            <state vertical-scroll-proportion="2.1480582" vertical-offset="0" max-vertical-offset="990">
+              <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#section#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -980,8 +993,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/group/group.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2505">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="2535">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -996,17 +1009,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/modules/_group.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="15" max-vertical-offset="1155">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <marker date="1416417374000" expanded="true" signature="57:961" placeholder="{...}" />
+            <marker date="1416417374000" expanded="true" signature="399:419" placeholder="{...}" />
+            <marker date="1416417374000" expanded="true" signature="823:959" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/group/group.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9830097" vertical-offset="180" max-vertical-offset="945">
-          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="41" selection-end-column="12" />
-          <folding />
+        <state vertical-scroll-proportion="2.1480582" vertical-offset="0" max-vertical-offset="990">
+          <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#section#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

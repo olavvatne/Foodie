@@ -78,9 +78,12 @@ angular.module('fdCommon')
             // be added to the group data
             group.creator = user;
             group.created = new Date();
-            group.participants = [];
+            group.participants = [user];
             var recipe =  this.get('recipe', group.recipe.id);
             group.recipe.title = recipe.title;
+            group.recipe.id = recipe.id;
+            group.recipe.creator = recipe.creator;
+            group.recipe.image = recipe.image;
             var groupId = storage.appendData('group', group)
             return {message: "Your group was successfully created", groupId: groupId};
         },
