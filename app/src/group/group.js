@@ -34,6 +34,8 @@ angular.module('fdGroup', [])
 //resolve will preload the group, and the data put into the scope.
 .controller('GroupCtrl', ['$scope', 'groupData', 'groups', function ($scope, groupData, groups) {
     $scope.group = groupData;
+    $scope.thumbTemplate =  'src/recipe/grid/recipe-thumb.tpl.html';
+    $scope.recipe = $scope.group.recipe;
 
     //TODO
     $scope.join = function(participant) {

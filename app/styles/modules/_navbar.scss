@@ -36,8 +36,16 @@ header.fix-user {
  				font-size: em(40px);
  				font-weight: $font-weight--light;
  				text-align: left;
- 				margin-top: 15px;
+ 				margin-top: 20px;
  				margin-left: 30px;
+
+ 				a {
+	 				@include transition(all 0.2s fade-out);
+
+	 				&:hover {
+	 					color: palette(white);
+	 				}
+	 			}
  			}
 
  		}
@@ -90,8 +98,6 @@ header.fix-user {
 			color: palette(grey, x-light);
 			margin-bottom: em(50px);
 		} 
-
-		//here
 
 		.fix-user & {
 			position: fixed;
