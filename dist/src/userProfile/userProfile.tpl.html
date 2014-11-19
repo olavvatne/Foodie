@@ -1,4 +1,4 @@
-<div> <h1>{{userProfile.username}}</h1> <p>{{userProfile.about}}</p> <img ng-src="{{userProfile.image}}" ng-show="userProfile.image"> <h2>{{userProfile.username}}'s recipes</h2> <fd-grid grid-content="userProfile.recipes"></fd-grid> <br><br><br><pre>{{userProfile | json}}</pre> </div> <!--{
+<div> <h1 class="col-xs-12 col-sm-12 col-md-12">{{userProfile.username}}'s profile</h1> <div class="col-xs-8 col-sm-6 col-md-8"> <p>{{userProfile.about}}</p> </div> <div class="col-xs-4 col-sm-4 col-md-4"> <img ng-src="{{userProfile.image}}" ng-show="userProfile.image"> </div> <br><br><br><br><br><br><br><br><br><br> <div class="col-xs-12 col-sm-12 col-md-12"> <h2 col-xs-12 col-sm-12 col-md-12>{{userProfile.username}}'s recipes</h2> <fd-grid grid-content="userProfile.recipes"></fd-grid> </div> <br><br><br><pre>{{userProfile | json}}</pre> </div> <!--{
   "id": 0,
   "username": "helen",
   "recipes": [
