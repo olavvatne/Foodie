@@ -1,0 +1,32 @@
+.front {
+	@include e(highlight) {
+		table-layout: fixed;
+		border-collapse:collapse;
+		width: 100%;
+		overflow: hidden;
+		td {
+			background-color: palette(grey, xx-light);
+			//Not a good way to create padding for each table cell
+			border: 60px solid white;
+
+		}
+		tr:first-child td{border-top:0}
+		tr:last-child td{border-bottom:0}
+		td:first-child{border-left:0;}
+		td:last-child{border-right:0;}
+		.cell {
+			height: em(130px);
+			text-align: center; 
+	 		vertical-align: middle;
+		}
+
+		.emphasize {
+			font-size: 2em;
+			background-color: $color-accent;
+			font-family: "Helvetica", serif;
+			color: white;
+		}
+		
+	}
+
+}
