@@ -17,7 +17,7 @@
 		<!---->
 		<div class="title">
 			<span style="display: inline;">
-			<time datetime="{{group.date | date}}" class="icon">
+			<time ng-if="group.date" datetime="{{group.date | date}}" class="icon">
 				<em>{{group.date | date:'EEEE'}}</em>
 				<strong>{{group.date | date:'MMM'}}</strong>
 				<span>{{group.date | date:'d'}}</span>
