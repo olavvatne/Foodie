@@ -27,6 +27,6 @@
 <ul>
 	<li><a href="#/create-account/">Register new user</a></li>
 	<li ng-repeat="user in users">
-		<a ng-href="#/user/{{user.id}}" >{{user.username}}</a>
+		<a ng-href="#/profile/{{user.id}}" >{{user.username | capitalize}}</a>
 	</li>
 </ul>

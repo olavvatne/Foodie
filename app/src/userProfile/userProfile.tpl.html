@@ -1,9 +1,9 @@
 <div>
-    <h1>{{userProfile.username}}</h1>
+    <h1>{{userProfile.username | capitalize}}</h1>
     <p>{{userProfile.about}}</p>
 
     <img ng-src="{{userProfile.image}}" ng-show="userProfile.image"/>
-    <h2>{{userProfile.username}}'s recipes</h2>
+    <h2>{{userProfile.username | capitalize}}'s recipes</h2>
     <fd-grid grid-content="userProfile.recipes"></fd-grid>
 
 
