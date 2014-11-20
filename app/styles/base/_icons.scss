@@ -1,44 +1,44 @@
 
 time.icon {
-	font-size: 1em; /* change icon size */
+	font-size: 0.8em;
 	display: block;
 	position: relative;
-	width: 7em;
-	height: 7em;
+	width: 70px;
+	height: 70px;
 	background-color: #fff;
-	border-radius: 0.6em;
-	box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+	border-radius: em(5px);
+	border: 1px solid palette(grey, x-light);
 	overflow: hidden;
 
 	* {
 		display: block;
 		width: 100%;
-		font-size: 1em;
+		font-size: 0.8em;
 		font-weight: bold;
 		font-style: normal;
 		text-align: center;
 	}
 
 	strong {
+		font-size: 1em;
 		position: absolute;
 		top:0;
-		padding: 0.4em 0;
+		padding: 0.3em 0;
 		color: palette(white);
 		background-color: $color-contrast;
-		border-bottom: 1px dashed palette(grey);
-		box-shadow: 0 2px 0 palette(black, light);
+//		box-shadow: 0 2px 0 palette(grey, x-light);
 	}
 
 	em {
 		position: absolute;
-		bottom: 0.3em;
-		color: palette(grey, xx-light);
+		bottom: 0.1em;
+		color: palette(grey, x-light);
 	}
 
 	span {
-		font-size: 2.8em;
+		font-size: 2em;
 		letter-spacing: -0.05em;
-		padding-top: 0.8em;
-		color: palette(grey, xx-light);
+		padding-top: 1em;
+		color: palette(grey, light);
 	}
 }
