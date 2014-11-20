@@ -24,6 +24,13 @@
 			p {
 				color: palette(grey, dark);
 			}
+			.likes {
+				position: absolute;
+				z-index: 2;
+				bottom: 0;
+				right: 0px;
+				font-size: 1.5em;
+			}
 			h4	{
 				font-weight: bold;
 				color: palette(grey, x-dark);

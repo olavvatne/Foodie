@@ -25,9 +25,20 @@ angular.module('fdRecipe', ['fdCommon'])
   }])
 
 
-.controller('RecipeCtrl', ['$scope', 'recipe',  function ($scope, recipe) {
+.controller('RecipeCtrl', ['$scope', 'recipe', 'recipes',  function ($scope, recipe, recipes) {
   $scope.recipe = recipe;
+
+  $scope.approve = function() {
+    if($scope.user.username) {
+      recipes.incrementLike($scope.recipe.id, $scope.user)
+      .then(function(success) {
+        //Put the new approvement counter
+        $scope.recipe.approvals = success.approvals;
+      });
+    }
+  }
 }])
+
 
 .controller('RecipeFormCtrl', ['$scope', 'recipes', '$location',
   function ($scope, recipes, $location) {
@@ -55,6 +66,7 @@ angular.module('fdRecipe', ['fdCommon'])
   };
 }])
 
+
 .factory('recipes', ['baseService',
 function (baseService) {
 
@@ -77,10 +89,14 @@ function (baseService) {
         },
         store: function(newRecipe) {
           //mocked backend
-        	var url ="api/recipe";
+        	var url ='api/recipe';
           return baseService.postResource(url, newRecipe);
-        }
+        },
        
+       incrementLike: function(recipeId, user) {
+         var url = 'api/recipe/' + recipeId + '/like';
+         return baseService.putResource(url, user);
+       }
     };
 
 }])
@@ -93,7 +109,7 @@ function (baseService) {
       '<li ng-repeat="step in model track by $index">'+
         '<label><i ng-if="$index==0">* </i>Step {{$index+1}}</label>'+
         '<button class="btn--negative" ng-click="removeStep($index)"><b>X</b></button>' +
-        '<span><textarea type="text" ng-model="model[$index]" ></textarea></span>' +
+        '<span><textarea type="text" ng-model="model[$index]"></textarea></span>' +
       '</li>'+
       '<button type="button" class="btn--neutral" ng-click="addStep()">Add step</button>' +
     '</ul>',

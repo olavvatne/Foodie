@@ -9,8 +9,8 @@
             <div class="userprofile__image">
                 <!--Trick to center cropped image inside a div. Also include the image tag, to
                 address accessability-->
-                <div class="wrapper" ng-style="{'background-image': 'url(/img/no-profile-image.png)'}">
-                    <img ng-src="/img/no-profile-image.png"
+                <div class="wrapper" ng-style="{'background-image': 'url({{image}})'}">
+                    <img ng-src="{{image}}"
                          alt="Recipe image for {{recipe.title}}"/>
                 </div>
             </div>
