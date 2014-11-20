@@ -4,22 +4,29 @@
 .group {
 
 	button {
-		margin-bottom: 20px;
+//		margin-bottom: 20px; 
+		width: 200px !important;
+		float: right;
 
 	}
 
 	@include e(headline) {
 		height: 70px;
+		
 		.title {
 			@extend %navbar-content;
+
 			width: calc(100% - 200px);
-			@include mq(small){
-				width: 100%;
-			}
+			
 			float: left;
 			height: 100%;
 			margin-top: auto;
 			margin-bottom: auto;
+
+			@include mq(small){
+				width: 100%;
+			}
+
 		}
 
 		.userinfo {
@@ -30,6 +37,18 @@
 				margin-right: auto;
 			}
 		}
+		time {
+				width: 70px;
+				display: inline-block;
+				margin-right: 20px;
+			}
+			h1 {
+				width: calc(100% - 90px);
+				float: right;
+				clear: none;
+				display: inline-block;
+				margin-top: 10px;
+			}
 	}
 
 	@include e(description){

@@ -51,7 +51,7 @@
     <label>When</label>
 	<span>
 		<input name="startDate" placeholder="Specify when if this is an event" type="date"  ng-class="{error: ((groupForm.startDate.$dirty && !groupForm.startDate.$focused) || submitted) && groupForm.startDate.$invalid }"
-		ng-model="group.startDate"
+		ng-model="group.date"
 		ng-min="today"
 		ng-focus/>
 	<div class="error-container" ng-show="(groupForm.startDate.$dirty && !groupForm.startDate.$focused || submitted) && groupForm.startDate.$invalid ">

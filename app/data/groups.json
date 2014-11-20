@@ -21,7 +21,9 @@
 			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
 			}
 		],
-		"created": "2014-11-08T14:58:54+00:00"
+		"created": "2014-11-08T14:58:54+00:00",
+		"date": "2014-11-08T14:58:54+00:00"
+
 	},
 	{
 		"id": 1,
@@ -45,7 +47,8 @@
 			"image": "http://www.fastcompany.com/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg"
 			}
 		],
-		"created": "2014-11-08T14:58:54+00:00"
+		"created": "2014-11-08T14:58:54+00:00",
+		"date": "2014-11-08T14:58:54+00:00"
 	},
 	{
 		"id": 2,
@@ -69,6 +72,7 @@
 			"image": "http://media.cirrusmedia.com.au/LW_Media_Library/594partner-profile-pic-An.jpg"
 			}
 		],
-		"created": "2014-11-08T14:58:54+00:00"
+		"created": "2014-11-08T14:58:54+00:00",
+		"date": "2014-11-08T14:58:54+00:00"
 	}
 ]

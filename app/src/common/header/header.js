@@ -10,7 +10,7 @@ angular.module('fdCommon')
       scope.minimized = false;
       angular.element($window).bind("scroll", function() {
           scope.minimized = false
-          var scrollTop = jQuery(window).scrollTop();
+          var scrollTop = $window.pageYOffset;
           var navBP = 310; //breakpoint for banner/navigation
           var navAniBP = 280; //breakpoint for the transition animation;
           if(scrollTop > navAniBP) {

@@ -38,16 +38,13 @@ header.fix-user {
  				text-align: left;
  				margin-top: 20px;
  				margin-left: 30px;
+ 				
+ 				@include transition(all 0.2s fade-out);
 
- 				a {
-	 				@include transition(all 0.2s fade-out);
-
-	 				&:hover {
-	 					color: palette(white);
-	 				}
-	 			}
- 			}
-
+ 				&:hover {
+ 					color: palette(white);
+				}
+			}
  		}
  	}
  }

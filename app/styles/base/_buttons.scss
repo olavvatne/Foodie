@@ -3,7 +3,7 @@
 .btn {
 	@include btn-themes($themes) {
 		@extend %base-buttonstyle;
-		width: 150px;
+		width: 150;
 		@include transition(all 0.15s linear);
 		&:hover {
 			background-color: palette(white);
