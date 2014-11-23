@@ -5,6 +5,10 @@ A social network for food enthusiasts, who want to to share dining experiences.
 For the course, IT2805- Web Technologies
 
 
+
+
+
+
 Technologies used:
 
 *AngularJs*
@@ -18,6 +22,8 @@ On their webpage they write: "HTML is great for declaring static documents, but 
 Learn more here: https://docs.angularjs.org/misc/faq
 
 
+
+
 *Bootstrap*
 
 
@@ -27,12 +33,16 @@ We have used it for styling mostly.
 Learn more here: http://getbootstrap.com/
 
 
+
+
 *SASS*
 
 
 Sass is a scripting language that "compiles" to CSS. It enables you to make styles in a more efficient and organized way than when writing in CSS.
 
 Learn more here: http://sass-lang.com/
+
+
 
 
 *Compass*
