@@ -11,7 +11,8 @@
     'fdUser',
     'fdRecipe',
     'fdCommon',
-    'fdLogin'
+    'fdLogin',
+    'fdFaq'
   ])
 
   .config(['$routeProvider', function ($routeProvider) {

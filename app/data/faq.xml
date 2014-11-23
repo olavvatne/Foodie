@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faq>
+	<title>
+		Frequently asked questions 
+	</title>
+	<lastupdated>
+		2014-11-08T14:58:54+00:00
+	</lastupdated>
+	<questions>
+		<question>
+			<title>I forgot my password</title>
+			<answer>
+				Send us a e-mail at help@foodie.com to get help resetting the
+				password for your account.
+			</answer>
+		</question>
+		<question>
+			<title>How do I update my username</title>
+			<answer>
+				You currently can't update your selected username.
+			</answer>
+		</question>
+		<question>
+			<title>How du I post a recipe</title>
+			<answer>
+				First of all, you need a account. So register one if you not already have one. Then log in, and press "post recipe".
+			</answer>
+		</question>
+	</questions>
+</faq>

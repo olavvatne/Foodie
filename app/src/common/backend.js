@@ -1,5 +1,6 @@
 angular.module('fdCommon')
 .factory('backend', ['$http', '$q', 'storage','$rootScope', function ($http, $q, storage, $rootScope) {
+    
     return {
         init: function() {
             //Only load mock json if they are not in localstore
@@ -20,6 +21,10 @@ angular.module('fdCommon')
                 this.load('/data/notifications.json')
                 .then(function(data) {
                     storage.setData('notification', data);
+                })
+                this.load('/data/faq.xml')
+                .then(function(data) {
+                    storage.setData('faq', data);
                 });
             }
         },
