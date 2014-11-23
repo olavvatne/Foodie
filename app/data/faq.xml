@@ -26,5 +26,13 @@
 				First of all, you need a account. So register one if you not already have one. Then log in, and press "post recipe".
 			</answer>
 		</question>
+		<question>
+			<title>How du make an account</title>
+			<answer>
+				Press the hyperlink "Create account" in the navigation area 
+				on the top right of the page. Enter username, and passowrd, and
+				click "Register". You have now successfully created a new account!
+			</answer>
+		</question>
 	</questions>
 </faq>
