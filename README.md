@@ -51,3 +51,25 @@ Learn more here: http://sass-lang.com/
 Compass is a SASS-extension with helpful functionality.
 
 Learn more here: http://compass-style.org/
+
+
+
+*XML*
+
+
+The faq section of the site uses XML data. This demonstrate well how a web page
+made in AngularJs should handle an API endpoint that only serves XML data.
+
+
+
+*Form Controls*
+
+There a three different forms for this webpage. A recipe, group and account
+registration form. All forms contain validation functionality, and displays
+the errors either when attempting to submit or when a form element loses it's
+focus. The latter approch offer a more instant form of feedback to the user.
+
+Custom validation for some elements has also been created. The recipe form
+for example requires that the user has at least added one ingredient and at least
+one recipe step before submitting the form.
+
