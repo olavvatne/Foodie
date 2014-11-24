@@ -24,10 +24,20 @@ angular.module('fdRecipe', ['fdCommon'])
       });
   }])
 
-
+/*Controller for the recipe page displaying a single recipe. The controller
+puts the recipe data into the $scope. The template can now through the $scope 
+get access to the recipe data. For example the image URL, the ingredients.
+The scope is required to support two way databinding. IE that changed to the
+model will automatically get updated in the DOM*/
 .controller('RecipeCtrl', ['$scope', 'recipe', 'recipes',  function ($scope, recipe, recipes) {
   $scope.recipe = recipe;
 
+  /*
+    Method to handle and increment the approve/like counter. When a user
+    Clicks the approve button, this method will make sure that the backend is
+    increment the score. if the increment was successful/promise was resolved
+    the approval score is updated.
+  */
   $scope.approve = function() {
     if($scope.user.username) {
       recipes.incrementLike($scope.recipe.id, $scope.user)
@@ -39,13 +49,21 @@ angular.module('fdRecipe', ['fdCommon'])
   }
 }])
 
-
+/*
+  The RecipeForm controller handles the form page, and the users submit request.
+*/
 .controller('RecipeFormCtrl', ['$scope', 'recipes', '$location',
   function ($scope, recipes, $location) {
   $scope.newRecipe = {};
   $scope.newRecipe.ingredients = [];
   $scope.newRecipe.description = [];
 
+  /*
+  Only user that are logged in can post a recipe. If not the user is redirected
+  to the login page. If the form is valid and a user is logged in the controller
+  will try to store the recipe at the backend. If the POST request was  successful
+  the user is redirected to a recipe page containing the posted recipe.
+  */
   $scope.postRecipe = function(recipe, valid) {
     if(!$scope.user.username) {
       //To avoid any recipes being posted where no user is logged in.
@@ -67,6 +85,11 @@ angular.module('fdRecipe', ['fdCommon'])
 }])
 
 
+/*
+Service for recipes, which the controllers can utilize. Provide another layer
+of abstraction, between the front end and the back end. All methods construct
+a url and utilize a baseService for the actual http request.
+*/
 .factory('recipes', ['baseService',
 function (baseService) {
 
@@ -101,7 +124,17 @@ function (baseService) {
 
 }])
 
+/*
+  fdDescriptor is a custom form element, which extend the html syntax, making
+  the html more readable. The directive contains a template and a controller
+  for the components internal logic. 
 
+  To utilize the component in the HTML:
+  <fd-descriptor ng-model="foo"></fd-descriptor>
+  All the data entered by the user will be found at $scope.foo.
+
+
+*/
 .directive('fdDescriptor', function() {
   return {
     template:
@@ -176,6 +209,12 @@ function (baseService) {
   };
 })
 
+/*
+  fdLeastOne is a custom validation that can be put on form elements.
+  This one is made specially for fdIngredents and fdDescriptor, and makes
+  sure that the user has at least entered one ingredient or one recipe step.
+  If this is not the case the form is not valid, and an error is displayed.
+*/
 .directive('fdLeastOne',  function() {
   return {
     require: 'ngModel',
@@ -183,9 +222,11 @@ function (baseService) {
       scope.$watch(attrs.ngModel, function(newVal, oldVal) {
         console.log(newVal[0].length);
         if((newVal && newVal.length > 0) && newVal[0].length >0 || (newVal[0].name && newVal[0].name.length > 0)) {
+          //The model is valid
           c.$setValidity('leastOne', true);
         }
         else {
+          //the model is not valid
           c.$setValidity('leastOne', false);
         }
       },true);
