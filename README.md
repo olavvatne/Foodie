@@ -19,7 +19,9 @@ AngularJS has an elegant structure to it, and enables developers to make more mo
 
 On their webpage they write: "HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop."
 
-Using Angular is more complicated than making a static webpage, and although some of the challenges related to making the site dynamic and not having to reload when the user visits another page of the site is abstracted away, everything is coded/written by hand.
+Using Angular is more complicated than making a static webpage, and although some of the challenges related to making the site dynamic and not having to reload when the user visits another page of the site are abstracted away, everything is coded/written by hand.
+
+Why we used it: Many aspects of dynamic pages, such as displaying all recipies underneath eachother without knowing how many there will be, is easier in Angular. For practical requirements such as this, and for making the browsing experience more smooth by avoiding reloading, we chose Angular. Also, we think Angular is the future, and wanted to become more comfortable with the framework.
 
 Learn more here: https://docs.angularjs.org/misc/faq
 
@@ -31,6 +33,8 @@ Learn more here: https://docs.angularjs.org/misc/faq
 
 Bootstrap is a free collection of tools for creating websites and web applications. It contains CSS for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions. It also includes a grid-system for structuring content.
 We have used it for styling mostly.
+
+Why we used it: The styling defaults (font-styles, etc, etc) that you get with Bootstrap are better than the regular defaults, but most of the Bootstrap defaults have been overwritten by us. Bootstrap will also help you with a grid-system for helping you structure your pages, but we've not used this. They also provide with some HTML-structures that are common for web-pages, and we've made use of one of these for displaying notifications.
 
 Learn more here: http://getbootstrap.com/
 

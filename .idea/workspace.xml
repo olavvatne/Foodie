@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c293ade9-3470-4bb3-b4ca-294316cbbc53" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Foodie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,8 +74,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4398827" vertical-offset="15" max-vertical-offset="1245">
-              <caret line="21" column="160" selection-start-line="21" selection-start-column="160" selection-end-line="21" selection-end-column="160" />
+            <state vertical-scroll-proportion="0.3079179" vertical-offset="330" max-vertical-offset="1305">
+              <caret line="36" column="441" selection-start-line="36" selection-start-column="441" selection-end-line="36" selection-end-column="441" />
               <folding />
             </state>
           </provider>
@@ -796,8 +795,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4398827" vertical-offset="15" max-vertical-offset="1245">
-          <caret line="21" column="160" selection-start-line="21" selection-start-column="160" selection-end-line="21" selection-end-column="160" />
+        <state vertical-scroll-proportion="0.3079179" vertical-offset="330" max-vertical-offset="1305">
+          <caret line="36" column="441" selection-start-line="36" selection-start-column="441" selection-end-line="36" selection-end-column="441" />
           <folding />
         </state>
       </provider>
