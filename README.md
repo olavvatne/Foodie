@@ -58,7 +58,7 @@ and here: https://smacss.com/
 *Compass*
 
 
-Compass is a SASS-extension with many helpful mixins to make your life easier while writing markup. The mixins we used for this project are browser related, specifically for transitions, transformations and image-treatment. For example if you want a gradient background you would have to write the same effect multiple times with fallback for all browsers (webkit, moz, etc.). What Compass does is to generate all possible fallbacks for you, it will even write experimental hacks to simulate the effect in "stone-aged"-browsers without the support for it.
+Compass is a SASS-extension with many helpful mixins to make your life easier while writing markup. The mixins we used for this project are browser related, specifically for transitions, transformations and image-treatment. For example if you want a gradient background you would have to write the same effect multiple times with fallback for all browsers (webkit, moz, etc.). What Compass does is to generate all possible fallbacks for you, it will even write experimental hacks to simulate the effect in "stone-aged"-browsers without the support for it. This makes our site heighly browser compatable.
 
 Learn more here: http://compass-style.org/
 
