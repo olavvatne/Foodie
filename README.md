@@ -66,6 +66,11 @@ Learn more here: http://compass-style.org/
 The faq section of the site uses XML data. This demonstrate well how a web page
 made in AngularJs should handle an API endpoint that only serves XML data.
 
+*JSON*
+
+
+All API endpoints serve or accept data in the JSON format, except for the faq section. JSON and JavaScript is tightly coupled, since it uses JavaScript syntax. AngularJs also prefer the use of JSON, and additional steps are required to deserialize XML. 
+
 
 
 *Form Controls*
