@@ -13,7 +13,9 @@ angular.module('fdLogin', ['fdCommon', 'fdUser'])
       });
   }])
 
-
+/*
+  The login controller processes login requests, and 
+*/
  .controller('LoginCtrl', ['$scope', 'sessionManager', '$location',
   function ($scope, sessionManager, $location) {
   $scope.credentials = {};
@@ -23,6 +25,8 @@ angular.module('fdLogin', ['fdCommon', 'fdUser'])
     .then(function(user) {
       sessionManager.setContext(user);
       $location.path('/')
+    }, function(error) {
+      $scope.errorMessage = error.message;
     });
   }; 
 }])
