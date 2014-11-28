@@ -33,21 +33,25 @@ We have used it for styling mostly.
 Learn more here: http://getbootstrap.com/
 
 
+*CSS*
 
+
+For the project we used alot of custom styles and almost everything you see on the page is hand-written.
 
 *SASS*
 
 
-Sass is a scripting language that "compiles" to CSS. It enables you to make styles in a more efficient and organized way than when writing in CSS.
+Sass is a CSS extension scripting language that "compiles" to CSS. It enables you to make styles in a more efficient and organized way than when writing in CSS. SASS has a wide variaty of addiotional functions including mixins, functions, inheritance, and control structures and statements like "if" "else" "for" etc. This makes it feel more like a full programming-language, not just markup, and opens for much more modular and dynamic markup.
 
-Learn more here: http://sass-lang.com/
+For organizing the markup, we used the SMACSS architecture, where the markup are divided into many partial files that are organized into category-folders and imported from the main style-sheet.
 
-
+Learn more here: http://sass-lang.com/ 
+and here: https://smacss.com/
 
 
 *Compass*
 
 
-Compass is a SASS-extension with helpful functionality.
+Compass is a SASS-extension with many helpful mixins to make your life easier while writing markup. The mixins we used for this project are browser related, specifically for transitions, transformations and image-treatment. For example if you want a gradient background you would have to write the same effect multiple times with fallback for all browsers (webkit, moz, etc.). What Compass does is to generate all possible fallbacks for you, it will even write experimental hacks to simulate the effect in "stone-aged"-browsers without the support for it.
 
 Learn more here: http://compass-style.org/
