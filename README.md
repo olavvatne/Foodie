@@ -19,6 +19,8 @@ AngularJS has an elegant structure to it, and enables developers to make more mo
 
 On their webpage they write: "HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop."
 
+Using Angular is more complicated than making a static webpage, and although some of the challenges related to making the site dynamic and not having to reload when the user visits another page of the site is abstracted away, everything is coded/written by hand.
+
 Learn more here: https://docs.angularjs.org/misc/faq
 
 
