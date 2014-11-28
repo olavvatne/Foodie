@@ -64,7 +64,7 @@ made in AngularJs should handle an API endpoint that only serves XML data.
 
 *Form Controls*
 
-There a three different forms for this webpage. A recipe, group and account
+There a three different forms for this webpage. A recipe, group and an account
 registration form. All forms contain validation functionality, and displays
 the errors either when attempting to submit or when a form element loses it's
 focus. The latter approch offer a more instant form of feedback to the user.
@@ -73,3 +73,6 @@ Custom validation for some elements has also been created. The recipe form
 for example requires that the user has at least added one ingredient and at least
 one recipe step before submitting the form.
 
+The reason for front end validation of forms  is to offer instant feedback to the user about potential form errors. 
+The user will probably have a better experience when
+errors are prevented before pressing the submit button. And a message that provide tailored instructions on how to correct an error, will positively affect the user experience.
