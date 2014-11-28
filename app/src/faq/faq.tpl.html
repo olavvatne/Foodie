@@ -1,0 +1,6 @@
+<h1>{{faq.title}}</h1>
+<p>last updated: {{faq.lastupdated | date}}</p>
+<div ng-repeat="question in faq.questions.question" style="margin-bottom: 40px">
+	<h2>{{question.title}}</h2>
+	<p>{{question.answer}}</p>
+</div>

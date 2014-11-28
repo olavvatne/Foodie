@@ -1,21 +1,20 @@
 angular.module('fdCommon', [])
 
 
-//Mock baseService which will call storage instead
-.factory('baseService', ['$http', '$q','mockService',  function ($http, $q, mockService) {
+.factory('baseService', ['$http', '$q','mockService', '$rootScope',
+  function ($http, $q, mockService, $rootScope) {
+    //When mock is set to true the call is routed to a mockService, that
+    //simulate a real backend. Set to false, and the regular http request are
+    //done.
     var mock = true;
     return {
     /**
-     * @ngdoc method
-     * @name fdCommon.service#getResources
-     * @methodOf fdCommon.baseService
-     * @param {String} url  The url for resources.
-     * @description Gets an JSON array containing a list of a specific resource.
-     * @returns {JSON object} A list containing a subset resources.
+     * A base get request, which all other resource services can utilize to
+     * do a http get request, that returns a promise object.
      */
     getResources: function(url) {
         if(mock) {
-            return mockService.getMock(url);
+            return mockService.getMock($rootScope.apiPath + url);
         }
         else {
         var deferred = $q.defer();
@@ -33,17 +32,13 @@ angular.module('fdCommon', [])
 
 
     /**
-     * @ngdoc method
-     * @name fdCommon.service#postResource
-     * @methodOf fdCommon.baseService
-     * @param {String} url. The url where resource should be posted.
-     * @param {JSON object} resource. The resource in JSON form.
-     * @description Posts the resource to the back end.
-     * @returns {JSON object} A success message (If promise is resolved)
+      * A base post request. Other resource services can utilize this service
+      * to do http request which will be resolved asynchronous by a returned
+      * promise object.
      */
     postResource: function(url, resource) {
         if(mock) {
-            return mockService.postMock(url, resource);
+            return mockService.postMock($rootScope.apiPath + url, resource);
         }
         var deferred = $q.defer();
             console.log(resource)
@@ -60,17 +55,11 @@ angular.module('fdCommon', [])
 
 
     /**
-     * @ngdoc method
-     * @name fdCommon.service#putResource
-     * @methodOf fdCommon.baseService
-     * @param {String} url. The url where resource should be put/updated.
-     * @param {JSON object} resource. The resource in JSON form.
-     * @description Puts the resource to the back end.
-     * @returns {JSON object} A success message (If promise is resolved)
+      * Base http put service method.
      */
     putResource: function(url, resource) {
         if(mock) {
-          return mockService.putMock(url, resource);
+          return mockService.putMock($rootScope.apiPath + url, resource);
         }
         var deferred = $q.defer();
         $http.post(url, resource).success(function(data){
@@ -85,16 +74,11 @@ angular.module('fdCommon', [])
     },
 
     /**
-     * @ngdoc method
-     * @name fdCommon.service#deleteResource
-     * @methodOf fdCommon.baseService
-     * @param {String} url  The url of resource.
-     * @description Removes/deletes the resource at url at the back end.
-     * @returns {JSON object} An JSON message containing answer.
+      Bae http delete service method
      */
     deleteResource: function(url) {
         var deferred = $q.defer();
-        $http.delete(url).success(function(data){
+        $http.delete($rootScope.apiPath + url).success(function(data){
             //Passing data to deferred's resolve function on successful completion
             deferred.resolve(data);
         }).error(function(error){
@@ -110,11 +94,18 @@ angular.module('fdCommon', [])
 
 }])
 
-
+/*
+  The storage service is a wrapper providing methods to interact with
+  the browsers localstorage. Anything that is put into localStorage will
+  be persisted as long as the browser is running. Ideal for mocking
+  a backend or put data that should be persisted between user sessions.
+*/
 .factory('storage', ['$window',  function ($window) {
     return {
 
-        
+        /*
+          Appends data in the key-value dictionary in localstorage.
+        */
         appendData: function(key, data) {
             var datalist = this.getData(key);
             if(datalist === undefined) {
@@ -125,15 +116,30 @@ angular.module('fdCommon', [])
             this.setData(key, datalist);
             return data['id'];
         },
+
+        /*
+          replace an element in an array, residing in local storage.
+          The data in the key-value dictionary must be in Json format,
+          and an array.
+        */
         replaceData: function(key, data, idx) {
             var datalist = this.getData(key);
             datalist[idx] = data;
             this.setData(key, datalist)
         },
+
+        /*
+          Translate data (javascript array or object) into a json string
+          and stored at the location specifed by the key, in the
+        */
         setData: function(key, val) {
           $window.localStorage && $window.localStorage.setItem(key, JSON.stringify(val));
           return this;
         },
+        /*
+          Retrives data from local storage. Data is assumed to be JSON,
+          and therefore able to be parsed into a javascript object.
+        */
         getData: function(key) {
 
             return $window.localStorage && JSON.parse($window.localStorage.getItem(key));

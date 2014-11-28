@@ -1,5 +1,14 @@
+/*The backend service is a collection of methods that
+interact with the browsers local storage to simulate a backend. 
+The backend supports adding recipes, groups, approvals, users, login request 
+and so on. 
+
+backend.js should not be included if a real external api is made.
+
+*/
 angular.module('fdCommon')
 .factory('backend', ['$http', '$q', 'storage','$rootScope', function ($http, $q, storage, $rootScope) {
+    
     return {
         init: function() {
             //Only load mock json if they are not in localstore
@@ -20,6 +29,10 @@ angular.module('fdCommon')
                 this.load('/data/notifications.json')
                 .then(function(data) {
                     storage.setData('notification', data);
+                })
+                this.load('/data/faq.xml')
+                .then(function(data) {
+                    storage.setData('faq', data);
                 });
             }
         },
@@ -136,6 +149,10 @@ angular.module('fdCommon')
             storage.replaceData('recipe', recipe, recipe.id);
             return {message: "Like was successfully added", approvals: recipe.approvals};
         },
+         /*
+        * The get method recieve all GET requests made by the front end, 
+        * and routes them to the proper method for handling.
+        */
         get: function(key, id) {
             if(id === undefined) {
                 return storage.getData(key);
@@ -153,6 +170,10 @@ angular.module('fdCommon')
             }
         },
 
+        /*
+        * The post method recieve all POST requests made by the front end, 
+        * and routes them to the proper method for handling.
+        */
         post: function(key, data) {
             var user = $rootScope.user
             if(key==='recipe') {
@@ -170,6 +191,10 @@ angular.module('fdCommon')
             return null;
         },
 
+        /*
+        * The put method recieve all PUT requests made by the front end, 
+        * and routes them to the proper method for handling.
+        */
         put: function(key, object, value, operation) {
             if( key == 'group') {
                 if(operation === 'join') {
@@ -188,18 +213,26 @@ angular.module('fdCommon')
     };
 }])
 
+/*
+Except for app.js no other js file has to know about the fake backend. All communication and 
+methods go through the mockService. The mockService contain methods to fake
+a http request. A promise is made and returned, just like what baseService
+does. Before the promise is resolved a timeout is added to simulate network
+delay. Currently this timeout is a fixed amount of time
+ but can easily be changed to a random variable amount of time, to more realistically
+ resemble network delay.
+*/
 .factory('mockService', ['$http', '$q','$timeout', 'backend', function ($http, $q, $timeout, backend) {
     return {
        
         /*
 	    GetMock will simulate a http request by doing a timeout, a promise
-	    is returned , and after the timeout the promise is resolved. Except for
-        app.js no other js file has to know about backend. All communication and
-        methods go through getMock.
+	    is returned , and after the timeout the promise is resolved. 
 	    */
 	    getMock: function(url) {
 	        var deferred = $q.defer();
 	        $timeout(function () {
+                //url split into an array, which backend uses to route request
 	            var u = url.split('/');
 	            var key = u[1]
 	            var element = u[2] || undefined;
@@ -216,6 +249,7 @@ angular.module('fdCommon')
 	    postMock: function(url, resource) {
 	        var deferred = $q.defer();
 	        $timeout(function () {
+                 //url split into an array, which backend uses to route request
 	            var u = url.split('/');
 	            var key = u[1]
 	            deferred.resolve(backend.post(key, resource));
@@ -226,6 +260,7 @@ angular.module('fdCommon')
         putMock: function(url, object) {
             var deferred = $q.defer();
             $timeout(function () {
+                 //url split into an array, which backend uses to route request
                 var u = url.split('/');
                 var key = u[1]
                 var value = u[2]
