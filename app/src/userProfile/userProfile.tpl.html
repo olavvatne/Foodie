@@ -6,10 +6,9 @@
     </div>
 
     <div class="col-xs-4 col-sm-4 col-md-4">
-      <img ng-src="{{userProfile.image}}" ng-show="userProfile.image"/>
+      <img ng-src="{{userProfile.image}}" ng-show="userProfile.image" style="max-width: 300px;"/>
     </div>
 
-  <br><br><br><br><br><br><br><br><br><br>
 
   <div class="col-xs-12 col-sm-12 col-md-12">
      <h2 col-xs-12 col-sm-12 col-md-12>{{userProfile.username}}'s recipes</h2>
@@ -17,22 +16,5 @@
   </div>
 
 
-    <br><br><br><pre>{{userProfile | json}}</pre>
 </div>
 
-
-
-
-        <!--{
-  "id": 0,
-  "username": "helen",
-  "recipes": [
-    {
-      "id": 0,
-      "title": "Spaghetti bolognese"
-    }
-  ],
-  "about": "I'm a passionate foodie, that love everything tomato sauce",
-  "joined": "2014-11-08T14:58:54+00:00",
-  "image": "url-something"
-}-->
