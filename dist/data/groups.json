@@ -6,19 +6,19 @@
 		"creator": {
 			"id": 2, 
 			"username": "thomas",
-			"image": "http://www.fastcompany.com/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/c/c0/Beethovensmall.jpg"
 			},
 		"description": "I'm making paella next saturday. Join me!",
 		"participants": [
 			{
 			"id": 1,
 			"username": "thomas",
-			"image": "http://www.fastcompany.com/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/c/c0/Beethovensmall.jpg"
 			},
 			{
 			"id": 0,
 			"username": "helen",
-			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/d/d6/Study_for_the_Head_of_Leda.jpg"
 			}
 		],
 		"created": "2014-11-08T14:58:54+00:00",
@@ -32,19 +32,19 @@
 		"creator": {
 			"id": 0, 
 			"username": "helen",
-			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/d/d6/Study_for_the_Head_of_Leda.jpg"
 			},
 		"description": "Help me make spaghetti. Im a noob",
 		"participants": [
 			{
 			"id": 0,
 			"username": "helen",
-			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/d/d6/Study_for_the_Head_of_Leda.jpg"
 			},
 			{
 			"id": 1,
 			"username": "thomas",
-			"image": "http://www.fastcompany.com/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/c/c0/Beethovensmall.jpg"
 			}
 		],
 		"created": "2014-11-08T14:58:54+00:00",
@@ -57,19 +57,19 @@
 		"creator": {
 			"id": 1, 
 			"username": "helen",
-			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/d/d6/Study_for_the_Head_of_Leda.jpg"
 			},
 		"description": "I'm making paella soon. Who wants to join me",
 		"participants": [
 			{
 			"id": 0,
 			"username": "helen",
-			"image": "http://upload.wikimedia.org/wikipedia/commons/6/6c/New_Profile_Image.jpg?uselang=nb"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/d/d6/Study_for_the_Head_of_Leda.jpg"
 			},
 			{
 			"id": 2,
 			"username": "hilda",
-			"image": "http://media.cirrusmedia.com.au/LW_Media_Library/594partner-profile-pic-An.jpg"
+			"image": "http://upload.wikimedia.org/wikipedia/commons/b/bb/Moreelse%2C_Paulus_-_Mythological_Portrait_-_1633.jpg"
 			}
 		],
 		"created": "2014-11-08T14:58:54+00:00",

@@ -1,4 +1,4 @@
-<p>Notifications</p> <pre>{{notificationList}}</pre> <div ng-repeat="notification in notificationList"> <div class="media"> <br> <a class="media-left" href="#"> <div class="userprofile__image"> <!--Trick to center cropped image inside a div. Also include the image tag, to
+<h1>Notifications</h1> <div ng-repeat="notification in notificationList"> <div class="media"> <br> <a class="media-left" href="#"> <div class="userprofile__image"> <!--Trick to center cropped image inside a div. Also include the image tag, to
                 address accessability--> <div class="wrapper" ng-style="{'background-image': 'url({{image}})'}"> <img ng-src="{{image}}" alt="Recipe image for {{recipe.title}}"> </div> </div> </a> <div class="media-body"> <h4 class="media-heading">{{notification.typetext}}</h4> <p>{{notification.text}}</p> </div> </div> </div> <!--
 
         [{"type":0,"typetext":"invitation","text":"Helen asked you to join her dining party","callback_url":"some-url"},
