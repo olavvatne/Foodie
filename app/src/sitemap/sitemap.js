@@ -26,7 +26,8 @@ angular.module('foodieApp')
       });
   }])
 
-//Not sure if controller is needed for sitemap.
+//Controller for sitemap will take the resolved data, and make it available for
+//the DOM by putting it into the $Scope.
 .controller('SitemapCtrl', ['$scope', 'groupList',  'recipeList', 'userList',
 	function ($scope, groupList, recipeList, userList) {
     $scope.groups = groupList;
